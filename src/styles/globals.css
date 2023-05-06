@@ -10,4 +10,13 @@ html {
 
 body {
   font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input, button {
+  all: unset;
+  cursor: pointer;
 }
