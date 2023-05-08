@@ -19,7 +19,7 @@
 }
 
 .containerLeftImage{
-    /* width: 100%; */
+    display: flex;    
     height: 100%;
     position: relative;
     overflow: hidden;
@@ -79,9 +79,9 @@
 .formLogin input {
     background-color: #FFF;
     box-shadow: 1px 1px 0px 1px #333;
-    text-align: right;
+    text-align: left;
     box-sizing: border-box;
-    padding: 0 5rem;
+    padding: 0 0 0 8rem;
 }
 
 .wideInput{
@@ -100,6 +100,7 @@
 
 .formLogin input:hover {
     box-shadow: 2px 2px 0px 1px #333;
+    transition: box-shadow 0.5s ease;
 }
 
 .btnSubmitLogin {
@@ -115,10 +116,11 @@
     box-shadow: 1px 1px 0px 1px #333;
 }
 
-.btnSubmitLogin:focus,
+/* .btnSubmitLogin:focus, */
 .btnSubmitLogin:hover {
     background-color: #BA85FF;
     box-shadow: 2px 2px 0px 1px #333;
+    transition: box-shadow 0.5s ease;
 }
 
 .inputWrapper {
@@ -128,8 +130,8 @@
 
 .inputWrapper label {
     position: absolute;
-    bottom:0;
-    right: 0;
+    bottom: 0;
+    left: 0;
     padding: 1.5rem;
     font-size: 2rem;
     color: #333;
@@ -138,13 +140,44 @@
     transition: .5s;
 }
 
-.inputWrapper input:focus ~ label, 
-.inputWrapper input:valid ~ label {
+.inputWrapper input:focus ~ label ,
+.inputWrapper input:valid ~ label ,
+.inputWrapper input:not(:placeholder-shown) ~ label{
   top: 0;
-  right: 0;
+  left: 0;
   color: #333;
   font-size: 1.4rem;
-  padding: 0.5rem;
+  padding: 1rem;
+}
+
+.invalidInput{
+    border: solid #ff0000 1px;
+}
+
+.validInput{
+    border: solid #04AA6D 1px;
+}
+
+.errorMessage{
+    display: none;
+    color: #FF9999;
+    font-weight: lighter;
+    /* display: block; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+}
+
+.emptyMessage{
+    display: none;
+    color: #FF9999;
+    font-weight: lighter;
+    /* display: block; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
 }
 
 .goSignUp{
@@ -181,4 +214,38 @@
 .setCheckPassWrapper{
     display: flex;
     gap: 1rem;
+}
+
+.passModal{
+    width: 15rem;
+    height: 20rem;
+    background-color: #333333;
+    position: absolute;
+    top: 0;
+    left: -16rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    color: #707070;
+}
+
+.passModal span:first-child{
+    color: #F0F0F0;
+}
+
+.greenPass{
+    color: #04AA6D;
+}
+
+.containerEmailSent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    font-size: 2rem;
+    color: #333;
 }
