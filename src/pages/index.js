@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '@/styles/Login.module.css'
 import { useRouter } from 'next/router'
 import { supabase } from '../../supabase';
-import NewLogo from '../../public/new_logo.png';
+import NewLogo from '../../public/logo.svg';
 
 export default function Login() {
 
@@ -38,7 +38,7 @@ export default function Login() {
       </Head>
       <main className={styles.mainContainer}>
         <div className={styles.logoTexto}>
-          <Image priority src={NewLogo} width={527} height={257} alt='logo'/>
+          <Image priority src={NewLogo} width={500} height={200} alt='logo'/>
           {/* GRADE
           <div className={styles.logoMais}>
             +
