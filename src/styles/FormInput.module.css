@@ -1,0 +1,76 @@
+.inputWrapper {
+    position: relative;
+    width: fit-content;
+}
+
+.inputWrapper input {
+    width: 47rem;
+    height: 6rem;
+}
+
+.inputWrapper input:hover {
+    box-shadow: 2px 2px 0px 1px #333;
+    transition: box-shadow 0.5s ease;
+}
+
+.inputWrapper label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1.5rem;
+    font-size: 2rem;
+    color: #333;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.inputWrapper input:focus ~ label ,
+.inputWrapper input:not(:placeholder-shown) ~ label{
+  top: 0;
+  left: 0;
+  color: #333;
+  font-size: 1.4rem;
+  padding: 1rem;
+}
+
+.invalidInput{
+    border: solid #ff0000 1px;
+}
+
+.validInput{
+    border: solid #04AA6D 1px;
+}
+
+.errorMessage{
+    color: #FF9999;
+    font-weight: lighter;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+}
+
+.passModal{
+    width: 15rem;
+    height: 20rem;
+    background-color: #333333;
+    position: absolute;
+    top: 0;
+    left: -16rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    color: #707070;
+}
+
+.passModal span:first-child{
+    color: #F0F0F0;
+}
+
+.greenPass{
+    color: #04AA6D;
+}

@@ -180,6 +180,17 @@
     margin: 1rem;
 }
 
+.usedMessage{
+    display: none;
+    color: #FF9999;
+    font-weight: lighter;
+    /* display: block; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+}
+
 .goSignUp{
     /* background-color: #333333; */
     grid-column: 7/12;

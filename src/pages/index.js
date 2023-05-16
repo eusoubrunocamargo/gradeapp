@@ -1,13 +1,33 @@
 import Head from 'next/head'
 import Image from 'next/image'
-// import { League_Gothic } from 'next/font/google'
 import styles from '@/styles/Login.module.css'
 import { useRouter } from 'next/router'
-// import Link from 'next/link'
-// const league_gothic = League_Gothic({ subsets: ['latin'] })
+import { supabase } from '../../supabase';
+import NewLogo from '../../public/new_logo.png';
 
 export default function Login() {
+
   const router = useRouter();
+
+  async function handleLogin(e){
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    try{
+      const{data,error}=await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if(error){
+        console.log("Erro ao fazer login: ", error.message);
+      }else{
+        console.log(data);
+        router.push('/dashboard');
+      }
+    } catch (error){
+      console.error("Erro inesperado: ", error);
+    }
+  }
   return (
     <>
       <Head>
@@ -18,10 +38,11 @@ export default function Login() {
       </Head>
       <main className={styles.mainContainer}>
         <div className={styles.logoTexto}>
-          GRADE
+          <Image priority src={NewLogo} width={527} height={257} alt='logo'/>
+          {/* GRADE
           <div className={styles.logoMais}>
             +
-          </div>
+          </div> */}
         </div>
 
         <Image priority src='/login_illustration.png' width={500} height={500} alt='illustration' style={{
@@ -35,7 +56,7 @@ export default function Login() {
           <p>É bom te ver novamente!</p>
         </div>
 
-        <form className={styles.formLogin}>
+        <form className={styles.formLogin} onSubmit={handleLogin}>
           <div className={styles.inputWrapper}>
             <input className={styles.inputStyle} type='text' id='email' name='email' required/>
             <label>Email</label>
