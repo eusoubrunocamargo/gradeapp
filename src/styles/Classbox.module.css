@@ -1,0 +1,13 @@
+.boxContainer {
+    background-color: #7D00E4;
+    height: 6rem;
+    color: #F0F0F0;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.boxContainer h2 {
+    font-size: 4rem;
+    line-height: 4rem;
+}

@@ -1,0 +1,26 @@
+.floatingMenu {
+    position: relative;
+}
+
+.menuContent {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFA629;
+    color: #1e1e1e;
+    min-width: 12rem;
+}
+
+.menuContent button:hover {
+    font-weight: bold;
+}
+
+.fileUploadStyle {
+    cursor: pointer;
+}
+.fileUploadStyle:hover{
+    font-weight: bold;
+}

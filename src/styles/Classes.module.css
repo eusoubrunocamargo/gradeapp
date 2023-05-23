@@ -1,0 +1,49 @@
+.myClassesContainer {
+    background-color: violet;
+    width: 100%;
+    max-height: 30rem;
+}
+
+.myClassesHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.myClassesHeader h3 {
+    font-size: 3rem;
+    color: #7D00E4;
+    line-height: 3rem;
+}
+
+.searchWrapper {
+    position: relative;
+    width: 21rem;
+    height: 4rem;
+    border: solid 2px #7D00E4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.searchWrapper select {
+    /* background-color: blue; */
+    width: 16rem;
+    color: #7D00E4;
+}
+
+.searchWrapper label {
+    width: 2rem;
+    height: 2rem;
+    pointer-events: none;
+    display: flex;
+}
+
+.classesBox {
+    max-height: calc(30rem - 4rem);
+    background-color: lightcoral;
+    padding: 1rem;
+}
+

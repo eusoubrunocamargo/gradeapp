@@ -1,0 +1,62 @@
+.mainContainer {
+    width: 100vw;
+    max-width: 144rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+}
+
+.mainContainer header {
+    width: 100%;
+    height: 10rem;
+    background-color: aqua;
+}
+
+.mainContainer nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mainContainer nav > button:last-of-type {
+    width: 24rem;
+    height: 4rem;
+    border: solid 2px #7D00E4;
+    font-weight: bold;
+    color: #7D00E4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainContainer nav > button:last-of-type:hover{
+    background-color: #7D00E4;
+    color: #F0F0F0;
+}
+
+.containerComponents {
+    width: 100%;
+    height: 100vh;
+    background-color: forestgreen;
+    display: flex;
+    padding: 0 10rem;
+    gap: 10rem;
+}
+
+.leftSide {
+    width: 43rem;
+    height: fit-content;
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.rightSide {
+    width: 54rem;
+    border: solid;
+}
+

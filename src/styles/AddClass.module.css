@@ -1,0 +1,53 @@
+.modalBackground {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(51, 51, 51, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerAddClass {
+    background-color: #f0f0f0;
+    width: 40rem;
+    height: 45rem;
+    color: #7D00E4;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.containerAddClass h3 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.containerAddClass label {
+    border: #7D00E4 solid 1px;
+    width: 15rem;
+    height: 3rem;
+    text-align: center;
+}
+
+.containerAddClass select {
+    width: 30rem;
+    height: 4rem;
+    background-color: #7D00E4;
+    color: #f0f0f0;
+    font-size: x-large;
+   text-align: center;
+}
+
+.btnNext {
+    position: absolute;
+    bottom: 0;
+    padding: 3rem;
+}
