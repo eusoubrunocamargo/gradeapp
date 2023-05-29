@@ -1,0 +1,72 @@
+.containerAlertModal {
+    background-color: #F8F9FA;
+    border: solid 2px #1e1e1e;
+    filter: drop-shadow(2px 2px 0px #1E1E1E);
+    border-radius: 2rem;
+    width: fit-content;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    color: #1E1E1E;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4rem;
+}
+
+.containerTextLoader {
+    display: flex;
+    flex-direction: column;
+}
+
+.loaderFail {
+    width: 100%;
+    height: 4.8px;
+    display: inline-block;
+    position: relative;
+    background: rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+  }
+  .loaderFail::after {
+    content: '';  
+    box-sizing: border-box;
+    width: 0;
+    height: 4.8px;
+    background: #FF5440;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: animFw 2s linear infinite;
+  }
+
+.loaderSuccess {
+    width: 100%;
+    height: 4.8px;
+    display: inline-block;
+    position: relative;
+    background: rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+  }
+  .loaderSuccess::after {
+    content: '';  
+    box-sizing: border-box;
+    width: 0;
+    height: 4.8px;
+    background: #8CA82F;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: animFw 2s linear infinite;
+  }
+
+  @keyframes animFw {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }

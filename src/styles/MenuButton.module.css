@@ -1,0 +1,24 @@
+.menuButton {
+    width: 4.5rem;
+    height: 4.5rem;
+    background: #F8F9FA;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem;
+}
+
+.menuButton:hover, .activeColor {
+    background-color: #FFA629;
+}
+
+.menuStripe {
+    width: 3rem;
+    height: 0.5rem;
+    background: #1E1E1E;
+}
+

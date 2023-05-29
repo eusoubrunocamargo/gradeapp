@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 import styles from '@/styles/FloatingMenu.module.css';
 
 
@@ -13,7 +14,7 @@ const FloatingMenu = ({ options, children }) => {
 
     return (
         <div className={styles.floatingMenu}>
-            <div onClick={() => setIsVisible(!isVisible)}>{children}</div>
+            <div onClick={() => setIsVisible(!isVisible)}>{React.cloneElement(children, { isVisible })}</div>
             {isVisible && (
                 <div className={styles.menuContent}>
                     

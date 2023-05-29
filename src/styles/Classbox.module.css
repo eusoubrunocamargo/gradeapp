@@ -1,13 +1,19 @@
 .boxContainer {
-    background-color: #7D00E4;
-    height: 6rem;
-    color: #F0F0F0;
-    padding: 0.5rem;
+    background: #7D00E4;
+    border: 1px solid #1E1E1E;
+    box-shadow: 3px 3px 0px #1E1E1E;
+    border-radius: 10px;
+    color: #F8F9FA;
+    height: 4.5rem;
     display: flex;
     align-items: center;
+    padding: 1rem;
 }
 
-.boxContainer h2 {
-    font-size: 4rem;
-    line-height: 4rem;
+.boxContainer p {
+    font-size: 2rem;
+    font-weight:400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

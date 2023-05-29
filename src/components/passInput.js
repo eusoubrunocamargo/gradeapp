@@ -33,6 +33,8 @@ function PassInput({ newCheckForm , setNewCheckForm }){
     function handleChange(event){
 
         const newPassValue = event.target.value;
+
+        console.log(newPassValue);
         
         passRequirements.forEach((requirement) => {
             const element = document.getElementById(requirement.id);
@@ -40,7 +42,7 @@ function PassInput({ newCheckForm , setNewCheckForm }){
             ? requirement.regex.test(newPassValue)
             : requirement.test(newPassValue);
             requirement.valid = isValid;
-            element.classList.toggle(`${styles.greenPass}`, isValid);
+            if(element)element.classList.toggle(`${styles.greenPass}`, isValid);
         });
 
         // console.log(passRequirements);
@@ -75,7 +77,7 @@ function PassInput({ newCheckForm , setNewCheckForm }){
                 onChange={handleChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                required
+                // required
             />
             <label htmlFor='password'>Senha</label>
             {hasError && <span style={{margin:'1rem 5rem'}} className={styles.errorMessage}>{errorMessage}</span>}

@@ -11,6 +11,8 @@ import FloatingMenu from "@/components/floatingMenu";
 import { Cropper } from "react-cropper";
 import 'cropperjs/dist/cropper.css';
 import { v4 as uuidv4 } from 'uuid';
+import { useDegree } from "@/hooks/useDegree";
+import MenuButton from "./menuButton";
 
 export default function ComponentProfile(){
 
@@ -19,9 +21,33 @@ export default function ComponentProfile(){
     const [openEditor, setOpenEditor] = useState(false);
     const [cropped, setCropped] = useState(null);
     const [loggedUser, setLoggedUser] = useState(null);
+    const [degreeName, setDegreeName] = useState(null);
+    const { degreeId } = useDegree();
 
     useAuth();
+
     const { user } = useAuth();
+    
+    useEffect(() => {
+        const fetchDegreeName = async () => {
+            const { data , error } = await supabase
+                .from('degrees')
+                .select('degree_name')
+                .eq('id', degreeId)
+                .single();
+
+                if(error){
+                    return console.error(error);
+                };
+
+                setDegreeName(data.degree_name);
+        }
+
+        if(degreeId){
+            // console.log('this is' + degreeId);
+            fetchDegreeName()
+        }
+    },[degreeId]);
     
     useEffect(() => {
         const fetchAvatarUrl = async () => {
@@ -140,13 +166,13 @@ export default function ComponentProfile(){
     }
          
     return (
-        
             <>
             {openEditor && 
             <div className={styles.containerEditor}>
+                <section className={styles.whiteContainer}>
                     <Cropper 
                         src={newAvatar} 
-                        style={{ height:'50rem', width:'50rem' }}
+                        style={{ height:'50rem', width:'50rem', zIndex: 1 }}
                         minCropBoxHeight={200}
                         minCropBoxWidth={200}
                         aspectRatio={1/1}
@@ -155,50 +181,53 @@ export default function ComponentProfile(){
                         }}
                         dragMode='move'/>
                     <div style={{ display: 'flex', gap: '2rem'}}>
-                    <button onClick={handleSaveCroppedAvatar} className={styles.btnSaveCrop}>SALVAR</button>
-                    <button onClick={() => setOpenEditor(false)} className={styles.btnSaveCrop}>SAIR</button>
+                        <button onClick={handleSaveCroppedAvatar} className={styles.btnSaveCrop}>SALVAR</button>
+                        <button onClick={() => setOpenEditor(false)} className={styles.btnSaveCrop}>SAIR</button>
                     </div>
+                </section>
             </div>}
 
-                    <div className={styles.componentStatus}>
-                        <section>
-                            <h1>Olá!</h1>
-                            <span>O QUE VAMOS ESTUDAR HOJE?</span>
-                        </section>
-                        <div className={styles.mainStatus}>
-                            <div className={styles.profilePic}>
-                                <FloatingMenu
-                                    options={[
-                                        { type: 'file', text: "Atualizar foto", callback: handleUploadAvatar },
-                                        // { text: "Deletar foto", callback: handleDeleteAvatar },
-                                    ]}>
-                                    <button className={styles.btnUpload}>
-                                        {avatarUrl?
-                                        <Image src={avatarUrl} priority width={120} height={120} alt="profile"/>
-                                        : <Image src={IconNoUser} priority width={120} height={120} alt="profile"/>}
-                                    </button>
-                                </FloatingMenu>
+            <div className={styles.componentStatus}>
+                
+                <div className={styles.menuNav}>
+                    <FloatingMenu
+                        options={[
+                            { type: 'file', text: 'Atualizar foto', callback: handleUploadAvatar }
+                        ]}>
+                            <MenuButton/>
+                    </FloatingMenu>
+                    <section className={styles.greetingBox}>
+                        <h3>O QUE VAMOS ESTUDAR HOJE?</h3>
+                    </section>
+                </div>
+
+                <div className={styles.mainStatus}>
+                    <div className={styles.profilePic}>
+                        <button className={styles.btnUpload}>
+                            {avatarUrl?
+                            <Image src={avatarUrl} priority width={120} height={120} alt="profile"/>
+                            : <Image src={IconNoUser} priority width={120} height={120} alt="profile"/>}
+                        </button>
+                    </div>
+                    <div className={styles.statusInfo}>
+                        <h1>{loggedUser}</h1>
+                        <span className={styles.containerCurso}>{ degreeName ? degreeName : 'Nenhum curso selecionado'}</span>
+                        <div className={styles.containerGamification}>
+                            <div className={styles.containerIconStatus}>
+                                <Image src={IconBook} priority width={20} height={20} alt="icon"/>
+                                <h3>0</h3>
                             </div>
-                            <div className={styles.statusInfo}>
-                                <h1>{loggedUser}</h1>
-                                <span className={styles.containerCurso}>Nenhum curso selecionado</span>
-                                <div className={styles.containerGamification}>
-                                    <div className={styles.containerIconStatus}>
-                                        <Image src={IconBook} priority width={20} height={20} alt="icon"/>
-                                        <h3>0</h3>
-                                    </div>
-                                    <div className={styles.containerIconStatus}>
-                                        <Image src={IconClock} priority width={20} height={20} alt="icon"/>
-                                        <h3>00:00</h3>
-                                    </div>
-                                    <div className={styles.containerIconStatus}>
-                                        <Image src={IconRanking} priority width={20} height={20} alt="icon"/>
-                                        <h3>123</h3>
-                                    </div>
-                                </div>
+                            <div className={styles.containerIconStatus}>
+                                <Image src={IconClock} priority width={20} height={20} alt="icon"/>
+                                <h3>00:00</h3>
+                            </div>
+                            <div className={styles.containerIconStatus}>
+                                <Image src={IconRanking} priority width={20} height={20} alt="icon"/>
+                                <h3>123</h3>
                             </div>
                         </div>
                     </div>
-
+                </div>
+            </div>
             </>
-)}
+        )}

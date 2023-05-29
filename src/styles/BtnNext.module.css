@@ -1,0 +1,15 @@
+.btnNext {
+    width: 4rem;
+    height: 3rem;
+    background: #F8F9FA;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnNext:hover {
+    background: #7D00E4;
+}

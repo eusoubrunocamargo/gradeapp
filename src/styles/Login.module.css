@@ -1,13 +1,38 @@
 .mainContainer {
     background-color: #EBE5DF;
     width: 100vw;
+    padding: 0 10rem;
     max-width: 144rem;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leftContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    flex-grow: 1;
+    flex-basis: 72rem;
+}
+
+.rightContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-grow: 1;
+    flex-basis: 72rem;
+    height: 100vh;
+}
+
+.containerLeftImage{
+    display: flex;    
+    height: 100%;
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
-    grid-gap: 1rem;
-    grid-template-rows: repeat(12,1fr);
+    overflow: hidden;
 }
 
 .logoTexto {
@@ -23,18 +48,16 @@
     grid-row: 2;
 }
 
-.logoMais {
-    font-size: 10rem;
-    font-weight: bold;
-    position: absolute;
-    color: #9747FF;
-    top: 0rem;
-    left: 13rem;
+.textbox {
+    width: 100%;
 }
 
-.textbox {
-    grid-column: 7/span8;
-    grid-row: 3;
+.textbox span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 8rem;
+    line-height: 10rem;
+    color: #1E1E1E;
 }
 
 .textbox h1 {
@@ -51,22 +74,26 @@
 }
 
 .formLogin {
-    /* border: solid; */
-    grid-column: 7/12;
-    grid-row: 5;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
-    /* padding: 2rem 0rem; */
+    background: #F0F0F0;
+    border: 2px solid #333333;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 3rem;
+    padding: 4rem;
+    position: relative;
 }
 
 .formLogin input {
-    width: 47rem;
-    height: 6rem;
-    background-color: #FFF;
-    box-shadow: 1px 1px 0px 1px #333;
-    text-align: right;
+    text-align: left;
     box-sizing: border-box;
-    padding: 0 5rem;
+    padding: 0 0 0 8rem;
+    background: #F0F0F0;
+    border: 2px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 1rem;
 }
 
 .formLogin input:hover {
@@ -83,16 +110,20 @@
     justify-content: center;
     width: 47rem;
     height: 6rem;
-    box-shadow: 1px 1px 0px 1px #333;
+    border: 2px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 1rem;
 }
 
-.btnSubmitLogin:focus,
+/* .btnSubmitLogin:focus, */
 .btnSubmitLogin:hover {
     background-color: #BA85FF;
     box-shadow: 2px 2px 0px 1px #333;
+    transition: box-shadow 0.5s ease;
+    transition: all 0.5s ease;
 }
 
-.inputWrapper {
+/* .inputWrapper {
     position: relative;
     width: fit-content;
 }
@@ -116,7 +147,7 @@
   color: #333;
   font-size: 1.4rem;
   padding: 0.5rem;
-}
+} */
 
 .goSignUp{
     /* background-color: #333333; */
@@ -133,18 +164,17 @@
 .btnGoogle{
     background-color: #FFF;
     color: #333;
-    font-size: 1.6rem;
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     gap: 2rem;
     width: 47rem;
     height: 6rem;
-    box-shadow: 1px 1px 0px 1px #333;
-    grid-column: 7/12;
-    grid-row: 7;
+    border: 2px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 1rem;
 }
 .btnGoogle:hover{
     box-shadow: 2px 2px 0px 1px #333;
+    transition: all 0.5s ease;
 }

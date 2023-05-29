@@ -1,63 +1,101 @@
 .componentStatus {
     width: 100%;
-    height: 24rem;
-    border: solid red;
+    /* height: 24rem; */
+    /* border: solid red; */
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
-.componentStatus section {
-    color: #7D00E4;
+.greetingBox {
+    width: calc(100% - 4.5rem);
+    min-height: 4.5rem;
+    background: #F8F9FA;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
 }
 
-.componentStatus section h1 {
-    font-size: 4rem;
+.menuNav {
+    display: flex;
+    gap: 1rem;
 }
-.componentStatus section span {
-    font-size: 2rem;
+
+.menuButton {
+    width: 4.5rem;
+    height: 4.5rem;
+    background: #F8F9FA;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem;
+}
+
+.menuStripe {
+    width: 3rem;
+    height: 0.5rem;
+    background: #1E1E1E;
 }
 
 .mainStatus {
-    background-color: #7D00E4;
     display: flex;
-    height: 100%;
+    height: 15rem;
     padding: 0.5rem;
     align-items: center;
     gap: 1rem;
-    /* justify-content: center; */
+    background: #7D00E4;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    justify-content: center;
 }
 
-.btnUpload {
+/* .btnUpload {
     width: 12rem;
     height: 12rem;
     border: solid white;
     border-radius: 100%;
-}
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+} */
 
 .btnUpload img {
-    border-radius: 50%;
+    /* border-radius: 50%; */
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 100%;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    /* border-radius: 10px; */
 }
 
 .profilePic {
     /* width: 35%; */
-    border: solid red;
+    /* border: solid red; */
 }
 
 .statusInfo {
-    border: solid yellow;
+    /* border: solid yellow; */
     /* width: 30rem; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
     /* width: 100%; */
 }
 
 .statusInfo h1 {
-    font-size: 4rem;
-    color: #F0F0F0;
+    font-size: 3rem;
+    color: #F8F9FA;
 }
 
 .containerCurso {
@@ -67,6 +105,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
 }
 
 .containerGamification {
@@ -76,6 +117,10 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    background-color: #707070;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
 }
 
 .containerIconStatus {
@@ -93,6 +138,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: #1E1E1E solid 1px;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 1rem;
 }
 
 .btnSaveCrop:hover {
@@ -113,4 +161,19 @@
     left: 0;
     right: 0;
     overflow: hidden;
+}
+
+.whiteContainer {
+    background-color: #FFA629;
+    width: 60rem;
+    height: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 1;
+    border: 1px solid #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
 }

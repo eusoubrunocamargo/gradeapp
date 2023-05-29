@@ -1,0 +1,69 @@
+.modalBackground {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(51, 51, 51, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.containerDeleteClass {
+    background-color: #f0f0f0;
+    width: 40rem;
+    height: 45rem;
+    /* color: #7D00E4; */
+    /* z-index: 1; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    position: relative;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    border: solid 1px #1e1e1e;
+    text-align: center;
+}
+
+.containerDeleteClass h3 {
+    font-size: xx-large;
+    color: #7D00E4;
+}
+
+.containerDeleteClass span {
+    font-size: small;
+    color: #D0342C;
+}
+
+.btnClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+}
+
+.btnDeleteClassSchedule {
+    border:#1e1e1e solid 1px;
+    width: 100%;
+    height: 3.6rem;
+    text-align: center;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    background-color: #7D00E4;
+    color: #F8F9FA;
+}
+
+.btnDeleteClassSchedule:focus{
+    border:#D0342C solid 2px;
+}
+
+.btnDeleteClassSchedule:hover{
+    background-color: #D0342C;
+    color: #F8F9FA;
+}
+

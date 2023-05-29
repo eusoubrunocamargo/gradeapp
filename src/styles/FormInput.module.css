@@ -34,17 +34,8 @@
   padding: 1rem;
 }
 
-.invalidInput{
-    border: solid #ff0000 1px;
-}
-
-.validInput{
-    border: solid #04AA6D 1px;
-}
-
 .errorMessage{
     color: #FF9999;
-    font-weight: lighter;
     position: absolute;
     top: 0;
     right: 0;

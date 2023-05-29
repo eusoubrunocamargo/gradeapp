@@ -1,0 +1,140 @@
+.scheduleContainer {
+    /* border: solid 1px #7D00E4; */
+    width: 36rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 2rem;
+    
+}
+
+.inputLocale {
+    width: 100%;
+    height: 3.6rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    border: solid 1px #1e1e1e;
+    background-color: #F8F9FA;
+    color: #7D00E4;
+    text-align: center;
+}
+
+.inputLocale::placeholder {
+    color: #7D00E4;
+    opacity: 0.5;
+}
+
+.weekDays {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(2,4rem);
+    gap: 1rem;
+}
+
+.weekDays button {
+    border: #1e1e1e 1px solid;
+    width: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 0.5rem;
+}
+
+.weekDays button:focus {
+    border: #7D00E4 2px solid;
+}
+
+.clickedDay {
+    background-color: #7D00E4;
+    color: #f0f0f0;
+}
+
+.containerDayTime {
+    width: 5rem;
+    text-align: center;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+    
+}
+
+.containerDayTime input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.seg{
+    grid-row: 2;
+    grid-column: 1;
+}
+.ter{
+    grid-row: 2;
+    grid-column: 2;
+}
+.qua{
+    grid-row: 2;
+    grid-column: 3;
+}
+.qui{
+    grid-row: 2;
+    grid-column: 4;
+}
+.sex{
+    grid-row: 2;
+    grid-column: 5;
+}
+
+.sab{
+    grid-row: 2;
+    grid-column: 6;
+}
+
+.btnAddClassSchedule {
+    border:#1e1e1e solid 1px;
+    width: 100%;
+    height: 3.6rem;
+    text-align: center;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+}
+
+.btnAddClassSchedule:focus{
+    border:#7D00E4 solid 2px;
+}
+
+.btnAddClassSchedule:hover{
+    background-color: #7D00E4;
+    color: #F8F9FA;
+}
+
+.loader {
+    width: 3rem;
+    height: 3rem;
+    border: 5px solid #7D00E4;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
+.alert {
+    color: #D0342C;
+}

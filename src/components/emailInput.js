@@ -2,7 +2,7 @@ import styles from '@/styles/FormInput.module.css'
 import { useState } from 'react';
 import { supabase } from '../../supabase';
 
-function EmailInput({ newCheckForm , setNewCheckForm }){
+function EmailInput({ newCheckForm , setNewCheckForm, type }){
 
     const [errorMessage, setErrorMessage] = useState('');
     const [hasError, setHasError] = useState(false);
@@ -20,6 +20,7 @@ function EmailInput({ newCheckForm , setNewCheckForm }){
     async function handleBlur(){
 
         const email = newCheckForm.email.value;
+        console.log(email);
 
         //check if email has valid format according to regex
         const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
@@ -43,7 +44,7 @@ function EmailInput({ newCheckForm , setNewCheckForm }){
                     valid: false,
                 }
             });
-        } else {
+        } else if (type === 'signup') {
             const emailExists = await checkEmailExists(email);
             console.log(emailExists);
             if(emailExists){
@@ -54,20 +55,19 @@ function EmailInput({ newCheckForm , setNewCheckForm }){
                     email: {
                         value: email,
                         valid: false,
-                    }
-                });
+                    }});
+                }
             } else {
                 setHasError(false);
-                setNewCheckForm({
-                ...newCheckForm,
-                email: {
-                    value: email,
-                    valid: true,
-                }
-            });
+                setNewCheckForm(prev => ({
+                    ...prev,
+                    email: {
+                        value: email,
+                        valid: true,
+                    }}));
             }
-        }
     };
+    
 
     function handleChange(event){
         const newEmailValue = event.target.value;
@@ -75,7 +75,7 @@ function EmailInput({ newCheckForm , setNewCheckForm }){
             ...prev,
             email: {
                 value: newEmailValue,
-                valid: prev.name.valid,
+                valid: prev.email.valid,
             }
         }))
     };
@@ -90,7 +90,7 @@ function EmailInput({ newCheckForm , setNewCheckForm }){
                 className={`${hasError&&styles.invalidInput}`}
                 onBlur={handleBlur}
                 onChange={handleChange}
-                required
+                // required
             />
             <label htmlFor='email'>Email</label>
             {hasError && <span className={styles.errorMessage}>{errorMessage}</span>}
