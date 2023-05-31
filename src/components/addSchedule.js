@@ -38,7 +38,7 @@ export default function AddClassSchedule () {
 
         }
         fetchClasses();
-    },[]);
+    },[degreeId]);
 
     const [selectedDays, setSelectedDays] = useState({
         seg: { selected: false, startTime: '' },

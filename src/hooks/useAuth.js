@@ -32,7 +32,7 @@ export const useAuth = () => {
                 setUser(null);
             }
         })
-    }, []);
+    }, [router]);
 
     return { user };
 };
