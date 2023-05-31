@@ -16,18 +16,13 @@ import { useUserData } from "@/hooks/useUserData";
 
 export default function ComponentProfile(){
 
+    const { user } = useAuth();
+    const { updatedUserData, loading } = useUserData();
+
     const [newAvatar, setNewAvatar] = useState(null);
     const [openEditor, setOpenEditor] = useState(false);
     const [cropped, setCropped] = useState(null);
    
-
-    const { updatedUserData, loading } = useUserData();
-    if(loading){
-        return <div>Carregando...</div>
-    }
-    console.log(updatedUserData);
-    const { user } = useAuth();
-
     const handleUploadAvatar = async (event) => {
         if(event.target.files[0]){
             setNewAvatar(URL.createObjectURL(event.target.files[0]));
@@ -110,6 +105,10 @@ export default function ComponentProfile(){
                 }
             }
         }
+    }
+
+    if(loading){
+        return <div>Carregando...</div>
     }
          
     return (

@@ -5,7 +5,7 @@ import SuccessIcon from '../../public/success_alert.png'
 import { useEffect } from 'react';
 import { useAlert } from '@/hooks/useAlert';
 
-export function AlertModal ({ _alertText, _isVisible, _onClose, _alertType }) {
+export function AlertModal () {
 
     const { alert, setAlert } = useAlert();
 
@@ -20,7 +20,7 @@ export function AlertModal ({ _alertText, _isVisible, _onClose, _alertType }) {
                 clearTimeout(timer);
             };
         }
-    }, [alert.isVisible]);
+    }, [alert.isVisible, setAlert]);
 
     if(!alert.isVisible){
         return null;

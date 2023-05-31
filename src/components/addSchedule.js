@@ -1,22 +1,17 @@
 import styles from '@/styles/AddSchedule.module.css';
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../../supabase';
-// import { useDegree } from '@/hooks/useDegree';
 import Select from 'react-select';
-// import { useAuth } from '@/hooks/useAuth';
 import { useUserData } from '@/hooks/useUserData';
 
 
 export default function AddClassSchedule () {
 
-    // const { user } = useAuth();
     const { handleAddClass } = useUserData();
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    // const { degreeId } = useDegree();
     const { updatedUserData } = useUserData();
     const degreeId = updatedUserData[0].degree_id;
-    console.log('entrou no addschedule');
     const [classOptions, setClassOptions] = useState([]);
     const days = ['seg','ter','qua','qui','sex','sab'];
 
@@ -154,8 +149,7 @@ export default function AddClassSchedule () {
 
             </div>
             {error && <span className={styles.alert}>Todos os campos são obrigatórios!</span>}
-            {loading ? <span className={styles.loader}></span> : 
-            <button onClick={handleSubmitForm} className={styles.btnAddClassSchedule}>Cadastrar</button>}
+            <button onClick={handleSubmitForm} className={styles.btnAddClassSchedule}>Cadastrar</button>
         </section>
         </>
     )

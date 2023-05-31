@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { supabase } from "../../supabase";
 import { useAuth } from "./useAuth";
 import { useAlert } from "./useAlert";
@@ -15,7 +15,7 @@ export const UserDataProvider = ({ children }) => {
     const { showAlert } = useAlert();
     const [loading, setLoading] = useState(true);
 
-    const fetchUserData = async () => {
+    const fetchUserData = useCallback(async () => {
         
         if(!user)return;
 
@@ -37,9 +37,9 @@ export const UserDataProvider = ({ children }) => {
             setLoading(false);
         }
 
-    };
+    },[user]);
 
-    const fetchUserClasses = async () => {
+    const fetchUserClasses = useCallback(async () => {
 
         if(!user)return;
 
@@ -60,7 +60,7 @@ export const UserDataProvider = ({ children }) => {
         } catch (error) {
             console.log('Erro ao carregar dados do usuário', error);
         }
-    };
+    },[user]);
 
     const handleDeleteClass = async (selectedOption, _setAlertText, _setAlertType, _setIsAlertVisible) => {
         if(!selectedOption) return showAlert('Selecione uma matéria!', 'fail');
@@ -125,7 +125,7 @@ export const UserDataProvider = ({ children }) => {
     useEffect(() => {
         fetchUserClasses();
         fetchUserData();
-    }, [user]);
+    }, [user, fetchUserClasses, fetchUserData]);
 
     return (
         <UserDataContext.Provider value={{ 
