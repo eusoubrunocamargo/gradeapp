@@ -29,6 +29,9 @@ export default function Login() {
   async function handleLogin(e){
     e.preventDefault();
 
+    console.log(newCheckForm.email.value, newCheckForm.email.valid);
+    console.log(newCheckForm.password.value, newCheckForm.password.valid);
+
     if(!newCheckForm.email.value || !newCheckForm.password.value){
       showAlert('Todos os campos são obrigatórios!', 'fail');
     }

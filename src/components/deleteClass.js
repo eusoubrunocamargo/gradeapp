@@ -60,11 +60,6 @@ export function DeleteClass({ setOpenDeleteModal, userClasses }) {
     return (
         <section className={styles.modalBackground}>
             <section className={styles.containerDeleteClass}>
-                {/* <AlertModal 
-                    alertText={alertText} 
-                    isVisible={isAlertVisible} 
-                    onClose={closeAlert} 
-                    alertType={alertType}/> */}
                 <button onClick={handleCloseModal} className={styles.btnClose}><Image src={Close} width={30} height={30} alt='close'/></button>
                 <h3>Selecione qual matéria você deseja excluir</h3>
                 <span>Cuidado! Ao excluir uma matéria você perderá todos os eventos relacionados, como trabalhos, provas e menção final. Esta ação é irreversível.</span>

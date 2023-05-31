@@ -35,7 +35,7 @@ export default function Dashboard(){
     const { loading } = useUserData();
 
     if(loading){
-        return <div>Loading...</div>
+        return <div></div>
     }
 
     return (
@@ -43,7 +43,7 @@ export default function Dashboard(){
             <AlertModal/>
             <header>
                 <nav>
-                    <Image src={Logo} priority width={400} height={100} alt="logo"/>
+                    <Image src={Logo} width={400} height={100} alt="logo" priority/>
                     <div className={styles.btnNavBar}>
                         <button onClick={handleDarkMode}>{isDarkMode?'Dark':'Light'}</button> 
                         <button onClick={handleSignOut}>Sair</button>

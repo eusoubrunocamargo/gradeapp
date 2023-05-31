@@ -28,6 +28,13 @@ function PassInput({ newCheckForm , setNewCheckForm }){
         event.target.value = '';
         setHasError(false);
         setShowPassModal(true);
+        setNewCheckForm({
+            ...newCheckForm,
+            password: {
+                value: '',
+                valid: false,
+            },
+        });
     }
    
     function handleChange(event){
@@ -80,7 +87,7 @@ function PassInput({ newCheckForm , setNewCheckForm }){
                 // required
             />
             <label htmlFor='password'>Senha</label>
-            {hasError && <span style={{margin:'1rem 5rem'}} className={styles.errorMessage}>{errorMessage}</span>}
+            {hasError && <span className={styles.errorMessage}>{errorMessage}</span>}
             {showPassModal &&
                     <aside className={styles.passModal}>
                         <span>Sua senha deve conter:</span>

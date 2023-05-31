@@ -25,6 +25,7 @@ export default function ComponentProfile(){
     if(loading){
         return <div>Carregando...</div>
     }
+    console.log(updatedUserData);
     const { user } = useAuth();
 
     const handleUploadAvatar = async (event) => {
@@ -157,7 +158,7 @@ export default function ComponentProfile(){
                     </div>
                     <div className={styles.statusInfo}>
                         <h1>{updatedUserData[0].name}</h1>
-                        <span className={styles.containerCurso}>{ updatedUserData[0].degrees.degree_name ? updatedUserData[0].degrees.degree_name  : 'Nenhum curso selecionado'}</span>
+                        <span className={styles.containerCurso}>{ updatedUserData[0].degrees ? updatedUserData[0].degrees.degree_name  : 'Nenhum curso selecionado'}</span>
                         <div className={styles.containerGamification}>
                             <div className={styles.containerIconStatus}>
                                 <Image src={IconBook} priority width={20} height={20} alt="icon"/>

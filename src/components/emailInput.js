@@ -1,6 +1,7 @@
 import styles from '@/styles/FormInput.module.css'
 import { useState } from 'react';
 import { supabase } from '../../supabase';
+// import { useAlert } from '@/hooks/useAlert';
 
 function EmailInput({ newCheckForm , setNewCheckForm, type }){
 
@@ -30,52 +31,73 @@ function EmailInput({ newCheckForm , setNewCheckForm, type }){
             setNewCheckForm({
                 ...newCheckForm,
                 email: {
-                    value: email,
+                    // value: email,
                     valid: false,
                 },
             });
-        } else if (!emailRegex.test(email)){
+            return;
+        }; 
+        
+        if(!emailRegex.test(email)){
             setErrorMessage('Este e-mail não é válido');
             setHasError(true);
             setNewCheckForm({
                 ...newCheckForm,
                 email: {
-                    value: email,
+                    // value: email,
                     valid: false,
                 }
             });
-        } else if (type === 'signup') {
+            return;
+        } 
+        
+        if(type === 'signup') {
+            console.log('entrou no checkemail');
             const emailExists = await checkEmailExists(email);
             console.log(emailExists);
             if(emailExists){
+                console.log('entrou no exist');
                 setErrorMessage('Este e-mail já está em uso');
                 setHasError(true);
                 setNewCheckForm({
                     ...newCheckForm,
                     email: {
-                        value: email,
+                        // value: email,
                         valid: false,
                     }});
+                } else {
+                    setNewCheckForm({
+                        ...newCheckForm,
+                        email: {
+                            value: email,
+                            valid: true,
+                        }});
                 }
-            } else {
-                setHasError(false);
-                setNewCheckForm(prev => ({
-                    ...prev,
-                    email: {
-                        value: email,
-                        valid: true,
-                    }}));
-            }
+        }        
+            
     };
+
+    function handleFocus (e){
+        e.target.value = '';
+        setHasError(false);
+        setNewCheckForm({
+            ...newCheckForm,
+            email: {
+                value: '',
+                valid: false,
+            },
+        });
+    }
     
 
     function handleChange(event){
+        console.log('entrou no handleChange');
         const newEmailValue = event.target.value;
         setNewCheckForm(prev => ({
             ...prev,
             email: {
                 value: newEmailValue,
-                valid: prev.email.valid,
+                valid: true,
             }
         }))
     };
@@ -90,6 +112,7 @@ function EmailInput({ newCheckForm , setNewCheckForm, type }){
                 className={`${hasError&&styles.invalidInput}`}
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 // required
             />
             <label htmlFor='email'>Email</label>
