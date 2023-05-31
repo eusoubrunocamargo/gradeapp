@@ -3,22 +3,26 @@ import Image from 'next/image';
 import ErrorIcon from '../../public/error_alert.png'
 import SuccessIcon from '../../public/success_alert.png'
 import { useEffect } from 'react';
+import { useAlert } from '@/hooks/useAlert';
 
-export function AlertModal ({ alertText, isVisible, onClose, alertType }) {
+export function AlertModal ({ _alertText, _isVisible, _onClose, _alertType }) {
+
+    const { alert, setAlert } = useAlert();
 
     useEffect(() => {
-        if(isVisible){
+        if(alert.isVisible){
             const timer = setTimeout(() => {
-                onClose();
+                // onClose();
+                setAlert(prev => !prev.isVisible)
             }, 5000);
 
             return () => {
                 clearTimeout(timer);
             };
         }
-    }, [isVisible, onClose]);
+    }, [alert.isVisible]);
 
-    if(!isVisible){
+    if(!alert.isVisible){
         return null;
     }
 
@@ -27,11 +31,11 @@ export function AlertModal ({ alertText, isVisible, onClose, alertType }) {
     return (
         <>
             <section className={styles.containerAlertModal}>
-                {alertType === 'fail' ? <Image src={ErrorIcon} width={30} height={30} alt='error'/>:
+                {alert.type === 'fail' ? <Image src={ErrorIcon} width={30} height={30} alt='error'/>:
                 <Image src={SuccessIcon} width={30} height={30} alt='success'/>}
                 <div className={styles.containerTextLoader}>
-                    <span>{alertText}</span>
-                    <span className={`${alertType === 'fail' ? styles.loaderFail : styles.loaderSuccess}`}></span>
+                    <span>{alert.text}</span>
+                    <span className={`${alert.type === 'fail' ? styles.loaderFail : styles.loaderSuccess}`}></span>
                 </div>
             </section>        
         </>

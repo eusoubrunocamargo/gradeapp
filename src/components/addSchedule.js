@@ -1,19 +1,22 @@
 import styles from '@/styles/AddSchedule.module.css';
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../../supabase';
-import { useDegree } from '@/hooks/useDegree';
+// import { useDegree } from '@/hooks/useDegree';
 import Select from 'react-select';
-import { useAuth } from '@/hooks/useAuth';
-import { AlertModal } from './alertModal';
+// import { useAuth } from '@/hooks/useAuth';
+import { useUserData } from '@/hooks/useUserData';
 
 
 export default function AddClassSchedule () {
 
-    const { user } = useAuth();
+    // const { user } = useAuth();
+    const { handleAddClass } = useUserData();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const { degreeId } = useDegree();
-    console.log(degreeId);
+    // const { degreeId } = useDegree();
+    const { updatedUserData } = useUserData();
+    const degreeId = updatedUserData[0].degree_id;
+    console.log('entrou no addschedule');
     const [classOptions, setClassOptions] = useState([]);
     const days = ['seg','ter','qua','qui','sex','sab'];
 
@@ -126,61 +129,9 @@ export default function AddClassSchedule () {
             return setError(true);
         }
 
-        setLoading(true);
+        handleAddClass(checkForm);
 
-        const { data, error } = await supabase
-            .from('user_classes')
-            .insert({
-                user_id: user.id,
-                degree_class_id: checkForm.class,
-            })
-            .select();
-
-          if(error){
-            setAlertType('fail');
-            setIsAlertVisible(true);
-            setAlertText('Erro ao cadastrar matéria!');
-            return console.log(error);
-          }
-
-          const userClassID = data[0].id;
-
-          for(const schedule of checkForm.schedule){
-
-            const { day, time} = schedule;
-
-            const { data: scheduleData, error: scheduleError } = await supabase
-                .from('class_schedule')
-                .insert({
-                    user_class_id: userClassID,
-                    day_of_week: day,
-                    start_time: `${time}:00`,
-                    locale: checkForm.locale
-                })
-                .select();
-
-                if(scheduleError){
-                    setAlertType('fail');
-                    setIsAlertVisible(true);
-                    setAlertText('Erro ao cadastrar matéria!')
-                    return console.log(scheduleError);
-                }
-
-                setAlertType('success');
-                setIsAlertVisible(true);
-                setAlertText('Matéria cadastrada!');
-                setLoading(false);
-
-                console.log(scheduleData);
-          }
     }
-
-    const [isAlertVisible, setIsAlertVisible] = useState(false);
-    const closeAlert = () => {
-        setIsAlertVisible(false);
-    };
-    const [alertType, setAlertType] = useState('success');
-    const [alertText, setAlertText] = useState('');
 
     return (
         <>
@@ -205,12 +156,6 @@ export default function AddClassSchedule () {
             {error && <span className={styles.alert}>Todos os campos são obrigatórios!</span>}
             {loading ? <span className={styles.loader}></span> : 
             <button onClick={handleSubmitForm} className={styles.btnAddClassSchedule}>Cadastrar</button>}
-            <AlertModal 
-                alertText={alertText} 
-                isVisible={isAlertVisible} 
-                onClose={closeAlert} 
-                alertType={alertType}/>
-
         </section>
         </>
     )

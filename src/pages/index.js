@@ -8,16 +8,12 @@ import EmailInput from '@/components/emailInput';
 import PassInput from '@/components/passInput';
 import { useState } from 'react';
 import { AlertModal } from '@/components/alertModal';
+import { useAlert } from '@/hooks/useAlert';
 
 export default function Login() {
 
   const router = useRouter();
-
-  const [isAlertVisible, setIsAlertVisible] = useState(false);
-  const [alertText, setAlertText] = useState('');
-  const closeAlert = () => {
-      setIsAlertVisible(false);
-  };
+  const { showAlert } = useAlert();
 
   const [newCheckForm, setNewCheckForm] = useState({
     email: {
@@ -32,17 +28,13 @@ export default function Login() {
 
   async function handleLogin(e){
     e.preventDefault();
-    console.log(newCheckForm);
 
     if(!newCheckForm.email.value || !newCheckForm.password.value){
-      setIsAlertVisible(true);
-      setAlertText('Todos os campos são obrigatórios!');
+      showAlert('Todos os campos são obrigatórios!', 'fail');
     }
 
     const isFormValid = Object.values(newCheckForm).every(({ valid }) => valid === true);
-    console.log(isFormValid);
     const { email , password } = newCheckForm;
-    console.log(email.value, password.value);
 
     if(isFormValid){
       try{
@@ -52,14 +44,14 @@ export default function Login() {
         });
 
         if(error){
+          console.error(error.message);
           throw error; 
         } else {
           router.push('/dashboard');
         }
       } catch (error){
         if(error.message === 'Invalid login credentials'){
-          setIsAlertVisible(true);
-          setAlertText('Senha inválida!');
+          showAlert('Senha inválida!', 'fail');
         }
       }
     }
@@ -68,6 +60,8 @@ export default function Login() {
     <>
       
       <main className={styles.mainContainer}>
+
+        <AlertModal/>
 
         <section className={styles.leftContainer}>
 
@@ -86,12 +80,6 @@ export default function Login() {
         <section className={styles.rightContainer}>
 
           <form className={styles.formLogin} onSubmit={handleLogin}>
-
-            <AlertModal 
-              alertText={alertText}
-              alertType='fail' 
-              onClose={closeAlert} 
-              isVisible={isAlertVisible}/>
 
             <div className={styles.textbox}>
               <span>E aí,<br/>blz?</span>

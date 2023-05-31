@@ -69,7 +69,7 @@
 
 .rightSide {
     width: 54rem;
-    border: solid;
+    /* border: solid; */
     display: flex;
 }
 

@@ -1,16 +1,28 @@
 import styles from '@/styles/MyWeek.module.css'
 import MenuButton from './menuButton';
+import EventContainer from './eventContainer';
+import { useUserData } from '@/hooks/useUserData';
 
 export default function ComponentMyWeek({ isDarkMode }){
+
+    const { updatedUserClasses: classes} = useUserData();
 
     const DaysName = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
     const today = new Date();
     today.setHours(0,0,0,0);
 
+    //current day (sunday = 0, ...)
+    const currentDayOfWeek = today.getDay();
+
+    //get last sunday
+    const lastSunday = new Date(today);
+    lastSunday.setDate(today.getDate() - currentDayOfWeek);
+    lastSunday.setHours(0,0,0,0);
+
+    //array of days of current week
     const days = Array.from({ length: 7 }, (_,i) => {
-        const date = new Date();
-        date.setDate(date.getDate() + i);
-        date.setHours(0, 0, 0, 0);
+        const date = new Date(lastSunday);
+        date.setDate(lastSunday.getDate() + i);
         return {
             dayOfMonth: date.getDate(),
             dayOfWeek: DaysName[date.getDay()],
@@ -18,9 +30,9 @@ export default function ComponentMyWeek({ isDarkMode }){
         };
     });
 
-    // console.log(days);
-
-
+    const currentDayName = DaysName[currentDayOfWeek].toLowerCase();
+    const todayEvents = classes.filter(event => event.day_of_week === currentDayName);
+    
 
     return (
         <section className={styles.componentContainer}>
@@ -36,7 +48,12 @@ export default function ComponentMyWeek({ isDarkMode }){
                 <MenuButton/>
             </div>
             <section className={styles.mainContainer}>
-                <span>Calendário</span>
+                <section className={styles.eventsContainer}>
+                    {todayEvents.length === 0 && <span className={styles.noEvent}>Nenhum evento hoje!</span>}
+                    {todayEvents.map((e) => (
+                        <EventContainer key={e.degree_class_id} time={e.start_time.slice(0,5)} myclass={e.class_name} local={e.locale}/>
+                    ))}
+                </section>
             </section>
         </section>
         

@@ -27,7 +27,7 @@
 .weekDayContainer {
     /* border: solid red; */
     width: 42rem;
-    height: 10rem;
+    height: 8rem;
     position: absolute;
     right: 0;
     top: -2rem;
@@ -52,9 +52,24 @@
 }
 
 .darkMode {
-    color: #F8F9FA;
+    color: #FFA629;
 }
 
 .lightMode {
     color: #1E1E1E;
+}
+
+.eventsContainer {
+    width: 50rem;
+    height: 11rem;
+    /* border: solid 1px white; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+
+.noEvent {
+    color: #F8F9FA;
+    grid-area: 2/2;
+    text-align: center;
 }

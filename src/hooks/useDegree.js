@@ -1,43 +1,43 @@
-import { supabase } from "../../supabase";
-import { useAuth } from "./useAuth";
+// import { supabase } from "../../supabase";
+// import { useAuth } from "./useAuth";
 
-const { createContext, useContext, useState, useEffect } = require("react");
+// const { createContext, useContext, useState, useEffect } = require("react");
 
-const DegreeContext = createContext();
+// const DegreeContext = createContext();
 
-export const useDegree = () => useContext(DegreeContext);
+// export const useDegree = () => useContext(DegreeContext);
 
-export const DegreeProvider = ({children}) => {
+// export const DegreeProvider = ({children}) => {
 
-    const { user } = useAuth();
-    // console.log(user);
-    const [degreeId, setDegreeId] = useState(null);
+//     const { user } = useAuth();
+//     console.log('entrou no useDegre');
+//     const [degreeId, setDegreeId] = useState(null);
 
-    useEffect(() => {
-        const fetchDegreeId = async () => {
+//     useEffect(() => {
+//         const fetchDegreeId = async () => {
 
-            if(user){
-            const { data , error } = await supabase
-                .from('profiles')
-                .select('degree_id')
-                .eq('id', user.id);
+//             if(user){
+//             const { data , error } = await supabase
+//                 .from('profiles')
+//                 .select('degree_id')
+//                 .eq('id', user.id);
 
-                if(error){
-                    console.error(error);
-                } else if (data && data.length > 0){
-                    const degreeId = data[0].degree_id;
-                    setDegreeId(degreeId);
-                }
-            }
-        };
+//                 if(error){
+//                     console.error(error);
+//                 } else if (data && data.length > 0){
+//                     const degreeId = data[0].degree_id;
+//                     setDegreeId(degreeId);
+//                 }
+//             }
+//         };
 
-        fetchDegreeId();
+//         fetchDegreeId();
 
-    },[user]);
+//     },[user]);
 
-    return (
-        <DegreeContext.Provider value={{ degreeId, setDegreeId }}>
-            {children}
-        </DegreeContext.Provider>
-    )
-};
+//     return (
+//         <DegreeContext.Provider value={{ degreeId, setDegreeId }}>
+//             {children}
+//         </DegreeContext.Provider>
+//     )
+// };

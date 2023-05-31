@@ -1,0 +1,21 @@
+.eventContainer {
+    width: 16rem;
+    height: 3rem;
+    background-color: #FFA629;
+    color: #1e1e1e;
+    border: #1e1e1e 1px solid;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    font-size: x-small;
+    display: grid;
+    grid-template-columns: 3rem 8rem 3rem;
+    align-content: center;
+    justify-content: center;
+}
+
+.eventContainer span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}

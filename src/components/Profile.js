@@ -11,75 +11,21 @@ import FloatingMenu from "@/components/floatingMenu";
 import { Cropper } from "react-cropper";
 import 'cropperjs/dist/cropper.css';
 import { v4 as uuidv4 } from 'uuid';
-import { useDegree } from "@/hooks/useDegree";
 import MenuButton from "./menuButton";
+import { useUserData } from "@/hooks/useUserData";
 
 export default function ComponentProfile(){
 
     const [newAvatar, setNewAvatar] = useState(null);
-    const [avatarUrl, setAvatarUrl] = useState(null);
     const [openEditor, setOpenEditor] = useState(false);
     const [cropped, setCropped] = useState(null);
-    const [loggedUser, setLoggedUser] = useState(null);
-    const [degreeName, setDegreeName] = useState(null);
-    const { degreeId } = useDegree();
+   
 
-    useAuth();
-
+    const { updatedUserData, loading } = useUserData();
+    if(loading){
+        return <div>Carregando...</div>
+    }
     const { user } = useAuth();
-    
-    useEffect(() => {
-        const fetchDegreeName = async () => {
-            const { data , error } = await supabase
-                .from('degrees')
-                .select('degree_name')
-                .eq('id', degreeId)
-                .single();
-
-                if(error){
-                    return console.error(error);
-                };
-
-                setDegreeName(data.degree_name);
-        }
-
-        if(degreeId){
-            // console.log('this is' + degreeId);
-            fetchDegreeName()
-        }
-    },[degreeId]);
-    
-    useEffect(() => {
-        const fetchAvatarUrl = async () => {
-            const { data , error } = await supabase
-                .from('profiles')
-                .select('avatar_url')
-                .eq('id', user.id)
-                .single();
-
-            if(error){
-                console.error(error);
-            } else {
-                setAvatarUrl(data.avatar_url);
-                console.log(data.avatar_url);
-            }
-        }
-        if(user){
-            fetchAvatarUrl();
-        }
-    }, [user]);
-
-    useEffect(()=>{
-        const getUser = async () => {
-            const {data: { session } } = await supabase.auth.getSession();
-            
-            if(!session){
-               return;
-            }
-            setLoggedUser(session.user.user_metadata.name);        
-        };
-        getUser();
-    }, []);
 
     const handleUploadAvatar = async (event) => {
         if(event.target.files[0]){
@@ -156,7 +102,7 @@ export default function ComponentProfile(){
                         const updateSuccess = await updateProfileAvatarUrl(user.id, publicUrl);
                         if(updateSuccess){
                             console.log('sucesso');
-                            setAvatarUrl(publicUrl);
+                            // setAvatarUrl(publicUrl);
                             setOpenEditor(false);
                         }
                     }
@@ -204,14 +150,14 @@ export default function ComponentProfile(){
                 <div className={styles.mainStatus}>
                     <div className={styles.profilePic}>
                         <button className={styles.btnUpload}>
-                            {avatarUrl?
-                            <Image src={avatarUrl} priority width={120} height={120} alt="profile"/>
+                            {updatedUserData[0].avatar_url?
+                            <Image src={updatedUserData[0].avatar_url} priority width={120} height={120} alt="profile"/>
                             : <Image src={IconNoUser} priority width={120} height={120} alt="profile"/>}
                         </button>
                     </div>
                     <div className={styles.statusInfo}>
-                        <h1>{loggedUser}</h1>
-                        <span className={styles.containerCurso}>{ degreeName ? degreeName : 'Nenhum curso selecionado'}</span>
+                        <h1>{updatedUserData[0].name}</h1>
+                        <span className={styles.containerCurso}>{ updatedUserData[0].degrees.degree_name ? updatedUserData[0].degrees.degree_name  : 'Nenhum curso selecionado'}</span>
                         <div className={styles.containerGamification}>
                             <div className={styles.containerIconStatus}>
                                 <Image src={IconBook} priority width={20} height={20} alt="icon"/>

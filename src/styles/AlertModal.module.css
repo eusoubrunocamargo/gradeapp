@@ -4,7 +4,8 @@
     filter: drop-shadow(2px 2px 0px #1E1E1E);
     border-radius: 2rem;
     width: fit-content;
-    height: 6rem;
+    min-width: 30rem;
+    min-height: 6rem;
     display: flex;
     align-items: center;
     padding: 1rem;
@@ -14,12 +15,14 @@
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 2;
     margin: 4rem;
 }
 
 .containerTextLoader {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .loaderFail {

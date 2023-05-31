@@ -1,13 +1,15 @@
 import { useRouter } from "next/router"
 import { supabase } from "../../supabase";
-import { useAuth } from "@/hooks/useAuth";
 import styles from '@/styles/Dash.module.css';
 import Image from "next/image";
 import Logo from '../../public/logo.svg';
 import ComponentProfile from "@/components/Profile";
 import ComponentMyClasses from "@/components/Classes";
 import ComponentMyWeek from "@/components/MyWeek";
-import { useState } from "react";
+import { _useEffect, useState } from "react";
+import { AlertModal } from "@/components/alertModal";
+import { useUserData } from "@/hooks/useUserData";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function Dashboard(){
 
@@ -29,8 +31,16 @@ export default function Dashboard(){
             router.push('/');
         }
     };   
+
+    const { loading } = useUserData();
+
+    if(loading){
+        return <div>Loading...</div>
+    }
+
     return (
         <main className={`${isDarkMode? styles.darkMode : styles.lightMode} ${styles.mainContainer}`}>
+            <AlertModal/>
             <header>
                 <nav>
                     <Image src={Logo} priority width={400} height={100} alt="logo"/>
@@ -53,3 +63,4 @@ export default function Dashboard(){
         </main>
     )
 }
+

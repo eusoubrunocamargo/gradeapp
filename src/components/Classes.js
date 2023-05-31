@@ -5,11 +5,10 @@ import FloatingMenu from './floatingMenu';
 import AddClass from './addClass';
 import { useEffect, useState } from 'react';
 import MenuButton from './menuButton';
-import { supabase } from '../../supabase';
-import { useAuth } from '@/hooks/useAuth';
 import ClassBox from './classbox';
 import BtnNextPrevious from './btnNextPrevious';
 import { DeleteClass } from './deleteClass';
+import { useUserData } from '@/hooks/useUserData';
 
 export default function ComponentMyClasses () {
 
@@ -17,48 +16,27 @@ export default function ComponentMyClasses () {
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const [userClasses, setUserClasses] = useState([]);
 
-    const { user } = useAuth();
+    const { updatedUserClasses: classes } = useUserData();
 
     useEffect(() => {
-        const fetchUserClasses = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('user_classes_view_all')
-                    .select('*')
-                    .eq('user_id', user.id);
+        const uniqueClasses = Array.from(new Set(classes.map(item => item.class_name))).map(class_name => {
+            return {
+              name: class_name,
+              id: classes.find(item => item.class_name === class_name).degree_class_id
+            };
+          });
+        setUserClasses(uniqueClasses);
+    },[classes]);
 
-                    if(error){
-                        console.log(error);
-                    } else {
-                        const currentClasses = data;
-                        setUserClasses(currentClasses);
-                        console.log(data);
-                    }
-            } catch (error) {
-                console.log('Erro ao carregar matérias');
-            }
-        }
-
-        fetchUserClasses();
-    },[user, openModal, openDeleteModal]);
-
-    const handleAddClass = () => {
-        setOpenModal(true);
-    };
-
-    const handleDeleteClass = () => {
-        setOpenDeleteModal(true);
-    };
-
-    const [currentPage, setCurrentPage] = useState(0);
+    const [correnterentPage, setcorrenterentPage] = useState(0);
     const classesPerPage = 4;
-    const startIndex = currentPage * classesPerPage;
+    const startIndex = correnterentPage * classesPerPage;
     const selectedClasses = userClasses.slice(startIndex, startIndex + classesPerPage);
     const handlePrevPage = () => {
-        setCurrentPage(old => Math.max(old - 1, 0));
+        setcorrenterentPage(old => Math.max(old - 1, 0));
     };
     const handleNextPage = () => {
-        setCurrentPage(old => Math.min(old + 1, Math.ceil(userClasses.length/classesPerPage) - 1));
+        setcorrenterentPage(old => Math.min(old + 1, Math.ceil(userClasses.length/classesPerPage) - 1));
     };
 
     return (
@@ -67,11 +45,10 @@ export default function ComponentMyClasses () {
             {openModal && <AddClass setOpenModal={setOpenModal}/>}
             <section className={styles.myClassesHeader}>
                 
-                
                 <FloatingMenu
                 options={[
-                    { text: 'Cadastrar matéria' , callback: handleAddClass },
-                    { text: 'Excluir matéria' , callback: handleDeleteClass },
+                    { text: 'Cadastrar matéria' , callback: () => setOpenModal(true) },
+                    { text: 'Excluir matéria' , callback: () => setOpenDeleteModal(true) },
                 ]}>
                     <MenuButton/>
                 </FloatingMenu>
@@ -97,14 +74,15 @@ export default function ComponentMyClasses () {
                 
             </section>
             <section className={styles.classesBox}>
-                {!userClasses.length ? <>
+                {!userClasses.length ? 
+                <>
                     <span className={styles.noClass}>Você ainda não possui matérias cadastradas, clique no menu acima e adicione suas matérias</span>
                 </>
                 :
                 <>
                 {selectedClasses.map((myClass) => {
                    return (
-                        <ClassBox key={myClass.degree_class_id} classname={myClass.class_name}/>
+                        <ClassBox key={myClass.id} classname={myClass.name}/>
                    )
                 })}
                 </>

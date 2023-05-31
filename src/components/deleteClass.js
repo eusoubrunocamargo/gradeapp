@@ -3,20 +3,11 @@ import Close from '../../public/close.png';
 import Image from 'next/image';
 import Select from 'react-select';
 import { useState } from 'react';
-import { useAuth } from '@/hooks/useAuth';
-import { supabase } from '../../supabase';
-import { AlertModal } from './alertModal';
+import { useUserData } from '@/hooks/useUserData';
 
 export function DeleteClass({ setOpenDeleteModal, userClasses }) {
 
-    const { user } = useAuth();
-
-    const [isAlertVisible, setIsAlertVisible] = useState(false);
-    const closeAlert = () => {
-        setIsAlertVisible(false);
-    };
-    const [alertType, setAlertType] = useState('');
-    const [alertText, setAlertText] = useState('');
+    const { handleDeleteClass } = useUserData();
 
     const handleCloseModal = () => {
         setOpenDeleteModal(false);
@@ -27,8 +18,8 @@ export function DeleteClass({ setOpenDeleteModal, userClasses }) {
 
     const mappedOptions = userClasses.map((item) => {
         return {
-            value: item.degree_class_id,
-            label: item.class_name,
+            value: item.id,
+            label: item.name,
         }
     });
 
@@ -62,45 +53,23 @@ export function DeleteClass({ setOpenDeleteModal, userClasses }) {
         
     };
 
-    const handleDeleteClass = async () => {
-        console.log(selectedOption);
-        if(!selectedOption){
-            setIsAlertVisible(true);
-            setAlertText('Selecione uma matéria!');
-            setAlertType('fail');
-            return;
-        }
-
-        const { error } = await supabase
-            .from('user_classes')
-            .delete()
-            .eq('user_id', user.id)
-            .eq('degree_class_id', selectedOption)
-
-        if(error){
-            setIsAlertVisible(true);
-            setAlertText('Erro ao deletar matéria');
-            setAlertType('fail');
-        } else {
-            setIsAlertVisible(true);
-            setAlertText('Matéria deletada com sucesso!');
-            setAlertType('success');
-        }
+    const onDeleteClass = () => {
+        handleDeleteClass(selectedOption);
     }
 
     return (
         <section className={styles.modalBackground}>
             <section className={styles.containerDeleteClass}>
-                <AlertModal 
+                {/* <AlertModal 
                     alertText={alertText} 
                     isVisible={isAlertVisible} 
                     onClose={closeAlert} 
-                    alertType={alertType}/>
+                    alertType={alertType}/> */}
                 <button onClick={handleCloseModal} className={styles.btnClose}><Image src={Close} width={30} height={30} alt='close'/></button>
                 <h3>Selecione qual matéria você deseja excluir</h3>
                 <span>Cuidado! Ao excluir uma matéria você perderá todos os eventos relacionados, como trabalhos, provas e menção final. Esta ação é irreversível.</span>
                 <Select noOptionsMessage={() => 'Nenhuma matéria cadastrada'} placeholder='Selecione uma matéria' styles={customStyles} defaultValue={selectedOption} onChange={(option) => setSelectedOption(option.value)} options={mappedOptions}/>
-                <button onClick={handleDeleteClass} className={styles.btnDeleteClassSchedule}>DELETAR</button>
+                <button onClick={onDeleteClass} className={styles.btnDeleteClassSchedule}>DELETAR</button>
             </section>
         </section>
     )

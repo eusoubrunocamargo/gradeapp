@@ -7,14 +7,16 @@ import Check from '../../public/checkpurple.png';
 import { supabase } from '../../supabase';
 import { useAuth } from '@/hooks/useAuth';
 import AddClassSchedule from './addSchedule';
-import { useDegree } from '@/hooks/useDegree';
+import { useUserData } from '@/hooks/useUserData';
+// import { useDegree } from '@/hooks/useDegree';
 
 export default function AddClass ({ setOpenModal }) {
 
     const { user } = useAuth();
-    const { degreeId } = useDegree();
-    console.log(degreeId);
-    // const [page, setPage] = useState(0);
+    const { updatedUserData } = useUserData();
+    // const { degreeId } = useDegree();
+    const degreeId = updatedUserData[0].degree_id;
+    console.log('entrou no addclass');
     const [showAddClass, setShowAddClass] = useState(false);
     const [loading, setLoading] = useState(false);
     const [updatedDegree, setUpdatedDegree] = useState(false);

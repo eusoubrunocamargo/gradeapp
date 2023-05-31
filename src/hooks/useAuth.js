@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { supabase } from "../../supabase";
 
 export const useAuth = () => {
+    
     const router = useRouter();
     const [user, setUser] = useState(null);
 
@@ -18,6 +19,7 @@ export const useAuth = () => {
             } else {
                 const { user } = session;
                 setUser(user);
+                console.log(user);
             }
         };
         checkAuth();
