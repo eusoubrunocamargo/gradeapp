@@ -69,7 +69,8 @@
 
 .rightSide {
     width: 54rem;
-    /* border: solid; */
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 

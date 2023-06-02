@@ -3,8 +3,8 @@ import { Work_Sans } from 'next/font/google';
 import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { SessionContextProvider } from '@supabase/auth-helpers-react';
 import { useState } from 'react';
-// import { DegreeProvider } from '@/hooks/useDegree';
 import { UserDataProvider } from '@/hooks/useUserData';
+import { UserTasksProvider } from '@/hooks/useUserTasks';
 import { AlertProvider } from '@/hooks/useAlert';
 import Head from 'next/head';
 
@@ -18,7 +18,7 @@ function App({ Component, pageProps }) {
     <SessionContextProvider supabaseClient={supabaseClient} initialSession={pageProps.initialSession}>
       <AlertProvider>
         <UserDataProvider>
-          {/* <DegreeProvider> */}
+          <UserTasksProvider>
             <Head>
               <title>Grade+</title>
               <meta name="description" content="Organizando a sua vida universitária" />
@@ -28,7 +28,7 @@ function App({ Component, pageProps }) {
             <main className={workSans.className}>
               <Component {...pageProps}/>
             </main>
-          {/* </DegreeProvider> */}
+          </UserTasksProvider>
         </UserDataProvider>
       </AlertProvider>
     </SessionContextProvider>

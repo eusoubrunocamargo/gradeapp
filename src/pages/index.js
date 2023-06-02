@@ -29,8 +29,8 @@ export default function Login() {
   async function handleLogin(e){
     e.preventDefault();
 
-    console.log(newCheckForm.email.value, newCheckForm.email.valid);
-    console.log(newCheckForm.password.value, newCheckForm.password.valid);
+    // console.log(newCheckForm.email.value, newCheckForm.email.valid);
+    // console.log(newCheckForm.password.value, newCheckForm.password.valid);
 
     if(!newCheckForm.email.value || !newCheckForm.password.value){
       showAlert('Todos os campos são obrigatórios!', 'fail');
@@ -102,7 +102,7 @@ export default function Login() {
             </div>
 
             <button className={styles.btnGoogle}>
-              <Image src='/google_icon.png' priority width={20} height={20} alt='google'/>
+              <Image loading='lazy' src='/google_icon.png' width={20} height={20} alt='google'/>
               <span>Entre com o Google</span>
             </button>
 

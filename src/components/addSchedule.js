@@ -7,10 +7,10 @@ import { useUserData } from '@/hooks/useUserData';
 
 export default function AddClassSchedule () {
 
-    const { handleAddClass } = useUserData();
+    const { handleAddClass, updatedUserData } = useUserData();
     // const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const { updatedUserData } = useUserData();
+    // const { updatedUserData } = useUserData();
     const degreeId = updatedUserData[0].degree_id;
     const [classOptions, setClassOptions] = useState([]);
     const days = ['seg','ter','qua','qui','sex','sab'];

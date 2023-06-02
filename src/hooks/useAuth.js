@@ -19,7 +19,7 @@ export const useAuth = () => {
             } else {
                 const { user } = session;
                 setUser(user);
-                console.log(user);
+                // console.log(user);
             }
         };
         checkAuth();

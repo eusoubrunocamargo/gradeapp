@@ -21,7 +21,7 @@ function EmailInput({ newCheckForm , setNewCheckForm, type }){
     async function handleBlur(){
 
         const email = newCheckForm.email.value;
-        console.log(email);
+        // console.log(email);
 
         //check if email has valid format according to regex
         const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
@@ -52,11 +52,11 @@ function EmailInput({ newCheckForm , setNewCheckForm, type }){
         } 
         
         if(type === 'signup') {
-            console.log('entrou no checkemail');
+            // console.log('entrou no checkemail');
             const emailExists = await checkEmailExists(email);
-            console.log(emailExists);
+            // console.log(emailExists);
             if(emailExists){
-                console.log('entrou no exist');
+                // console.log('entrou no exist');
                 setErrorMessage('Este e-mail já está em uso');
                 setHasError(true);
                 setNewCheckForm({

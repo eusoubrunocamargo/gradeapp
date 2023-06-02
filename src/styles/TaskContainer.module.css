@@ -1,0 +1,143 @@
+.taskMainContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    background-color: #F8F9FA;
+}
+
+.taskMenu {
+    display: flex;
+    flex-direction: column;
+    width: 3rem;
+    border-right: #1e1e1e solid 1px;
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: 2px 2px 2px rgb(30, 30, 30, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.taskContentContainer {
+    display: grid;
+    width: 100%;
+    padding: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 70% 30%;
+}
+
+.taskContentContainer span {
+    grid-area: 1 / 1 / 1 / 4;
+    font-size: small;
+    line-height: calc(3.5rem/2);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    white-space: pre-line;
+    overflow: hidden;
+}
+
+.calendarGrid {
+    grid-area: 2 / 1;
+}
+
+.containerDueDate {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.containerDueDate div {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: x-small;
+    line-height: 1.5rem;
+    color: #1e1e1e;
+}
+
+.containerTag {
+    overflow: hidden;
+    grid-area: 2 / 2 / 2 / 4;
+    display: flex;
+    align-items: center;
+}
+
+.containerTag span {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    white-space: pre-line;
+    overflow: hidden;
+    color: #1e1e1e;
+}
+
+.redAlert {
+    background: #F45151;
+}
+
+.yellowAlert {
+    background: #F0D731;
+}
+
+.taskMenuOpen {
+    display: flex;
+    flex-direction: column;
+    grid-area: 1 / 1 / 3 / 4;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.taskMenuOpen button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: small;
+}
+
+.taskMenuOpen button:hover {
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

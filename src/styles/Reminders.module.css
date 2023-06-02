@@ -1,0 +1,73 @@
+.componentContainer {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.navContainer {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.menuBox {
+    width: 100%;
+    min-height: 4.5rem;
+    background: #F8F9FA;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 20rem;
+    width: 100%;
+    padding: 0.5rem;
+    align-items: center;
+    gap: 1rem;
+    background: #7D00E4;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.containerControls {
+    display: flex;
+    gap: 1rem;
+}
+
+.searchWrapper {
+    position: relative;
+    width: 15rem;
+    height: 3rem;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.searchWrapper select {
+    /* background-color: blue; */
+    width: 100%;
+    color: rgb(51, 51, 51, 0.5);
+    font-size: small;
+}
+
+.searchWrapper label {
+    width: 2rem;
+    height: 2rem;
+    pointer-events: none;
+    display: flex;
+}

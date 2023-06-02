@@ -16,7 +16,7 @@ body {
   justify-content: center;
 }
 
-input, button, select {
+input, button, select, textarea {
   all: unset;
   cursor: pointer;
   box-sizing: border-box;

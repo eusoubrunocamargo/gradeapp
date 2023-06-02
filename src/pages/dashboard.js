@@ -6,6 +6,7 @@ import Logo from '../../public/logo.svg';
 import ComponentProfile from "@/components/Profile";
 import ComponentMyClasses from "@/components/Classes";
 import ComponentMyWeek from "@/components/MyWeek";
+import ComponentReminders from "@/components/Reminders/Reminders";
 import { _useEffect, useState } from "react";
 import { AlertModal } from "@/components/alertModal";
 import { useUserData } from "@/hooks/useUserData";
@@ -58,6 +59,7 @@ export default function Dashboard(){
                 </section>
                 <section className={styles.rightSide}>
                     <ComponentMyWeek isDarkMode={isDarkMode}/>
+                    <ComponentReminders/>
                 </section>
             </section>  
         </main>
