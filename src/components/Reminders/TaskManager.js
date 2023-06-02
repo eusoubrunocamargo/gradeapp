@@ -93,6 +93,8 @@ export default function TaskManager({ setOpenTaskManager }){
         <button className={styles.CustomDateInput} onClick={onClick} ref={ref}>{value}</button>
     ));
 
+    CustomDateInput.displayName = 'CustomDateInput';
+
     const [taskText, setTaskText] = useState('');
 
     const handleSubmitTask = () => {
