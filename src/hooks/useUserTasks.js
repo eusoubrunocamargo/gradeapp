@@ -6,6 +6,7 @@ import { useUserData } from "./useUserData";
 
 
 const UserTasksContext = createContext();
+
 function getRemainingDays(dueDate) {
     // Create date objects from the due date and the current date
     const dueDateObject = new Date(dueDate);
@@ -14,9 +15,9 @@ function getRemainingDays(dueDate) {
     // Calculate the difference in time (in milliseconds)
     const differenceInTime = dueDateObject.getTime() - currentDate.getTime();
 
-    // Convert the time difference into days and round it down
+    // Convert the time difference into days and round it up
     // One day is equal to 1000 * 60 * 60 * 24 milliseconds
-    const differenceInDays = Math.floor(differenceInTime / (1000 * 60 * 60 * 24));
+    const differenceInDays = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
 
     // Return the difference in days
     return differenceInDays;
@@ -42,20 +43,21 @@ export const UserTasksProvider = ({ children }) => {
             if(error){
                 console.error(error);
             } else {
+                // console.log(data);
                 const taskCondition = data.map((task) => {
                     const diff = getRemainingDays(task.due_date);
                     return {...task, condition: diff};
                 })
-                console.log(taskCondition);
+                // console.log(taskCondition);
                 setUpdatedUserTasks(taskCondition);
             }
     },[user]);
 
     const handleAddTask = async (description, tag, dueDate) => {
-        console.log(description);
-        console.log(tag);
-        console.log(dueDate);
-        console.log(user);
+        // console.log(description);
+        // console.log(tag);
+        // console.log(dueDate);
+        // console.log(user);
         if(!user)return;
         const { data , error } = await supabase
             .from('tasks')
@@ -70,7 +72,7 @@ export const UserTasksProvider = ({ children }) => {
             if(error){
                 console.log(error);
             } else {
-                console.log(data[0]);
+                // console.log(data[0]);
                 showAlert('Tarefa adicionada!', 'success');
                 fetchUserTasks();
             }

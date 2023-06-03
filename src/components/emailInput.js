@@ -91,7 +91,7 @@ function EmailInput({ newCheckForm , setNewCheckForm, type }){
     
 
     function handleChange(event){
-        console.log('entrou no handleChange');
+        // console.log('entrou no handleChange');
         const newEmailValue = event.target.value;
         setNewCheckForm(prev => ({
             ...prev,

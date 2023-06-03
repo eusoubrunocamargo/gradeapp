@@ -41,7 +41,7 @@ function PassInput({ newCheckForm , setNewCheckForm }){
 
         const newPassValue = event.target.value;
 
-        console.log(newPassValue);
+        // console.log(newPassValue);
         
         passRequirements.forEach((requirement) => {
             const element = document.getElementById(requirement.id);

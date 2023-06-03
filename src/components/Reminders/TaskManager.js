@@ -98,6 +98,7 @@ export default function TaskManager({ setOpenTaskManager }){
     const [taskText, setTaskText] = useState('');
 
     const handleSubmitTask = () => {
+        console.log(selectedDate);
         const formattedDate = `'${convertDate(selectedDate)}'`;
         if(!taskText || !formattedDate || !selectedOption){
             showAlert('Preencha todos os campos', 'fail');
