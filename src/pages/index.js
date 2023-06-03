@@ -9,11 +9,13 @@ import PassInput from '@/components/passInput';
 import { useState } from 'react';
 import { AlertModal } from '@/components/alertModal';
 import { useAlert } from '@/hooks/useAlert';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function Login() {
 
   const router = useRouter();
   const { showAlert } = useAlert();
+  const { handleLogin } = useAuth();
 
   const [newCheckForm, setNewCheckForm] = useState({
     email: {
@@ -26,39 +28,28 @@ export default function Login() {
     }
   });
 
-  async function handleLogin(e){
+  const onLogin = async (e) => {
     e.preventDefault();
 
-    // console.log(newCheckForm.email.value, newCheckForm.email.valid);
-    // console.log(newCheckForm.password.value, newCheckForm.password.valid);
-
     if(!newCheckForm.email.value || !newCheckForm.password.value){
-      showAlert('Todos os campos são obrigatórios!', 'fail');
+      return showAlert('Todos os campos são obrigatórios!', 'fail');
     }
 
     const isFormValid = Object.values(newCheckForm).every(({ valid }) => valid === true);
-    const { email , password } = newCheckForm;
 
     if(isFormValid){
+      const { email , password } = newCheckForm;
       try{
-        const{ error }=await supabase.auth.signInWithPassword({
-          email: email.value,
-          password: password.value,
-        });
-
-        if(error){
-          console.error(error.message);
-          throw error; 
-        } else {
-          router.push('/dashboard');
-        }
-      } catch (error){
+        await handleLogin(email.value, password.value);
+      } catch (error){  
         if(error.message === 'Invalid login credentials'){
           showAlert('Senha inválida!', 'fail');
         }
       }
+    
     }
-  }
+  };
+
   return (
     <>
       
@@ -82,7 +73,7 @@ export default function Login() {
 
         <section className={styles.rightContainer}>
 
-          <form className={styles.formLogin} onSubmit={handleLogin}>
+          <form className={styles.formLogin} onSubmit={onLogin}>
 
             <div className={styles.textbox}>
               <span>E aí,<br/>blz?</span>

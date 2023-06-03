@@ -16,7 +16,7 @@ import { useUserData } from "@/hooks/useUserData";
 
 export default function ComponentProfile(){
 
-    const { user } = useAuth();
+    const {user} = useAuth();
     const { updatedUserData, loading } = useUserData();
 
     const [newAvatar, setNewAvatar] = useState(null);

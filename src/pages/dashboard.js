@@ -1,5 +1,3 @@
-import { useRouter } from "next/router"
-import { supabase } from "../../supabase";
 import styles from '@/styles/Dash.module.css';
 import Image from "next/image";
 import Logo from '../../public/logo.svg';
@@ -7,31 +5,20 @@ import ComponentProfile from "@/components/Profile";
 import ComponentMyClasses from "@/components/Classes";
 import ComponentMyWeek from "@/components/MyWeek";
 import ComponentReminders from "@/components/Reminders/Reminders";
-import { _useEffect, useState } from "react";
+import { useState } from "react";
 import { AlertModal } from "@/components/alertModal";
 import { useUserData } from "@/hooks/useUserData";
 import { useAuth } from "@/hooks/useAuth";
 
 export default function Dashboard(){
 
-    const router = useRouter();
-
-    useAuth();
-
+    const { handleSignOut } = useAuth();
+    
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     const handleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
     };
-
-    const handleSignOut = async () => {
-        const {error} = await supabase.auth.signOut();
-        if(error){
-            console.error(error);
-        }else{
-            router.push('/');
-        }
-    };   
 
     const { loading } = useUserData();
 

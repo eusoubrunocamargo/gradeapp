@@ -26,7 +26,7 @@ export const useUserTasks = () => useContext(UserTasksContext);
 
 export const UserTasksProvider = ({ children }) => {
     
-    const { user }  = useAuth();
+    const  {user}   = useAuth();
     // const { updatedUserClasses: classes } = useUserData();
     const [updatedUserTasks, setUpdatedUserTasks] = useState([]);
     const { showAlert } = useAlert();

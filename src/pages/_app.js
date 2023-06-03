@@ -1,10 +1,8 @@
 import '@/styles/globals.css';
 import { Work_Sans } from 'next/font/google';
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import { SessionContextProvider } from '@supabase/auth-helpers-react';
-import { useState } from 'react';
 import { UserDataProvider } from '@/hooks/useUserData';
 import { UserTasksProvider } from '@/hooks/useUserTasks';
+import { AuthProvider } from '@/hooks/useAuth';
 import { AlertProvider } from '@/hooks/useAlert';
 import Head from 'next/head';
 
@@ -12,10 +10,9 @@ const workSans = Work_Sans({subsets: ['latin']})
 
 function App({ Component, pageProps }) {
 
-  const [supabaseClient] = useState(()=>createBrowserSupabaseClient());
 
   return (
-    <SessionContextProvider supabaseClient={supabaseClient} initialSession={pageProps.initialSession}>
+    <AuthProvider>
       <AlertProvider>
         <UserDataProvider>
           <UserTasksProvider>
@@ -31,7 +28,7 @@ function App({ Component, pageProps }) {
           </UserTasksProvider>
         </UserDataProvider>
       </AlertProvider>
-    </SessionContextProvider>
+    </AuthProvider>
   )
 }
 
