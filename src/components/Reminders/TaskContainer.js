@@ -11,6 +11,15 @@ import FinishedIcon from '../../../public/success_alert.png';
 
 // import FloatingMenu from '../floatingMenu'
 
+export function formatDate(dueDate) {
+    const parts = dueDate.split('-').map(part => Number(part));
+    const date = new Date(parts[0], parts[1] - 1, parts[2]);  // JavaScript month is 0-based
+
+    const day = String(date.getDate()).padStart(2, '0'); // add leading zeros if necessary
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // add leading zeros if necessary
+    return `${day}/${month}`;
+};
+
 export default function TaskContainer( {
     description, 
     tag, 
@@ -27,14 +36,14 @@ export default function TaskContainer( {
 
 
     //set date format to dd/MM
-    function formatDate(dueDate) {
-        const parts = dueDate.split('-').map(part => Number(part));
-        const date = new Date(parts[0], parts[1] - 1, parts[2]);  // JavaScript month is 0-based
+    // function formatDate(dueDate) {
+    //     const parts = dueDate.split('-').map(part => Number(part));
+    //     const date = new Date(parts[0], parts[1] - 1, parts[2]);  // JavaScript month is 0-based
     
-        const day = String(date.getDate()).padStart(2, '0'); // add leading zeros if necessary
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // add leading zeros if necessary
-        return `${day}/${month}`;
-    };
+    //     const day = String(date.getDate()).padStart(2, '0'); // add leading zeros if necessary
+    //     const month = String(date.getMonth() + 1).padStart(2, '0'); // add leading zeros if necessary
+    //     return `${day}/${month}`;
+    // };
     const formattedDate = formatDate(dueDate);
 
     //control menu each task

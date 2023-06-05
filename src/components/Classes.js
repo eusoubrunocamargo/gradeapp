@@ -82,7 +82,7 @@ export default function ComponentMyClasses () {
                 <>
                 {selectedClasses.map((myClass) => {
                    return (
-                        <ClassBox key={myClass.id} classname={myClass.name}/>
+                        <ClassBox key={myClass.id} data={myClass}/>
                    )
                 })}
                 </>

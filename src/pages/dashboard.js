@@ -5,6 +5,7 @@ import ComponentProfile from "@/components/Profile";
 import ComponentMyClasses from "@/components/Classes";
 import ComponentMyWeek from "@/components/MyWeek";
 import ComponentReminders from "@/components/Reminders/Reminders";
+import Floating from '@/components/Floating/Floating';
 import { useState } from "react";
 import { AlertModal } from "@/components/alertModal";
 import { useUserData } from "@/hooks/useUserData";
@@ -49,6 +50,9 @@ export default function Dashboard(){
                     <ComponentReminders/>
                 </section>
             </section>  
+
+            {/* <Floating/> */}
+            
         </main>
     )
 }

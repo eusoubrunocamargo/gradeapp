@@ -1,0 +1,23 @@
+.mainContainer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    margin: 4rem;
+    align-items: center;
+    justify-content: center;
+    width: 24rem;
+    height: 6rem;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    background: #F8F9FA;
+    border-radius: 1rem;
+    transition: .3s 0s ease-out height, .3s .5s ease-out width;
+}
+
+.mainContainer:hover {
+    width: 40rem;
+    height: 8rem;
+    transition: .3s .3s ease-out height, .3s 0s ease-out width;
+    /* justify-content: start; */
+}
+

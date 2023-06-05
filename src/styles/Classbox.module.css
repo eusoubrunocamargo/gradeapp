@@ -17,3 +17,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.boxContainer:hover {
+    cursor: pointer;
+    background-color: #FFA629;
+    color: #1E1E1E;
+}
+
