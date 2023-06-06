@@ -29,7 +29,7 @@ export const UserOccurrencesProvider = ({ children }) => {
             } else {
                 setUpdatedUserOccurrences(data);
             }
-    },[user]);
+    },[user, showAlert]);
 
     const handleAddOccurrence = async (class_id, type, date, description) => {
         let newType = '';
@@ -77,39 +77,6 @@ export const UserOccurrencesProvider = ({ children }) => {
             fetchUserOccurrences();
         }
     };
-
-
-   
-
-    // const handleDeleteTask = async (taskId) => {
-    //     const { error } = await supabase
-    //         .from('tasks')
-    //         .delete()
-    //         .eq('user_id', user.id)
-    //         .eq('id', taskId)
-
-    //         if(error){
-    //             showAlert('Erro ao deletar tarefa!', 'fail');
-    //         } else {
-    //             showAlert('Tarefa deletada com sucesso!', 'success');
-    //             fetchUserTasks();
-    //         }
-    // };
-
-    // const handleFinishTask = async (taskId, finishedDate) => {
-    //     const { error } = await supabase
-    //         .from('tasks')
-    //         .update({ finished_at: finishedDate })
-    //         .eq('user_id', user.id)
-    //         .eq('id', taskId)
-
-    //         if(error){
-    //             showAlert('Erro ao concluir tarefa!', 'fail');
-    //         } else {
-    //             showAlert('Tarefa concluída com sucesso!', 'success');
-    //             fetchUserTasks();
-    //         }
-    // };
 
     useEffect(() => {
         fetchUserOccurrences();

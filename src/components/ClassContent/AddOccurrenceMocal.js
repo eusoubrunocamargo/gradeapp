@@ -62,7 +62,6 @@ export default function AddOccurrenceModal({ setAddModal, classId }){
     <>    
         <section className={styles.addModal}>
 
-            {/* page 0 - set type of occurrence */}
             {page === 0 && <>
                 <Image src={SmallClose} width={20} height={20} alt='close' onClick={handleCloseModal}/>
                 <select className={styles.selectInput} onChange={(e) => handleType(e)}>
@@ -76,7 +75,6 @@ export default function AddOccurrenceModal({ setAddModal, classId }){
                 </div>
                 </>}
 
-            {/* page 1 - set date */}
             {page === 1 && <>
             <Image src={SmallClose} width={20} height={20} alt='close' onClick={handleCloseModal}/>
             <DatePicker 
@@ -93,7 +91,6 @@ export default function AddOccurrenceModal({ setAddModal, classId }){
                 </div>
             </>}
 
-            {/* page 2 - description */}
             {page === 2 && <>
             <Image src={SmallClose} width={20} height={20} alt='close' onClick={handleCloseModal}/>
             <textarea minLength={1} maxLength={100} className={styles.containerTextArea} onChange={(e) => handleDescription(e)}/>
@@ -103,7 +100,6 @@ export default function AddOccurrenceModal({ setAddModal, classId }){
                 </div>
             </>}
 
-            {/* page 3 - resume */}
             {page === 3 && <>
             <Image src={SmallClose} width={20} height={20} alt='close' onClick={handleCloseModal}/>
             <div className={styles.containerBtn}>
@@ -113,7 +109,7 @@ export default function AddOccurrenceModal({ setAddModal, classId }){
             <div className={styles.resumeContainer}>
                 <span>Tipo: {type}</span>
                 <span>Data: { formatDate(convertDate(selectedDate))}</span>
-                <span>Descrição: "{description}"</span>
+                <span>Descrição: {description}</span>
             </div>
             </>}
 
