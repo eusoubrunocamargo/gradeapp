@@ -1,0 +1,67 @@
+.addModal {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.selectInput {
+    border: #1E1E1E solid 1px;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    height: 4rem;
+    width: 20rem;
+    display: flex;
+    align-items: center;
+}
+
+.containerBtnPrevNext {
+    display: flex;
+    gap: 1rem;
+}
+
+.CustomDateInput {
+    background: #F8F9FA;
+    border: solid 1px #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 1rem;
+    width: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+}
+
+.containerTextArea {
+    border: solid 1px #1e1e1e;
+    width: 30rem;
+    height: 7rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+}
+
+.resumeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    font-size: small;
+    text-align: justify;
+    border: #1E1E1E solid 1px;
+    padding: .5rem;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    /* min-width: 20rem; */
+    width: 100%;
+}
+
+.btnSaveOccurence {
+    background: #7D00E4;
+    color: #F8F9FA;
+    width: 100%;
+    height: 3rem;
+    border-radius: 1rem;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+}

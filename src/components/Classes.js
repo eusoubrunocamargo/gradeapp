@@ -8,25 +8,39 @@ import MenuButton from './menuButton';
 import ClassBox from './classbox';
 import BtnNextPrevious from './btnNextPrevious';
 import { DeleteClass } from './deleteClass';
+import { FinishClass } from './finishClass';
 import { useUserData } from '@/hooks/useUserData';
 
 export default function ComponentMyClasses () {
 
     const [openModal, setOpenModal] = useState(false);
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
+    const [openFinishModal, setOpenFinishModal] = useState(false);
     const [userClasses, setUserClasses] = useState([]);
 
     const { updatedUserClasses: classes } = useUserData();
 
+    // useEffect(() => {
+    //     const uniqueClasses = Array.from(new Set(classes.map(item => item.class_name))).map(class_name => {
+    //         return {
+    //           name: class_name,
+    //           id: classes.find(item => item.class_name === class_name).degree_class_id,
+    //         };
+    //       });
+    //     setUserClasses(uniqueClasses);
+    // },[classes]);
+
     useEffect(() => {
         const uniqueClasses = Array.from(new Set(classes.map(item => item.class_name))).map(class_name => {
             return {
-              name: class_name,
-              id: classes.find(item => item.class_name === class_name).degree_class_id
+                name: class_name,
+                id: classes.find(item => item.class_name === class_name).degree_class_id,
+                grade: classes.find(item => item.class_name === class_name).grade,
             };
-          });
+        });
         setUserClasses(uniqueClasses);
-    },[classes]);
+    }, [classes]);
+    
 
     const [correnterentPage, setcorrenterentPage] = useState(0);
     const classesPerPage = 4;
@@ -41,6 +55,7 @@ export default function ComponentMyClasses () {
 
     return (
         <main className={styles.myClassesContainer}>
+            {openFinishModal && <FinishClass userClasses={userClasses} setOpenFinishModal={setOpenFinishModal}/>}
             {openDeleteModal && <DeleteClass userClasses={userClasses} setOpenDeleteModal={setOpenDeleteModal}/>}
             {openModal && <AddClass setOpenModal={setOpenModal}/>}
             <section className={styles.myClassesHeader}>
@@ -48,6 +63,7 @@ export default function ComponentMyClasses () {
                 <FloatingMenu
                 options={[
                     { text: 'Cadastrar matéria' , callback: () => setOpenModal(true) },
+                    { text: 'Concluir matéria' , callback: () => setOpenFinishModal(true) },
                     { text: 'Excluir matéria' , callback: () => setOpenDeleteModal(true) },
                 ]}>
                     <MenuButton/>

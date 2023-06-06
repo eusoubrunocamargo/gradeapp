@@ -67,3 +67,16 @@
     color: #F8F9FA;
 }
 
+.select {
+    border:#1e1e1e solid 1px;
+    width: 100%;
+    height: 3.6rem; 
+    text-align: center;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    color: #7D00E4;
+}
+

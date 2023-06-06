@@ -11,13 +11,12 @@ export default function ClassBox ({ data }) {
 
     // console.log(data);
 
-
-
     return (
         <>
         {openModal && <ClassContent data={data} setOpenModal={setOpenModal}/>} 
-         <section onClick={handleOpenModal} className={styles.boxContainer}>
+         <section onClick={handleOpenModal} className={`${styles.boxContainer} ${data.grade !== null && styles.finishedClass}`}>
             <p>{data.name}</p>
+            {data.grade !== null && <p>{data.grade}</p>}
         </section>
         
         </>

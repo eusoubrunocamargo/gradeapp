@@ -1,62 +1,56 @@
 import styles from '@/styles/ClassContent.module.css';
 import { useState, forwardRef } from 'react';
-import DatePicker from 'react-datepicker';
 import Close from '../../../public/close.png';
 import Image from 'next/image';
 import MenuButton from '../menuButton';
 import FloatingMenu from '../floatingMenu';
-import SmallClose from '../../../public/small_close.png';
-import SmallNext from '../../../public/small_next.png';
-import SmallPrev from '../../../public/small_prev.png';
-import { registerLocale, setDefaultLocale } from  "react-datepicker";
-import pt_BR from 'date-fns/locale/pt-BR';
-registerLocale('br', pt_BR);
-import { convertDate } from '../Reminders/TaskManager';
-import { formatDate } from '../Reminders/TaskContainer';
-import { supabase } from '../../../supabase';
+import { useUserOccurrences } from '@/hooks/useUserOccurrences';
+import OccurrenceContainer from './OccurrenceContainer';
+import AddOccurrenceModal from './AddOccurrenceMocal';
 
-export default function ClassContent({ setOpenModal,data }){
+export default function ClassContent({ setOpenModal, data }){
 
-    const [addModal, setAddModal] = useState(false);
-    const [page, setPage] = useState(0);
+    const { id: classId } = data;
+    const { updatedUserOccurrences } = useUserOccurrences();
 
     //handle close modal
-    const handleCloseModal = () => {
-        setAddModal(false);
-        setType('');
-        setPage(0);
-        setSelectedDate(new Date());
+    const [addModal, setAddModal] = useState(false);
+
+    //control active button
+    const [activeButton, setActiveButton] = useState({
+        provas: true,
+        trabalhos: false,
+        eventos: false,
+        colegas: false,
+    });
+
+    const handleActiveButton = (e) => {
+        const newActiveButtonState = Object.keys(activeButton).reduce((state, key) => {
+            state[key] = key === e.target.id;
+            return state;
+        }, {});
+        setActiveButton(newActiveButtonState);
+    }
+
+    const renderOccurrences = (type, typeName) => {
+        if (!activeButton[type]) return null;
+        return updatedUserOccurrences.map((occurrence) => {
+            if (occurrence.occurrence_type === typeName && occurrence.degree_class_id === classId) {
+                return (
+                    <OccurrenceContainer key={occurrence.id} occurrence={occurrence}/>
+                );
+            }
+        });
+    };
+
+    const getOccurrencesCount = (type, typeName) => {
+        // if (!activeButton[type]) return 0;
+        return updatedUserOccurrences.filter((occurrence) =>
+            occurrence.occurrence_type === typeName && occurrence.degree_class_id === classId
+        ).length;
     };
     
-    //date picker
-    const CustomDateInput = forwardRef(({ value, onClick },ref) => (
-        <button className={styles.CustomDateInput} onClick={onClick} ref={ref}>{value}</button>
-    ));
-    CustomDateInput.displayName = 'CustomDateInput';
-    const currentDate = new Date();
-
-    //type of occurrence
-    const [type, setType] = useState('');
-    const handleType = (e) => {
-        setType(e.target.value);
-    };
-
-    //date
-    const [selectedDate, setSelectedDate] = useState(new Date());
-
-    //description
-    const [description, setDescription] = useState('');
-    const handleDescription = (e) => {  
-        setDescription(e.target.value);
-    };
-
-    //handle add occurrence
-    // const handleAddOccurrence = () => {
-    //     const date = convertDate(selectedDate);
-        
-
-
-        
+    
 
     return (
         <section className={styles.darkBackground}>
@@ -65,64 +59,7 @@ export default function ClassContent({ setOpenModal,data }){
                 <section className={styles.classContentGrid}>
                     <div className={styles.classContentHeader}>
                         {addModal ? 
-                        <section className={styles.addModal}>
-
-                            {/* page 0 - type of occurrence */}
-                            {page === 0 && <>
-                                <Image src={SmallClose} width={20} height={20} alt='close' onClick={handleCloseModal}/>
-                                <select className={styles.selectInput} onChange={(e) => handleType(e)}>
-                                    <option>Selecione uma opção</option>
-                                    <option value="Prova">Prova</option>
-                                    <option value="Trabalho">Trabalho</option>
-                                    <option value="Evento">Evento</option>
-                                </select>
-                                <div>
-                                    <Image src={SmallNext} width={20} height={20} alt='next' onClick={() => setPage(1)}/>
-                                </div>
-                                </>}
-
-                            {/* //page 1 - date */}
-                            {page === 1 && <>
-                            <Image src={SmallClose} width={20} height={20} alt='close' onClick={handleCloseModal}/>
-                            <DatePicker 
-                                minDate={currentDate}
-                                dateFormat='dd/MM/yyyy'
-                                locale='br'
-                                withPortal
-                                selected={selectedDate}
-                                onChange={(date) => setSelectedDate(date)} 
-                                customInput={<CustomDateInput/>}/>
-                                <div className={styles.containerBtnPrevNext}>
-                                    <Image src={SmallPrev} width={20} height={20} alt='next' onClick={() => setPage(0)}/>
-                                    <Image src={SmallNext} width={20} height={20} alt='next' onClick={() => setPage(2)}/>
-                                </div>
-                            </>}
-
-                            {/* //page 2 - description */}
-                            {page === 2 && <>
-                            <Image src={SmallClose} width={20} height={20} alt='close' onClick={handleCloseModal}/>
-                            <textarea minLength={1} maxLength={200} className={styles.containerTextArea} onChange={(e) => handleDescription(e)}/>
-                                <div className={styles.containerBtnPrevNext}>
-                                    <Image src={SmallPrev} width={20} height={20} alt='next' onClick={() => setPage(1)}/>
-                                    <Image src={SmallNext} width={20} height={20} alt='next' onClick={() => setPage(3)}/>
-                                </div>
-                            </>}
-
-                            {/* //page 3 - resume */}
-                            {page === 3 && <>
-                            <Image src={SmallClose} width={20} height={20} alt='close' onClick={handleCloseModal}/>
-                            <div className={styles.containerBtn}>
-                                <h3>Resumo</h3>
-                                <button className={styles.btnSaveOccurence}>Salvar</button>
-                            </div>
-                            <div className={styles.resumeContainer}>
-                                <span>Tipo: {type}</span>
-                                <span>Data: { formatDate(convertDate(selectedDate))}</span>
-                                <span>Descrição: "{description}"</span>
-                            </div>
-                            </>}
-                            
-                        </section>
+                        <AddOccurrenceModal setAddModal={setAddModal} classId={classId}/>
                         :
                         <>
                         <FloatingMenu options={[
@@ -133,16 +70,16 @@ export default function ClassContent({ setOpenModal,data }){
                         <h3>{data.name}</h3>
                         </>}
                     </div>
-                    <button className={styles.btnOptions}>Provas</button>
-                    <button className={styles.btnOptions}>Trabalhos</button>
-                    <button className={styles.btnOptions} >Eventos</button>
-                    <button className={styles.btnOptions}>Contatos</button>
+                    <button id='provas' onClick={(e) => handleActiveButton(e)} className={`${styles.btnOptions} ${activeButton.provas && styles.activeBtn}`}>Provas{getOccurrencesCount('provas','exam') > 0 && <div className={styles.numberOccurrences}>{getOccurrencesCount('provas','exam')}</div>}</button>
+                    <button id='trabalhos' onClick={(e) => handleActiveButton(e)} className={`${styles.btnOptions} ${activeButton.trabalhos && styles.activeBtn}`}>Trabalhos{getOccurrencesCount('trabalhos','coursework') > 0 && <div className={styles.numberOccurrences}>{getOccurrencesCount('trabalhos','coursework')}</div>}</button>
+                    <button id='eventos' onClick={(e) => handleActiveButton(e)} className={`${styles.btnOptions} ${activeButton.eventos && styles.activeBtn}`}>Eventos{getOccurrencesCount('eventos','event') > 0 && <div className={styles.numberOccurrences}>{getOccurrencesCount('eventos','event')}</div>}</button>
+                    <button id='colegas' onClick={(e) => handleActiveButton(e)} className={`${styles.btnOptions} ${activeButton.colegas && styles.activeBtn}`}>Colegas</button>
                     <div className={styles.contentContainer}>
-                        
+                        {renderOccurrences('provas', 'exam')}
+                        {renderOccurrences('trabalhos', 'coursework')}
+                        {renderOccurrences('eventos', 'event')}
                     </div>
-
                 </section>
-
             </section>
         </section>
     )

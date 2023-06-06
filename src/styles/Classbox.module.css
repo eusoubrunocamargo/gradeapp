@@ -7,6 +7,7 @@
     height: 4.5rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 1rem;
 }
 
@@ -22,5 +23,9 @@
     cursor: pointer;
     background-color: #FFA629;
     color: #1E1E1E;
+}
+
+.finishedClass {
+    background-color: #333;
 }
 

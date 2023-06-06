@@ -15,6 +15,7 @@
     box-shadow: 2px 2px 0px #1E1E1E;
     border-radius: 10px;
     padding: 1rem;
+    z-index: 1;
 }
 
 .menuContent button:hover {

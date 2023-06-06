@@ -122,6 +122,21 @@ export const UserDataProvider = ({ children }) => {
             }
     };
 
+    const handleFinishClass = async (classId, grade) => {
+        const { error } = await supabase
+            .from('user_classes')
+            .update({grade: grade, end_date: new Date()})
+            .eq('degree_class_id', classId)
+            .eq('user_id', user.id)
+
+            if(error){
+                showAlert('Erro ao finalizar matéria!', 'fail');
+            } else {
+                showAlert('Matéria finalizada!', 'success');
+                fetchUserClasses();
+            }
+    }
+
     useEffect(() => {
         fetchUserClasses();
         fetchUserData();
@@ -133,7 +148,9 @@ export const UserDataProvider = ({ children }) => {
             updatedUserClasses, 
             updatedUserData, 
             handleDeleteClass, 
-            handleAddClass }}>
+            handleAddClass,
+            handleFinishClass,
+            }}>
             {children}
         </UserDataContext.Provider>
     )

@@ -1,0 +1,44 @@
+.occurrenceContainer {
+    display: grid;
+    grid-template-rows: 2rem max-content;
+    background-color: #F8F9FA;
+    border-radius: 1rem;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    font-size: small;
+    overflow: hidden;
+    padding: 0.5rem;
+}
+
+.occurrenceContainer > span:first-child {
+    font-weight: bold;
+    color: #7D00E4;
+}
+
+.occurrenceContainer > span:last-child {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    white-space: pre-line;
+    overflow: hidden;
+    color: #1e1e1e;
+}
+
+.btnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    grid-row: 2;
+}
+
+.btnContainer > button:first-of-type {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btnContainer > button:hover {
+    font-weight: bold;
+}
