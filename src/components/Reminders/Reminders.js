@@ -14,20 +14,24 @@ export default function ComponentReminders(){
 
     const [openTaskManager, setOpenTaskManager] = useState(false);
     const { updatedUserTasks } = useUserTasks();
+    
+
+    const [currentPage, setcurrentPage] = useState(0);
+    const tasksPerPage = 4;
+    const startIndex = currentPage * tasksPerPage;
+
+    // console.log(updatedUserTasks);
+    
+    // const orderedTasks = updatedUserTasks.slice(startIndex, startIndex + tasksPerPage);
+    let orderedTasks = [...updatedUserTasks];
+
+    //sort
     const [filter, setFilter] = useState('');
 
     const handleFilterChange = (event) => {
         setFilter(event.target.value);
     };
 
-    const [currentPage, setcurrentPage] = useState(0);
-    const tasksPerPage = 4;
-    const startIndex = currentPage * tasksPerPage;
-    
-    // const orderedTasks = updatedUserTasks.slice(startIndex, startIndex + tasksPerPage);
-    let orderedTasks = [...updatedUserTasks];
-
-    //sort
     if(filter === 'Mais recentes'){
         orderedTasks.sort((a,b) => new Date(b.task_id) - new Date(a.task_id));
     } else if(filter === 'Prioritários'){
@@ -82,6 +86,7 @@ export default function ComponentReminders(){
                 </div>
             </section>
             <section className={styles.mainContainer}>
+                {updatedUserTasks.length === 0 && <span className={styles.noTasks}>Nenhuma tarefa encontrada</span>}
                 {orderedTasks.map((task, index) => (
                     <TaskContainer 
                         openTaskMenu={openTaskMenu}

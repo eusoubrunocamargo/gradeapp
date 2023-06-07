@@ -20,23 +20,25 @@ export default function ComponentMyClasses () {
 
     const { updatedUserClasses: classes } = useUserData();
 
-    // useEffect(() => {
-    //     const uniqueClasses = Array.from(new Set(classes.map(item => item.class_name))).map(class_name => {
-    //         return {
-    //           name: class_name,
-    //           id: classes.find(item => item.class_name === class_name).degree_class_id,
-    //         };
-    //       });
-    //     setUserClasses(uniqueClasses);
-    // },[classes]);
-
     useEffect(() => {
-        const uniqueClasses = Array.from(new Set(classes.map(item => item.class_name))).map(class_name => {
+        let uniqueClasses = Array.from(new Set(classes.map(item => item.class_name))).map(class_name => {
             return {
                 name: class_name,
                 id: classes.find(item => item.class_name === class_name).degree_class_id,
                 grade: classes.find(item => item.class_name === class_name).grade,
             };
+        });
+
+        // console.log(uniqueClasses);
+
+        uniqueClasses = uniqueClasses.sort((a,b) => {
+            if(a.grade === null && b.grade !== null){
+                return -1;
+            }
+            if(a.grade !== null && b.grade === null){
+                return 1;
+            }
+            return 0;
         });
         setUserClasses(uniqueClasses);
     }, [classes]);

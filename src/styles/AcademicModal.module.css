@@ -1,0 +1,233 @@
+.containerBack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.containerModal {
+    width: 48rem;
+    height: 52rem;
+    background-color: #F8F9Fa;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    position: relative;
+    
+}
+
+.btnClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+}
+
+.containerGrid {
+    display: grid;
+    width: 100%;
+    grid-template-rows: 4rem 5rem 18rem 14rem;
+    gap: 1rem;
+    grid-template-areas: "title" "menu" "content" "graph";
+}
+
+.containerGrid > h3 {
+    font-size: xx-large;
+    text-align: center;
+    grid-area: title;
+    color: #7D00E4;
+}
+
+.greetingBox {
+    /* width: calc(100% - 4.5rem); */
+    width: 100%;
+    min-height: 4.5rem;
+    background: #F8F9FA;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.greetingBox span {
+    color: #1E1E1E;
+}
+
+.containerBtn {
+    display: flex;
+    gap: 1rem;
+    grid-area: menu;
+}
+
+.searchWrapper {
+    position: relative;
+    width: 15rem;
+    height: 3rem;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.searchWrapper select {
+    /* background-color: blue; */
+    width: 100%;
+    color: rgb(51, 51, 51, 0.5);
+}
+
+.searchWrapper label {
+    width: 2rem;
+    height: 2rem;
+    pointer-events: none;
+    display: flex;
+}
+
+.containerClasses {
+    grid-area: content;
+    /* border: solid 1px #1e1e1e; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.classBox {
+    width: 100%;
+    height: 3rem;
+    background-color: #333;
+    color: #F8F9FA;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.classBox > p {
+    font-weight: bold;
+}
+
+.containerGraph {
+    grid-area: graph;
+    /* border: solid 1px #1e1e1e; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.graphBox {
+    /* grid-area: graph; */
+    /* border: solid 1px #1e1e1e; */
+    display: grid;
+    grid-template-columns: 12rem 4rem 24rem;
+    grid-template-rows: 10rem;
+    grid-template-areas: "class data graph";
+    /* padding: 2rem; */
+}
+
+.graph {
+    grid-area: graph;
+    width: 100%;
+    height: 100%;
+}
+
+.classTitle {
+    grid-area: class;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.labels {
+    grid-area: data;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.graphBars {
+    grid-area: graph;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.graphBars span:nth-child(1){
+    color: #F8F9FA;
+    padding-left: 1rem;
+    width: 30%;
+    background-color: #7D00E4;
+}
+
+.graphBars span:nth-child(2){
+    color: #F8F9FA;
+    padding-left: 1rem;
+    width: 35%;
+    background-color: #7D00E4;
+    opacity: 0.5;
+}
+.graphBars span:nth-child(3){
+    color: #F8F9FA;
+    padding-left: 1rem;
+    width: 45%;
+    background-color: #333;
+    opacity: 0.5;
+}
+
+.graphBars hr:first-of-type {
+    /* font-size: 0.8rem; */
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    /* height: 2px; */
+    width: 50%;
+    border: solid 1px #7D00E4;
+    opacity: 0.5;
+    /* z-index: 0; */
+}
+.myGrade {
+    /* font-size: 0.8rem; */
+    position: absolute;
+    right: 0;
+    bottom: 60%;
+    /* height: 2px; */
+    width: 60%;
+    border: solid 1px #7D00E4;
+    opacity: 0.5;
+    /* z-index: 0; */
+}
+
+.textAverage {
+    position: absolute;
+    font-size: small;
+    right: 0;
+    bottom: 35%;
+}
+
+.myTextGrade {
+    position: absolute;
+    font-size: small;
+    right: 0;
+    bottom: 60%;
+}

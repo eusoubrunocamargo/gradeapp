@@ -12,6 +12,7 @@ export const UserDataProvider = ({ children }) => {
     const {user}  = useAuth();
     const [updatedUserClasses, setUpdatedUserClasses] = useState([]);
     const [updatedUserData, setUpdatedUserData] = useState([]);
+    const [updatedUserUniqueClasses, setUpdatedUserUniqueClasses] = useState([]);
     const { showAlert } = useAlert();
     const [loading, setLoading] = useState(true);
 
@@ -28,8 +29,7 @@ export const UserDataProvider = ({ children }) => {
                 if(error){
                     console.log(error);
                 } else {
-                    const updatedUserData = data;
-                    setUpdatedUserData(updatedUserData);
+                    setUpdatedUserData(data);
                 }
         } catch (error) {
             console.log('Erro ao carregar dados do usuáruo', error);
@@ -38,6 +38,24 @@ export const UserDataProvider = ({ children }) => {
         }
 
     },[user]);
+
+    const handleUpdateUserDegree = async (degreeId) => {
+        
+        const { error } = await supabase
+        .from('profiles')
+        .update({degree_id: degreeId})
+        .eq('id', user.id);
+
+        if(error){
+            console.error(error);
+            showAlert('Erro ao atualizar curso', 'fail');
+            return false;
+        }
+
+        showAlert('Curso atualizado com sucesso!', 'success');
+        fetchUserData();
+       
+    };
 
     const fetchUserClasses = useCallback(async () => {
 
@@ -135,11 +153,27 @@ export const UserDataProvider = ({ children }) => {
                 showAlert('Matéria finalizada!', 'success');
                 fetchUserClasses();
             }
-    }
+    };
+
+    const fetchUserUniqueClasses = useCallback(async () => {
+        if(!user)return;
+        const { data, error } = await supabase
+            .from('user_classes_view_grade')
+            .select('*')
+            .eq('user_id', user.id);
+
+            if (error) {    
+                console.log(error);
+                showAlert('Erro ao carregar matérias!', 'fail');
+            } else {
+                setUpdatedUserUniqueClasses(data);
+            }
+    },[user]);
 
     useEffect(() => {
         fetchUserClasses();
         fetchUserData();
+        fetchUserUniqueClasses();
     }, [user, fetchUserClasses, fetchUserData]);
 
     return (
@@ -147,9 +181,12 @@ export const UserDataProvider = ({ children }) => {
             loading,
             updatedUserClasses, 
             updatedUserData, 
+            updatedUserUniqueClasses,
+            handleUpdateUserDegree,
             handleDeleteClass, 
             handleAddClass,
             handleFinishClass,
+            fetchUserData,
             }}>
             {children}
         </UserDataContext.Provider>
