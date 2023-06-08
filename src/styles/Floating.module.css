@@ -1,23 +1,48 @@
 .mainContainer {
-    position: fixed;
-    bottom: 0;
     display: flex;
-    margin: 4rem;
     align-items: center;
     justify-content: center;
-    width: 24rem;
-    height: 6rem;
+    /* width: 107rem; */
+    width: fit-content;
+    padding: 0 1rem;
+    gap: 1rem;
+    height: 8rem;
     border: solid 1px #1e1e1e;
     box-shadow: 2px 2px 0px #1e1e1e;
     background: #F8F9FA;
+    /* background-color: #7D00E4; */
     border-radius: 1rem;
-    transition: .3s 0s ease-out height, .3s .5s ease-out width;
+    /* transition: .3s 0s ease-out height, .3s .5s ease-out width; */
+    /* transition: .3s .5s ease-out width; */
 }
 
 .mainContainer:hover {
-    width: 40rem;
-    height: 8rem;
-    transition: .3s .3s ease-out height, .3s 0s ease-out width;
+    /* width: 40rem; */
+    /* height: 8rem; */
+    /* transition: .3s 0s ease-out width; */
+    /* transition: .3s .3s ease-out height, .3s 0s ease-out width; */
     /* justify-content: start; */
 }
 
+.btnFloatingModal {
+    display: flex;
+    flex-direction: column;
+    font-size: x-small;
+    font-weight: 500;
+    /* font-weight: bold; */
+    /* gap: .5rem; */
+        background: #F8F9FA;
+
+    width: 6rem;
+    height: 6rem;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #1e1e1e;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+}
+
+.btnFloatingModal:hover {
+    background-color: #FFA629;
+    /* color: #FFA629; */
+}

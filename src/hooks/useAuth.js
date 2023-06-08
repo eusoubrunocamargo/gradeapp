@@ -1,12 +1,15 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '../../supabase';
+import { UserDataProvider } from './useUserData';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const router = useRouter();
   const [user, setUser] = useState(null);
+  const [loadingAuth, setLoadingAuth] = useState(true);
+  console.log('LoadingAuth: ', loadingAuth);
 
     
   const handleSignOut = async () => {
@@ -38,7 +41,9 @@ export const AuthProvider = ({ children }) => {
 
   
   useEffect(() => {
+    console.log('useEffect useAuth');
     const checkAuth = async () => {
+      setLoadingAuth(true);
       const { data: { session }, error } = await supabase.auth.getSession();
 
       if (error) {
@@ -52,6 +57,8 @@ export const AuthProvider = ({ children }) => {
         const { user } = session;
         setUser(user);
       }
+      setLoadingAuth(false);
+      console.log('LoadingAuth: ', loadingAuth);
     };
 
     checkAuth();
@@ -63,11 +70,17 @@ export const AuthProvider = ({ children }) => {
         setUser(null);
       }
     });
-  }, []);
+  }, [loadingAuth]);
 
   return (
-    <AuthContext.Provider value={{ user, handleSignOut, handleLogin }}>
-      {children}
+    <AuthContext.Provider value={{ 
+      user, 
+      handleSignOut, 
+      handleLogin,
+      loadingAuth,
+      }}>
+        {!loadingAuth && <UserDataProvider>{ children }</UserDataProvider>}
+      {/* {children} */}
     </AuthContext.Provider>
   );
 };

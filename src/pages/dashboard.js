@@ -26,8 +26,14 @@ export default function Dashboard(){
         setIsDarkMode(!isDarkMode);
     };
 
+    // useEffect(() => {
+    //     if (updatedUserData && (updatedUserData[0].degree_id === null)) {
+    //       setOpenModal(true);
+    //     }
+    // }, [updatedUserData]);
+
     useEffect(() => {
-        if (updatedUserData && (updatedUserData[0].degree_id === null)) {
+        if (updatedUserData && updatedUserData.length > 0 && updatedUserData[0].degree_id === null) {
           setOpenModal(true);
         }
     }, [updatedUserData]);
@@ -61,7 +67,11 @@ export default function Dashboard(){
                 </section>
             </section>  
 
-            {/* <Floating/> */}
+            <section className={styles.containerFloating}>
+                <Floating/>
+            </section>
+
+            
             
         </main>
     )

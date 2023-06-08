@@ -8,8 +8,10 @@ const UserDataContext = createContext();
 export const useUserData = () => useContext(UserDataContext);
 
 export const UserDataProvider = ({ children }) => {
+
+    console.log('UserDataProvider');
     
-    const {user}  = useAuth();
+    const {user , loadingAuth }  = useAuth();
     const [updatedUserClasses, setUpdatedUserClasses] = useState([]);
     const [updatedUserData, setUpdatedUserData] = useState([]);
     const [updatedUserUniqueClasses, setUpdatedUserUniqueClasses] = useState([]);
@@ -17,8 +19,10 @@ export const UserDataProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const fetchUserData = useCallback(async () => {
-        
-        if(!user)return;
+        console.log('fetchUserData');
+        if(!user) {
+            return;
+        }
 
         try {
             const { data, error } = await supabase
@@ -168,13 +172,16 @@ export const UserDataProvider = ({ children }) => {
             } else {
                 setUpdatedUserUniqueClasses(data);
             }
-    },[user]);
+    },[user, showAlert]);
 
     useEffect(() => {
+        console.log('useEffect UserDataProvider');
+        if(!loadingAuth){
         fetchUserClasses();
         fetchUserData();
         fetchUserUniqueClasses();
-    }, [user, fetchUserClasses, fetchUserData]);
+        }
+    }, [user, loadingAuth, fetchUserClasses, fetchUserData, fetchUserUniqueClasses]);
 
     return (
         <UserDataContext.Provider value={{ 

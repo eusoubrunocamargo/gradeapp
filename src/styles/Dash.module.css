@@ -55,15 +55,22 @@
 }
 
 .containerComponents {
+    width: 100%;
     display: flex;
+    align-items: center;
     padding: 0 10rem;
     gap: 10rem;
+    justify-content: center;
 }
 
 .leftSide {
-    width: 43rem;
+    /* width: 43rem;
     display: flex;
     flex-direction: column;
+    gap: 2rem; */
+    display: grid;
+    grid-template-columns: 43rem;
+    grid-template-rows: 20.5rem 26.5rem;
     gap: 2rem;
 }
 
@@ -73,4 +80,14 @@
     flex-direction: column;
     gap: 2rem;
 }
+
+.containerFloating {
+    width: 100%;
+    display: flex;
+    padding: 0 10rem;
+    align-items: center;
+    justify-content: center;
+}
+
+
 

@@ -13,9 +13,9 @@ function App({ Component, pageProps }) {
 
 
   return (
-    <AuthProvider>
-      <AlertProvider>
-        <UserDataProvider>
+    <AlertProvider>
+      <AuthProvider>
+        {/* <UserDataProvider> */}
           <UserOccurrencesProvider>
             <UserTasksProvider>
               <Head>
@@ -29,9 +29,9 @@ function App({ Component, pageProps }) {
               </main>
             </UserTasksProvider>
           </UserOccurrencesProvider>
-        </UserDataProvider>
-      </AlertProvider>
-    </AuthProvider>
+        {/* </UserDataProvider> */}
+      </AuthProvider>
+    </AlertProvider>
   )
 }
 
