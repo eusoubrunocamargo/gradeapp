@@ -1,0 +1,46 @@
+.frontCardContainer {
+    width: 30rem;
+    height: 39rem;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.titleInput {
+    width: 100%;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.descriptionInput {
+    width: 100%;
+    height: 100%;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* .btnTurnCard {
+    width: 100%;
+    height: 4rem;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    background-color: #7D00E4;
+    font-size: large;
+    font-weight: 500;
+    color: #F8F9FA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+

@@ -1,0 +1,133 @@
+.backCardContainer {
+    width: 30rem;
+    height: 39rem;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contentContainer {
+    width: 100%;
+    height: 31rem;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.contentContainer textarea {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.btnTxtImg {
+    position: absolute;
+    bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.btnTxtImg button {
+    width: 3rem;
+    height: 3rem;
+    background-color: #F8F9FA;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagePreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.btnUploadImage {
+    width: 13rem;
+    height: 3rem;
+    font-size: x-small;
+    background-color: #F8F9FA;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.btnUploadImage > span {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+}
+
+.btnUploadImage > input {
+    opacity: 0;
+}
+
+
+
+.btnSubmit {
+    width: 100%;
+    height: 4rem;
+    /* font-size: x-small; */
+    background-color: #7D00E4;
+    color: #F8F9FA;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentContainer :global(.react-pdf__Document) {
+    width: 100%; 
+    height: 100%;
+    display: flex;
+}
+.contentContainer :global(.react-pdf__Page) {
+    width: 100%; 
+    height: 100%;
+    min-width: auto !important;
+    min-height: auto !important;
+    display: flex;
+
+}
+.contentContainer :global(.react-pdf__Page__canvas) {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+.contentContainer :global(.react-pdf__Page__textContent) {
+   display: none;
+}
+.contentContainer :global(.react-pdf__Page__annotations) {
+   display: none;
+}
+
+.btnControl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    gap: 1rem;
+}

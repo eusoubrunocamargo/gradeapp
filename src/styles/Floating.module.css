@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* width: 107rem; */
     width: fit-content;
     padding: 0 1rem;
     gap: 1rem;
@@ -10,18 +9,9 @@
     border: solid 1px #1e1e1e;
     box-shadow: 2px 2px 0px #1e1e1e;
     background: #F8F9FA;
-    /* background-color: #7D00E4; */
     border-radius: 1rem;
-    /* transition: .3s 0s ease-out height, .3s .5s ease-out width; */
-    /* transition: .3s .5s ease-out width; */
-}
-
-.mainContainer:hover {
-    /* width: 40rem; */
-    /* height: 8rem; */
-    /* transition: .3s 0s ease-out width; */
-    /* transition: .3s .3s ease-out height, .3s 0s ease-out width; */
-    /* justify-content: start; */
+    position: relative;
+    /* transition: all .0s .1s ease-out; */
 }
 
 .btnFloatingModal {
@@ -29,10 +19,7 @@
     flex-direction: column;
     font-size: x-small;
     font-weight: 500;
-    /* font-weight: bold; */
-    /* gap: .5rem; */
-        background: #F8F9FA;
-
+    background: #F8F9FA;
     width: 6rem;
     height: 6rem;
     align-items: center;
@@ -44,5 +31,29 @@
 
 .btnFloatingModal:hover {
     background-color: #FFA629;
-    /* color: #FFA629; */
+}
+
+.isActive {
+    background-color: #FFA629;
+}
+
+.optionsContainer {
+    width: 29.2rem;
+    height: 8rem;
+    border: solid 1px #1e1e1e;
+    position: absolute;
+    /* top: -10rem; */
+    top: -9rem;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    background: #F8F9FA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+}
+
+.optionsContainer button:hover {
+    font-weight: bold;
 }

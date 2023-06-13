@@ -10,12 +10,13 @@ import 'cropperjs/dist/cropper.css';
 import MenuButton from "./menuButton";
 import { useUserData } from "@/hooks/useUserData";
 import { useUserAvatar } from "@/hooks/useUserAvatar";
+import { useUserStudyTime } from '@/hooks/useUserStudyTime';
 import { useState } from 'react';
 import AcademicModal from './AcademicPerformance/AcademicModal';
 
 export default function ComponentProfile(){
 
-    const { updatedUserData, loading } = useUserData();
+    const { updatedUserData, loading, updatedUserUniqueClasses } = useUserData();
     const { 
         newAvatar, 
         openEditor, 
@@ -26,6 +27,16 @@ export default function ComponentProfile(){
         setOpenEditor,
         setCropped,
     } = useUserAvatar();
+    const { studyTime } = useUserStudyTime();
+    // console.log(studyTime);
+    // console.log(updatedUserUniqueClasses.length);
+
+    const formatStudyTime = (studyTime) => {
+        const minutes = Math.floor(studyTime / 60);
+        const seconds = studyTime % 60;
+        return `${minutes}:${seconds}`;
+    }
+
 
     const [openAcademicModal, setOpenAcademicModal] = useState(false);
 
@@ -90,11 +101,11 @@ export default function ComponentProfile(){
                         <div className={styles.containerGamification}>
                             <div className={styles.containerIconStatus}>
                                 <Image src={IconBook} priority width={20} height={20} alt="icon"/>
-                                <h3>0</h3>
+                                <h3>{updatedUserUniqueClasses.length}</h3>
                             </div>
                             <div className={styles.containerIconStatus}>
                                 <Image src={IconClock} priority width={20} height={20} alt="icon"/>
-                                <h3>00:00</h3>
+                                <h3>{formatStudyTime(studyTime)}</h3>
                             </div>
                             <div className={styles.containerIconStatus}>
                                 <Image src={IconRanking} priority width={20} height={20} alt="icon"/>

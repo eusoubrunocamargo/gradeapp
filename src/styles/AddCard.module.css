@@ -1,0 +1,102 @@
+.backContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.modalContainer {
+    width: 48rem;
+    height: 52rem;
+    background-color: #F8F9FA;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border: solid 1px #1e1e1e;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalContainer h1 {
+    font-size: xx-large;
+    color: #7D00E4;
+}
+
+.btnClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+}
+
+.card {
+    width: 30rem;
+    height: 39rem;
+    perspective: 50rem;
+}
+
+.content {
+    transition: transform .5s;
+    transform-style: preserve-3d;
+}
+
+.card.isFlipped .content {
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+}
+
+.front,
+.back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY( 180deg );
+}
+
+.btnFlipCard {
+    width: 30rem;
+    height: 4rem;
+    background-color: #7D00E4;
+    color: #F8F9FA;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    width: 3rem;
+    height: 3rem;
+    border: 5px solid #7D00E4;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+ 

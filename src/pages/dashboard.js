@@ -11,26 +11,34 @@ import { AlertModal } from "@/components/alertModal";
 import { useUserData } from "@/hooks/useUserData";
 import { useAuth } from "@/hooks/useAuth";
 import AddDegreeModal from '@/components/AddDegreeModal/addDegreeModal';
+import Focus from '@/components/Focus/Focus';
+import StudyCard from '@/components/FlashCards/StudyCard';
 
 export default function Dashboard(){
 
     const { handleSignOut } = useAuth();
     const { updatedUserData, loading } = useUserData();
     const [openModal, setOpenModal] = useState(false);
-
-    // console.log(updatedUserData);
+    const [openStudyCard, setOpenStudyCard] = useState(false);
    
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     const handleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
+        const newIsDarkMode = !isDarkMode;
+        setIsDarkMode(newIsDarkMode);
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('darkMode', newIsDarkMode ? 'true' : 'false');
+        }
     };
+    
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const darkMode = localStorage.getItem('darkMode');
+            setIsDarkMode(darkMode === 'true');
+        }
+    }, []);
 
-    // useEffect(() => {
-    //     if (updatedUserData && (updatedUserData[0].degree_id === null)) {
-    //       setOpenModal(true);
-    //     }
-    // }, [updatedUserData]);
+    const [openFocus, setOpenFocus] = useState(false);
 
     useEffect(() => {
         if (updatedUserData && updatedUserData.length > 0 && updatedUserData[0].degree_id === null) {
@@ -45,6 +53,8 @@ export default function Dashboard(){
     return (
         <main className={`${isDarkMode? styles.darkMode : styles.lightMode} ${styles.mainContainer}`}>
             {openModal && <AddDegreeModal setOpenModal={setOpenModal}/>}
+            {openFocus && <Focus openFocus={openFocus} setOpenFocus={setOpenFocus}/>}
+            {openStudyCard && <StudyCard openStudyCard={openStudyCard} setOpenStudyCard={setOpenStudyCard}/>}
             <AlertModal/>
             <header>
                 <nav>
@@ -68,7 +78,12 @@ export default function Dashboard(){
             </section>  
 
             <section className={styles.containerFloating}>
-                <Floating/>
+                <Floating 
+                    openFocus={openFocus} 
+                    setOpenFocus={setOpenFocus}
+                    openStudyCard={openStudyCard}
+                    setOpenStudyCard={setOpenStudyCard}
+                    />
             </section>
 
             

@@ -1,0 +1,307 @@
+.backContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.modalContainer {
+    width: 80rem;
+    height: 65rem;
+    padding: 1rem;
+    background-color: #555;
+    /* background-color: #7D00E4; */
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border: solid 1px #1e1e1e;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnClose {
+    display: flex;
+}
+
+.greetingBox {
+    /* width: calc(100% - 4.5rem); */
+    width: 100%;
+    /* min-height: 4.5rem; */
+    height: 8rem;
+    background: #F8F9FA;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.greetingBox span {
+    color: #1E1E1E;
+}
+
+.containerBtns {
+    display: flex;
+    gap: 1rem;
+}
+
+.countCards {
+    border: solid 1px #1E1E1E;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    width: 10rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchWrapper {
+    position: relative;
+    width: 18rem;
+    height: 3rem;
+    border: 1px solid #1E1E1E;
+    box-shadow: 2px 2px 0px #1E1E1E;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.searchWrapper select {
+    /* background-color: blue; */
+    width: 100%;
+    color: rgb(51, 51, 51, 0.5);
+}
+
+.searchWrapper label {
+    width: 2rem;
+    height: 2rem;
+    pointer-events: none;
+    display: flex;
+}
+
+.cardContainer {
+    width: 40rem;
+    height: 50rem;
+    /* background-color: #F8F9FA; */
+    background-color: #7D00E4;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border: solid 1px #1e1e1e;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40rem auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+
+}
+
+.cardClass, .cardTitle, .cardFrontText {
+    width: 100%;
+    height: 5rem;
+    background-color: #F8F9FA;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border: solid 1px #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+}
+
+.cardFrontText {
+    height: 100%;
+}
+
+.containerCardBtn {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnStudied, .btnDelete, .btnFlipCard {
+    width: fit-content;
+    padding: .5rem;
+    height: 4rem;
+    background-color: #F8F9FA;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border: solid 1px #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    perspective: 50rem;
+}
+
+.content {
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    height: 100%;
+}
+
+.card.isFlipped .content {
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+}
+
+.front,
+.back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.back {
+  transform: rotateY( 180deg );
+}
+
+/* .btnFlipCard {
+    width: 30rem;
+    height: 4rem;
+    background-color: #7D00E4;
+    color: #F8F9FA;
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.loader {
+    width: 3rem;
+    height: 3rem;
+    border: 5px solid #7D00E4;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.studyFrontCard {
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 5rem 5rem auto;
+    gap: .5rem;
+}
+
+.studyBackCard {
+    background-color: #F8F9FA;
+    width: 100%;
+    height: 100%;
+    border: solid 1px #1e1e1e;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+
+}
+
+.btnTxtImg {
+    position: absolute;
+    bottom: 0rem;
+    display: flex;
+    gap: 0.5rem;
+    left: 0rem;
+    margin: 1rem;
+}
+
+.btnTxtImg button {
+    width: 3rem;
+    height: 3rem;
+    /* background-color: #F8F9FA; */
+    border: solid 1px #1e1e1e;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.isActive {
+    background-color: #FFA629;
+    /* color: #F8F9FA; */
+}
+
+.contentContainer {
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.contentContainer :global(.react-pdf__Document) {
+    width: 100%; 
+    height: 100%;
+    display: flex;
+}
+.contentContainer :global(.react-pdf__Page) {
+    width: 100%; 
+    height: 100%;
+    min-width: auto !important;
+    min-height: auto !important;
+    display: flex;
+
+}
+.contentContainer :global(.react-pdf__Page__canvas) {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    cursor: pointer;
+}
+.contentContainer :global(.react-pdf__Page__textContent) {
+   display: none;
+}
+.contentContainer :global(.react-pdf__Page__annotations) {
+   display: none;
+}
+
+.btnControl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    gap: 1rem;
+    z-index: 1;
+}
