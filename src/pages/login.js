@@ -3,7 +3,6 @@ import styles from '@/styles/Login.module.css'
 import { useRouter } from 'next/router'
 import { supabase } from '../../supabase';
 import logoSVG from '../../public/logo.svg'
-import loginIllustration from '../../public/login_illustration.png'
 import EmailInput from '@/components/emailInput';
 import PassInput from '@/components/passInput';
 import { useState } from 'react';
