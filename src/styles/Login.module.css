@@ -1,108 +1,77 @@
 .mainContainer {
-    background-color: #EBE5DF;
+    background-color: white;
     width: 100vw;
-    padding: 0 10rem;
     max-width: 144rem;
     height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .leftContainer{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    flex-grow: 1;
-    flex-basis: 72rem;
-}
+    background-color: white;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}  
 
 .rightContainer{
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    flex:1;
+    background-color: #b50909;
+    border-radius: 20px;
+    margin: 10px;
+    margin-top: 5px;
+    align-items: center;
+}
+
+.logogradeplus{
+    fill: #b50909;
+    width: 650px;
+    height: 470px;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    flex-grow: 1;
-    flex-basis: 72rem;
-    height: 100vh;
+    margin-top: 15%;
 }
-
-.containerLeftImage{
-    display: flex;    
-    height: 100%;
-    position: relative;
-    overflow: hidden;
+.logologin{
+    width: 200px;
+    fill: white;
+    height: 200px;
 }
-
-.logoTexto {
+.h1 {
     font-size: 5rem;
-    font-weight: bold;
-    position: relative;
-    color: #333333;
-    width: 18rem;
-    height: 11rem;
-    /* position: absolute; */
-    display: grid;
-    grid-column: 2;
-    grid-row: 2;
-}
-
-.textbox {
-    width: 100%;
-}
-
-.textbox span {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 8rem;
+    color: white;
     line-height: 10rem;
-    color: #1E1E1E;
-}
-
-.textbox h1 {
-    font-size: 10rem;
-    color: #9747FF;
-    line-height: 12rem;
-    font-weight: normal;
-}
-
-.textbox p {
-    font-size: 3rem;
-    color: #707070;
-    padding: 0 1rem;
+    margin-bottom: 5px;
 }
 
 .formLogin {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    background: #F0F0F0;
-    border: 2px solid #333333;
-    box-shadow: 2px 2px 0px #1E1E1E;
-    border-radius: 3rem;
-    padding: 4rem;
-    position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 1rem;
+   padding: 0rem;
 }
 
 .formLogin input {
     text-align: left;
     box-sizing: border-box;
     padding: 0 0 0 8rem;
-    background: #F0F0F0;
+    background: white;
     border: 2px solid #1E1E1E;
     box-shadow: 2px 2px 0px #1E1E1E;
     border-radius: 1rem;
 }
 
-.formLogin input:hover {
-    box-shadow: 2px 2px 0px 1px #333;
-}
+/* .setPassContainer{
+    display: flex;
+    gap: 1rem;
+} */
 
 .btnSubmitLogin {
-    background-color: #9747FF;
-    color: #F0F0F0;
+    background-color: #b50909;
+    color: white;
     font-size: 3rem;
     display: flex;
     flex-direction: column;
@@ -117,21 +86,20 @@
 
 /* .btnSubmitLogin:focus, */
 .btnSubmitLogin:hover {
-    background-color: #BA85FF;
+    background-color: #ad0909;
     box-shadow: 2px 2px 0px 1px #333;
     transition: box-shadow 0.5s ease;
-    transition: all 0.5s ease;
 }
 
-/* .inputWrapper {
+.inputWrapper {
     position: relative;
     width: fit-content;
 }
 
 .inputWrapper label {
     position: absolute;
-    bottom:0;
-    right: 0;
+    bottom: 0;
+    left: 0;
     padding: 1.5rem;
     font-size: 2rem;
     color: #333;
@@ -140,14 +108,56 @@
     transition: .5s;
 }
 
-.inputWrapper input:focus ~ label, 
-.inputWrapper input:valid ~ label {
+.inputWrapper input:focus ~ label ,
+.inputWrapper input:valid ~ label ,
+.inputWrapper input:not(:placeholder-shown) ~ label{
   top: 0;
-  right: 0;
+  left: 0;
   color: #333;
   font-size: 1.4rem;
-  padding: 0.5rem;
+  padding: 1rem;
+}
+
+/* .invalidInput{
+    border: solid #ff0000 1px;
+}
+
+.validInput{
+    border: solid #04AA6D 1px;
 } */
+
+.errorMessage{
+    display: none;
+    color: #FF9999;
+    font-weight: lighter;
+    /* display: block; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+}
+
+.emptyMessage{
+    display: none;
+    color: #FF9999;
+    font-weight: lighter;
+    /* display: block; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+}
+
+.usedMessage{
+    display: none;
+    color: #FF9999;
+    font-weight: lighter;
+    /* display: block; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+}
 
 .goSignUp{
     /* background-color: #333333; */
@@ -155,7 +165,7 @@
     width: 47rem;
     height: 4rem;
     grid-row: 6;
-    color: #333;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -164,17 +174,57 @@
 .btnGoogle{
     background-color: #FFF;
     color: #333;
+    font-size: 1.6rem;
     display: flex;
+    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     gap: 2rem;
     width: 47rem;
     height: 6rem;
-    border: 2px solid #1E1E1E;
-    box-shadow: 2px 2px 0px #1E1E1E;
-    border-radius: 1rem;
+    box-shadow: 1px 1px 0px 1px #333;
+    grid-column: 7/12;
+    grid-row: 7;
 }
 .btnGoogle:hover{
     box-shadow: 2px 2px 0px 1px #333;
-    transition: all 0.5s ease;
+}
+
+.setCheckPassWrapper{
+    display: flex;
+    gap: 1rem;
+}
+
+.passModal{
+    width: 15rem;
+    height: 20rem;
+    background-color: #333333;
+    position: absolute;
+    top: 0;
+    left: -16rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    color: #707070;
+}
+
+.passModal span:first-child{
+    color: #F0F0F0;
+}
+
+.greenPass{
+    color: #04AA6D;
+}
+
+.containerEmailSent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    font-size: 2rem;
+    color: #333;
 }
