@@ -1,7 +1,7 @@
 .eventContainer {
     width: 16rem;
     height: 3rem;
-    background-color: #FFA629;
+    background-color: white;
     color: #1e1e1e;
     border: #1e1e1e 1px solid;
     border-radius: 1rem;
@@ -11,6 +11,7 @@
     grid-template-columns: 3rem 8rem 3rem;
     align-content: center;
     justify-content: center;
+   
 }
 
 .eventContainer span {

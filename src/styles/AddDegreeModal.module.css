@@ -28,7 +28,7 @@
 
 .modalContainer h3 {
     text-align: center;
-    color: #7D00E4;
+    color: #b50909;
 }
 
 .modalContainer select {
@@ -49,6 +49,6 @@
     height: 4rem;
     border-radius: 1rem;
     text-align: center;
-    background-color: #7D00E4;
+    background-color: #b50909;
     color: white;
 }

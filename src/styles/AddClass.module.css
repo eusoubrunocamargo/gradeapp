@@ -15,7 +15,7 @@
     background-color: #f0f0f0;
     width: 40rem;
     height: 45rem;
-    color: #7D00E4;
+    color: #b50909;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -42,7 +42,7 @@
     width: 30rem;
     height: 4rem;
     padding: 1rem;
-    background-color: #7D00E4;
+    background-color: #b50909;
     color: #f0f0f0;
     font-size: unset;
     text-align: center;
@@ -61,7 +61,7 @@
 }
 
 .btnSaveDegree {
-    border: #7D00E4 solid 1px;
+    border: #b50909 solid 1px;
     width: 15rem;
     height: 4rem;
     display: flex;
@@ -89,7 +89,7 @@
 .loader {
     width: 3rem;
     height: 3rem;
-    border: 5px solid #7D00E4;
+    border: 5px solid #b50909;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
@@ -114,7 +114,7 @@
 
 /* .btnFinishAddClassSchedule {
     color: #1e1e1e;
-    background-color: #FFA629;
+    background-color: #b50909;
     width: 36rem;
     text-align: center;
 } */

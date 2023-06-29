@@ -15,7 +15,7 @@
     background-color: #f0f0f0;
     width: 40rem;
     height: 45rem;
-    /* color: #7D00E4; */
+    /* color: #b50909; */
     /* z-index: 1; */
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@
 
 .containerDeleteClass h3 {
     font-size: xx-large;
-    color: #7D00E4;
+    color: #b50909;
 }
 
 .containerDeleteClass span {
@@ -54,7 +54,7 @@
     text-align: center;
     box-shadow: 2px 2px 0px #1e1e1e;
     border-radius: 1rem;
-    background-color: #7D00E4;
+    background-color: #b50909;
     color: #F8F9FA;
 }
 
@@ -77,6 +77,6 @@
     display: flex;
     align-items: center;
     background-color: #FFF;
-    color: #7D00E4;
+    color: #b50909;
 }
 
