@@ -16,7 +16,7 @@
     height: 65rem;
     padding: 1rem;
     background-color: #555;
-    /* background-color: #7D00E4; */
+    /* background-color: #b50909; */
     border-radius: 1rem;
     box-shadow: 2px 2px 0px #1e1e1e;
     border: solid 1px #1e1e1e;
@@ -97,7 +97,7 @@
     width: 40rem;
     height: 50rem;
     /* background-color: #F8F9FA; */
-    background-color: #7D00E4;
+    background-color: #b50909;
     border-radius: 1rem;
     box-shadow: 2px 2px 0px #1e1e1e;
     border: solid 1px #1e1e1e;
@@ -182,7 +182,7 @@
 /* .btnFlipCard {
     width: 30rem;
     height: 4rem;
-    background-color: #7D00E4;
+    background-color: #b50909;
     color: #F8F9FA;
     border: solid 1px #1e1e1e;
     box-shadow: 2px 2px 0px #1e1e1e;
@@ -195,7 +195,7 @@
 .loader {
     width: 3rem;
     height: 3rem;
-    border: 5px solid #7D00E4;
+    border: 5px solid #b50909;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
@@ -254,7 +254,7 @@
 }
 
 .isActive {
-    background-color: #FFA629;
+    background-color: #b50909;
     /* color: #F8F9FA; */
 }
 

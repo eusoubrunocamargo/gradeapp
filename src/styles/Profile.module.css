@@ -50,7 +50,7 @@
     padding: 0.5rem;
     align-items: center;
     gap: 1rem;
-    background: #7D00E4;
+    background: #b50909;
     border: 1px solid #1E1E1E;
     box-shadow: 2px 2px 0px #1E1E1E;
     border-radius: 10px;
@@ -99,7 +99,7 @@
 }
 
 .containerCurso {
-    background-color: #FFA629;
+    background-color: white;
     width: 24rem;
     height: 3rem;
     display: flex;
@@ -108,6 +108,7 @@
     border: 1px solid #1E1E1E;
     box-shadow: 2px 2px 0px #1E1E1E;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 .containerGamification {
@@ -117,7 +118,7 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    background-color: #707070;
+    background-color: white;
     border: 1px solid #1E1E1E;
     box-shadow: 2px 2px 0px #1E1E1E;
     border-radius: 10px;
@@ -126,12 +127,12 @@
 .containerIconStatus {
     display: flex;
     align-items: center;
-    color: #F0F0F0;
+    color: black;
     gap: 1rem;
 }
 
 .btnSaveCrop {
-    background-color: #7D00E4;
+    background-color: #b50909;
     color: #F0F0F0;
     width: 20rem;
     height: 4rem;
@@ -145,8 +146,8 @@
 
 .btnSaveCrop:hover {
     background-color: #F0F0F0;
-    color: #7D00E4;
-    border: #7D00E4 solid 0.1rem;
+    color: #b50909;
+    border: #b50909 solid 0.1rem;
 }
 
 .containerEditor {
@@ -164,7 +165,7 @@
 }
 
 .whiteContainer {
-    background-color: #FFA629;
+    background-color: #b50909;
     width: 60rem;
     height: 60rem;
     display: flex;

@@ -1,5 +1,5 @@
 .boxContainer {
-    background: #7D00E4;
+    background: #b50909;
     border: 1px solid #1E1E1E;
     box-shadow: 3px 3px 0px #1E1E1E;
     border-radius: 10px;
@@ -9,20 +9,23 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    font-weight:400;
 }
 
 .boxContainer p {
     font-size: 2rem;
-    font-weight:400;
+    font-weight:inherit;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+
 .boxContainer:hover {
     cursor: pointer;
-    background-color: #FFA629;
-    color: #1E1E1E;
+    background-color: #b50909;
+    color: white;
+    font-weight: bold;
 }
 
 .finishedClass {

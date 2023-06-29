@@ -1,5 +1,5 @@
 .scheduleContainer {
-    /* border: solid 1px #7D00E4; */
+    /* border: solid 1px #b50909; */
     width: 36rem;
     display: flex;
     flex-direction: column;
@@ -17,12 +17,12 @@
     border-radius: 1rem;
     border: solid 1px #1e1e1e;
     background-color: #F8F9FA;
-    color: #7D00E4;
+    color: #b50909;
     text-align: center;
 }
 
 .inputLocale::placeholder {
-    color: #7D00E4;
+    color: #b50909;
     opacity: 0.5;
 }
 
@@ -46,11 +46,11 @@
 }
 
 .weekDays button:focus {
-    border: #7D00E4 2px solid;
+    border: #b50909 2px solid;
 }
 
 .clickedDay {
-    background-color: #7D00E4;
+    background-color: #b50909;
     color: #f0f0f0;
 }
 
@@ -107,18 +107,18 @@
 }
 
 .btnAddClassSchedule:focus{
-    border:#7D00E4 solid 2px;
+    border:#b50909 solid 2px;
 }
 
 .btnAddClassSchedule:hover{
-    background-color: #7D00E4;
+    background-color: #b50909;
     color: #F8F9FA;
 }
 
 .loader {
     width: 3rem;
     height: 3rem;
-    border: 5px solid #7D00E4;
+    border: 5px solid #b50909;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;

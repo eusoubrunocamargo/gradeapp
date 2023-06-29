@@ -44,12 +44,12 @@ export default function Focus({ openFocus, setOpenFocus}) {
         }),
         singleValue: (provided) => ({
             ...provided,
-            color: '#7D00E4',
+            color: '#b50909',
             textAlign: 'center',
         }),
         placeholder: (provided) => ({
             ...provided,
-            color: '#7D00E4',
+            color: '#b50909',
             opacity: 0.5,
             textAlign: 'center',
         }),
