@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [loadingAuth, setLoadingAuth] = useState(true);
-  console.log('LoadingAuth: ', loadingAuth);
+  // console.log('LoadingAuth: ', loadingAuth);
 
     
   const handleSignOut = async () => {
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
   
   useEffect(() => {
-    console.log('useEffect useAuth');
+    // console.log('useEffect useAuth');
     const checkAuth = async () => {
       setLoadingAuth(true);
       const { data: { session }, error } = await supabase.auth.getSession();
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
         setUser(user);
       }
       setLoadingAuth(false);
-      console.log('LoadingAuth: ', loadingAuth);
+      // console.log('LoadingAuth: ', loadingAuth);
     };
 
     checkAuth();

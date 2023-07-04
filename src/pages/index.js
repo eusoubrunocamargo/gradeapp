@@ -50,6 +50,22 @@ export default function Login() {
     }
   };
 
+  const handleSignInWithGoogle = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: 'http://gradeapp.vercel.app/dashboard',
+      }
+    });
+
+    if (error) {
+      console.log(error);
+      showAlert('Não foi possível fazer login', 'fail');
+    }
+
+  };
+
+
   return (
     <>
       
@@ -92,7 +108,7 @@ export default function Login() {
               </div>
             </div>
 
-            <button className={styles.btnGoogle}>
+            <button type='button' onClick={handleSignInWithGoogle} className={styles.btnGoogle}>
               <Image loading='lazy' src='/google_icon.png' width={20} height={20} alt='google'/>
               <span>Entre com o Google</span>
             </button>
