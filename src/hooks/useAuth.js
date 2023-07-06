@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
       if (!session) {
         router.push('/');
       } else {
-        console.log(session);
+        // console.log(session);
         const { user } = session;
         setUser(user);
       }
