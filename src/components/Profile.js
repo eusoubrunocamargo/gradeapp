@@ -107,10 +107,10 @@ export default function ComponentProfile(){
                                 <Image src={IconClock} priority width={20} height={20} alt="icon"/>
                                 <h3>{formatStudyTime(studyTime)}</h3>
                             </div>
-                            <div className={styles.containerIconStatus}>
+                            {/* <div className={styles.containerIconStatus}>
                                 <Image src={IconRanking} priority width={20} height={20} alt="icon"/>
                                 <h3>123</h3>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: #b50909;
+    background-color: #6c6c6c;
     z-index: 1;
 }
 
@@ -56,13 +56,18 @@
 }
 
 .timerButtons > button {
-    /* border: solid 1px #1E1E1E; */
-    background-color: #b50909;
+    border: solid 1px #1E1E1E;
+    background-color: white;
     border-radius: 1rem;
-    box-shadow: 2px 2px 0px #1E1E1E;
+    box-shadow: 3px 3px 0px #1E1E1E;
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
     color: #1E1E1E;
+}
+
+.BtnIniciar:hover,.BtnEncerrar:hover,.BtnPausar:hover{
+    background-color: #6c6c6c;
+    color: white;
 }
 
 .controlAnimation {
@@ -76,7 +81,7 @@
     justify-content: center;
     height: 6rem;
     gap: .5rem;
-    background: #b50909;
+    background: white;
     border: solid 1px #1e1e1e;
     box-shadow: 2px 2px 0px #1e1e1e;
     border-radius: 1rem;
@@ -99,6 +104,6 @@
 }
 
 .saveSession button:hover {
-    background-color: #1e1e1e;
-    color: #b50909;
+    background-color: #6c6c6c;
+    color: white;
 }

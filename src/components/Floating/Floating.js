@@ -71,7 +71,7 @@ export default function Floating( { openFocus, setOpenFocus, openStudyCard, setO
                 </button>
             </OptionsContainer>
 
-            <OptionsContainer options={[
+            {/* <OptionsContainer options={[
                 {text: 'Sala de estudo', callback: () => console.log('Flash Card')},
                 {text: 'Ver ranking', callback: () => console.log('Flash Card')},
             ]} isOpen={openOption === 'live'} onOpen={() => handleOpenOption('live')}>
@@ -80,11 +80,11 @@ export default function Floating( { openFocus, setOpenFocus, openStudyCard, setO
                     <span>Live</span>
                     <span>Session</span>
                 </button>
-            </OptionsContainer>
+            </OptionsContainer> */}
 
             <OptionsContainer options={[
                 {text: 'Enviar sugestão', callback: () => console.log('Flash Card')},
-                {text: 'Reportar bug', callback: () => console.log('Flash Card')},
+                // {text: 'Reportar bug', callback: () => console.log('Flash Card')},
             ]} isOpen={openOption === 'suggestion'} onOpen={() => handleOpenOption('suggestion')}>
                 <button className={`${styles.btnFloatingModal} ${openOption === 'suggestion' ? styles.isActive : ''}`}>
                     <Image src={Contact} width={25} height={25} alt='card'/>

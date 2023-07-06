@@ -74,9 +74,9 @@ export default function Timer({ selectedOption }) {
                 <div>{('0' + (seconds % 60)).slice(-2)}</div>
             </div>
             <div className={styles.timerButtons}>
-                <button onClick={handleStart}>Iniciar</button>
-                <button onClick={handlePause}>Pausar</button>
-                <button onClick={handleReset}>Encerrar</button>
+                <button onClick={handleStart} className={styles.BtnIniciar}>Iniciar</button>
+                <button onClick={handlePause} className={styles.BtnPausar}>Pausar</button>
+                <button onClick={handleReset} className={styles.BtnEncerrar}>Encerrar</button>
             </div>
         </div>
     )

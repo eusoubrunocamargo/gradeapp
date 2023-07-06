@@ -22,6 +22,10 @@
 .menuNav {
     display: flex;
     gap: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+    border: #1E1E1E 1px solid;
+    box-shadow: 2px 2px 0px #1E1E1E;
 }
 
 .weekDayContainer {
@@ -33,6 +37,8 @@
     top: -2rem;
     display: grid;
     grid-template-columns: repeat(7,1fr);
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .eachDay {

@@ -55,6 +55,10 @@
    padding: 0rem;
 }
 
+.btnPassForgot{
+    font-weight: 450;
+}
+
 .formLogin input {
     text-align: left;
     box-sizing: border-box;
@@ -228,4 +232,10 @@
     gap: 3rem;
     font-size: 2rem;
     color: #333;
+}
+
+@media all and (max-width: 700px){
+    .leftContainer{
+        background-color: #04AA6D;
+    }
 }

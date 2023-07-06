@@ -89,10 +89,10 @@ export default function Login() {
             <div className={styles.goSignUp}>
               <div>
                 <span>Ainda não é usuário? </span>
-                <button type='button' style={{color:'black'}} onClick={() => router.push('/')}> Cadastre-se</button>
+                <button type='button' className={styles.btnPassForgot} style={{color:'black'}} onClick={() => router.push('/')}> Cadastre-se</button>
               </div>
               <div>
-                <button type='button' style={{color:'black'}} >Esqueci a senha</button>
+                <button type='button' className={styles.btnPassForgot} style={{color:'black'}} >Esqueci a senha</button>
               </div>
             </div>
 

@@ -116,8 +116,7 @@
     height: 3rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: space-around;
     background-color: white;
     border: 1px solid #1E1E1E;
     box-shadow: 2px 2px 0px #1E1E1E;
