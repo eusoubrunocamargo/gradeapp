@@ -66,3 +66,23 @@
 .greenPass{
     color: #04AA6D;
 }
+
+@media all and (max-width: 1037px){
+    .inputWrapper input{
+        width: 44rem;
+        height: 5rem;
+    }
+}
+
+@media all and (max-width: 994px){
+    .inputWrapper input{
+        width: 38rem;
+    }
+}
+
+@media all and (max-width: 790px){
+    .inputWrapper input{
+        width: 33rem;
+        height: 4.6rem;
+    }
+}

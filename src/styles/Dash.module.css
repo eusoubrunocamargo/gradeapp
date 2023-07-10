@@ -69,15 +69,14 @@
 }
 
 .leftSide {
-    /* width: 43rem;
+    width: 43rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem; */
+    gap: 2rem;
     display: grid;
     grid-template-columns: 43rem;
     grid-template-rows: 20.5rem 26.5rem;
     gap: 2rem;
-    
 }
 
 .rightSide {
@@ -95,5 +94,23 @@
     justify-content: center;
 }
 
+@media all and (max-width: 1060px){
+    .mainContainer{
+        background-color: #b50909;
+        height: auto;
+    }
+    .leftSide {width: 40rem;}
+    .rightSide{width: 50rem;}
+}
+
+@media all and (max-width: 1010px) {
+    .mainContainer{
+        background-color: aqua;
+        gap: 5rem;
+    }  
+    .leftSide {width: 30rem;}
+    .rightSide{width: 40rem;}
+    
+}
 
 

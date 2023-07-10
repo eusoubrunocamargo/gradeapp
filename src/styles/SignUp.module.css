@@ -17,6 +17,7 @@
     margin: 10px;
     margin-top: 5px;
     align-items: center;
+    height: auto;
 }
 
 .logogradeplus{
@@ -277,3 +278,75 @@
     font-size: 2rem;
     color: #333;
 }
+
+@media all and (max-width: 1220px){
+.formLogin span{font-size: 1.4rem;}
+}
+
+@media all and (max-width: 1194px){
+    .h1{ font-size: 50px;}
+    .formLogin{gap: 0.8rem;}
+    .textbox h1{ margin-bottom: 0.5rem;}
+    .textbox h1{ font-size: 7rem;}
+}
+
+@media all and (max-width: 1068px){
+    .formLogin span{font-size: 1.3rem;}
+} 
+
+@media all and (max-width: 1037px){
+    .textbox h1{ font-size: 6rem;}
+    .formLogin span{font-size: 1.2rem;}
+    .btnSubmitLogin{width: 44rem;}
+    .btnSubmitLogin{height: 5rem;}
+}   
+
+@media all and (max-width: 994px){
+    .btnSubmitLogin{height: 5rem;}
+    .btnSubmitLogin{width: 38rem;}
+    .formLogin span{font-size: 1rem;}
+}
+
+@media all and (max-width: 965px){
+    .textbox h1{ font-size: 5rem;}
+    .formLogin span{font-size: 1.1rem;}
+} 
+
+@media all and (max-width: 928px){
+    .leftContainer{width: 50vh;}
+    .Entrarbutton{ 
+        width: 200px;
+        height: 55px;
+        font-size: 2rem;
+    }
+    .h1 {font-size: 40px;}
+    .p1 {font-size: 20px}
+    .textbox h1{ font-size: 4rem;}
+    .formLogin span{font-size: 1rem;}
+    .textbox h1{margin-bottom: auto;}
+    .textbox h1{ font-size: 5rem;}
+}
+
+@media all and (max-width: 790px){
+    .h1 {font-size: 35px;}
+    .p1 {font-size: 17px}
+    .Entrarbutton{ 
+        width: 180px;
+        height: 50px;
+        font-size: 2.5rem;      
+    }
+    .logogradeplus{
+        width: 480px;
+        height: 340px;
+    }
+    .btnSubmitLogin{
+        width: 33rem;
+        height: 4.6rem;
+    }
+    .textbox p{font-size: 2rem;}
+    .textbox h1{ font-size: 4.5rem;}
+    .formLogin span{font-size: 0.9rem;}
+    .formLogin{gap: 0.8rem;}
+}
+
+
