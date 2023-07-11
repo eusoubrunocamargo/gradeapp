@@ -21,6 +21,22 @@ export const useUserFlashcards = () => {
         back_image: null,
     });
 
+    const deleteFlashcard = async (flashcardId) => {
+        const { error } = await supabase
+            .from('user_flashcards')
+            .delete()
+            .eq('id', flashcardId);
+            // .eq('user_id', user.id);
+
+        if (error) {
+            showAlert('Erro ao excluir flashcard', 'fail');
+            return;
+        }
+
+        showAlert('Flashcard excluído com sucesso!', 'success');
+        // fetchUserFlashcards();
+    };
+
     const updateFlashcards = (field, content) => {
         setFlashcards({
             ...flashcards,
@@ -156,6 +172,7 @@ export const useUserFlashcards = () => {
     return {
         flashcards,
         updateFlashcards,
+        deleteFlashcard,
         submitFlashcards,
         loading,
         userFlashcards,

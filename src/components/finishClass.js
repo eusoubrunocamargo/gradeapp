@@ -20,7 +20,7 @@ export function FinishClass({ setOpenFinishModal, userClasses }) {
         setGrade(e.target.value);
     }
 
-    const mappedOptions = userClasses.map((item) => {
+    const mappedOptions = userClasses.filter((item) => item.grade === null).map((item) => {
         return {
             value: item.id,
             label: item.name,
