@@ -50,7 +50,8 @@
 }
 
 .btnNavBar button:hover {
-    background-color: #7D00E4;
+    /* background-color: #7D00E4; */
+    background-color: var(--main-color);
     color: #F0F0F0;
 }
 

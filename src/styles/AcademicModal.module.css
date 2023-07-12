@@ -45,7 +45,8 @@
     font-size: xx-large;
     text-align: center;
     grid-area: title;
-    color: #7D00E4;
+    /* color: #7D00E4; */
+    color: var(--main-color);
 }
 
 .greetingBox {

@@ -32,7 +32,8 @@
 
 .containerDeleteClass h3 {
     font-size: xx-large;
-    color: #7D00E4;
+    /* color: #7D00E4; */
+    color: var(--main-color);
 }
 
 .containerDeleteClass span {
@@ -54,12 +55,13 @@
     text-align: center;
     box-shadow: 2px 2px 0px #1e1e1e;
     border-radius: 1rem;
-    background-color: #7D00E4;
+    /* background-color: #7D00E4; */
+    background-color: var(--main-color);
     color: #F8F9FA;
 }
 
 .btnDeleteClassSchedule:focus{
-    border:#D0342C solid 2px;
+    border:#FFA629 solid 2px;
 }
 
 .btnDeleteClassSchedule:hover{
@@ -77,6 +79,7 @@
     display: flex;
     align-items: center;
     background-color: #FFF;
-    color: #7D00E4;
+    /* color: #7D00E4; */
+    color: var(--main-color);
 }
 

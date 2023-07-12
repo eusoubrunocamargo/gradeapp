@@ -50,7 +50,8 @@
     padding: 0.5rem;
     align-items: center;
     gap: 1rem;
-    background: #7D00E4;
+    /* background: #7D00E4; */
+    background-color: var(--main-color);
     border: 1px solid #1E1E1E;
     box-shadow: 2px 2px 0px #1E1E1E;
     border-radius: 10px;
@@ -131,7 +132,8 @@
 }
 
 .btnSaveCrop {
-    background-color: #7D00E4;
+    /* background-color: #7D00E4; */
+    background-color: var(--main-color);
     color: #F0F0F0;
     width: 20rem;
     height: 4rem;
@@ -145,8 +147,9 @@
 
 .btnSaveCrop:hover {
     background-color: #F0F0F0;
-    color: #7D00E4;
-    border: #7D00E4 solid 0.1rem;
+    /* color: #7D00E4; */
+    color: var(--main-color);
+    /* border: #7D00E4 solid 0.1rem; */
 }
 
 .containerEditor {

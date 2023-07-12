@@ -97,7 +97,8 @@
     width: 40rem;
     height: 50rem;
     /* background-color: #F8F9FA; */
-    background-color: #7D00E4;
+    /* background-color: #7D00E4; */
+    background-color: var(--main-color);
     border-radius: 1rem;
     box-shadow: 2px 2px 0px #1e1e1e;
     border: solid 1px #1e1e1e;

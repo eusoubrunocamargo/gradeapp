@@ -60,12 +60,14 @@ export default function TaskManager({ setOpenTaskManager }){
         }),
         singleValue: (provided) => ({
             ...provided,
-            color: '#7D00E4',
+            // color: '#7D00E4',
+            color: 'var(--main-color)',
             textAlign: 'center',
         }),
         placeholder: (provided) => ({
             ...provided,
-            color: '#7D00E4',
+            // color: '#7D00E4',
+            color: 'var(--main-color)',
             opacity: 0.5,
             textAlign: 'center',
         }),

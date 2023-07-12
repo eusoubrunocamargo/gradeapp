@@ -1,5 +1,6 @@
 .boxContainer {
-    background: #7D00E4;
+    /* background: #7D00E4; */
+    background-color: var(--main-color);
     border: 1px solid #1E1E1E;
     box-shadow: 3px 3px 0px #1E1E1E;
     border-radius: 10px;

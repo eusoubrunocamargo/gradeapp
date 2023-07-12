@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-color: #7D00E4;
+  /* --main-color: #F45151; */
+}
+
 html {
   font-size: 62.5%;
 }
@@ -14,6 +19,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 input, button, select, textarea {

@@ -1,6 +1,7 @@
 import styles from '@/styles/Dash.module.css';
 import Image from "next/image";
 import Logo from '../../public/logo.svg';
+import RedLogo from '../../public/redlogo.svg';
 import ComponentProfile from "@/components/Profile";
 import ComponentMyClasses from "@/components/Classes";
 import ComponentMyWeek from "@/components/MyWeek";
@@ -46,6 +47,20 @@ export default function Dashboard(){
         }
     }, [updatedUserData]);
 
+    const [redTheme, setRedTheme] = useState(false);
+
+    const handleRedTheme = () => {
+        const root = document.documentElement;
+        const isRed = root.style.getPropertyValue('--main-color') === '#F45151';
+        if (isRed) {
+          root.style.setProperty('--main-color', '#7D00E4');
+            setRedTheme(false);
+        } else {
+            root.style.setProperty('--main-color', '#F45151');
+            setRedTheme(true);
+        }
+    };
+
     if(loading){
         return <div>...</div>
     }
@@ -58,8 +73,9 @@ export default function Dashboard(){
             <AlertModal/>
             <header>
                 <nav>
-                    <Image src={Logo} width={400} height={100} alt="logo" priority/>
+                    <Image src={redTheme ? RedLogo : Logo} width={400} height={100} alt="logo" priority/>
                     <div className={styles.btnNavBar}>
+                        <button onClick={handleRedTheme}>Red Theme {redTheme ? 'ON' : 'OFF'}</button>
                         <button onClick={handleDarkMode}>{isDarkMode?'Dark':'Light'}</button> 
                         <button onClick={handleSignOut}>Sair</button>
                     </div>
