@@ -31,7 +31,8 @@ export default function ComponentMyWeek({ isDarkMode }){
     });
 
     const currentDayName = DaysName[currentDayOfWeek].toLowerCase();
-    const todayEvents = classes.filter(event => event.day_of_week === currentDayName);
+    const todayEvents = classes.filter(event => event.day_of_week === currentDayName && event.grade === null);
+    // console.log(classes);
     
 
     return (

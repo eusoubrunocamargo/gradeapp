@@ -20,7 +20,7 @@ export function FinishClass({ setOpenFinishModal, userClasses }) {
         setGrade(e.target.value);
     }
 
-    const mappedOptions = userClasses.map((item) => {
+    const mappedOptions = userClasses.filter((item) => item.grade === null).map((item) => {
         return {
             value: item.id,
             label: item.name,
@@ -37,12 +37,12 @@ export function FinishClass({ setOpenFinishModal, userClasses }) {
         }),
         singleValue: (provided) => ({
             ...provided,
-            color: '#b50909',
+            color: '#7D00E4',
             textAlign: 'center',
         }),
         placeholder: (provided) => ({
             ...provided,
-            color: '#b50909',
+            color: '#7D00E4',
             opacity: 0.5,
             textAlign: 'center',
         }),

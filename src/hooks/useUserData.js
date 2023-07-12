@@ -9,7 +9,7 @@ export const useUserData = () => useContext(UserDataContext);
 
 export const UserDataProvider = ({ children }) => {
 
-    console.log('UserDataProvider');
+    // console.log('UserDataProvider');
     
     const {user , loadingAuth }  = useAuth();
     const [updatedUserClasses, setUpdatedUserClasses] = useState([]);
@@ -19,7 +19,7 @@ export const UserDataProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const fetchUserData = useCallback(async () => {
-        console.log('fetchUserData');
+        // console.log('fetchUserData');
         if(!user) {
             return;
         }
@@ -175,7 +175,7 @@ export const UserDataProvider = ({ children }) => {
     },[user, showAlert]);
 
     useEffect(() => {
-        console.log('useEffect UserDataProvider');
+        // console.log('useEffect UserDataProvider');
         if(!loadingAuth){
         fetchUserClasses();
         fetchUserData();

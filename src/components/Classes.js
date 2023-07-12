@@ -17,6 +17,7 @@ export default function ComponentMyClasses () {
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const [openFinishModal, setOpenFinishModal] = useState(false);
     const [userClasses, setUserClasses] = useState([]);
+    const [filteredClasses, setFilteredClasses] = useState([]);
 
     const { updatedUserClasses: classes } = useUserData();
 
@@ -41,19 +42,36 @@ export default function ComponentMyClasses () {
             return 0;
         });
         setUserClasses(uniqueClasses);
+        setFilteredClasses(uniqueClasses);
     }, [classes]);
     
 
     const [correnterentPage, setcorrenterentPage] = useState(0);
     const classesPerPage = 4;
     const startIndex = correnterentPage * classesPerPage;
-    const selectedClasses = userClasses.slice(startIndex, startIndex + classesPerPage);
+    // const selectedClasses = userClasses.slice(startIndex, startIndex + classesPerPage);
+    const selectedClasses = filteredClasses.slice(startIndex, startIndex + classesPerPage);
+
     const handlePrevPage = () => {
         setcorrenterentPage(old => Math.max(old - 1, 0));
     };
     const handleNextPage = () => {
         setcorrenterentPage(old => Math.min(old + 1, Math.ceil(userClasses.length/classesPerPage) - 1));
     };
+
+    const filterClasses = (e) => {
+        const value = e.target.value;
+        if(value === 'Todas'){
+            setFilteredClasses(userClasses);
+        }else if(value === 'Finalizadas'){
+            const filteredClasses = userClasses.filter(item => item.grade !== null);
+            setFilteredClasses(filteredClasses);
+        }else if(value === 'Em andamento'){
+            const filteredClasses = userClasses.filter(item => item.grade === null);
+            setFilteredClasses(filteredClasses);
+        }
+    }
+        
 
     return (
         <main className={styles.myClassesContainer}>
@@ -74,14 +92,13 @@ export default function ComponentMyClasses () {
                 <section className={styles.greetingBox}>
                     <h3>MATÉRIAS</h3>
                     <div className={styles.searchWrapper}>
-                        <select name='searchbox' id='searchbox'>
-                            <option></option>
-                            <optgroup label='Em andamento'>
-
-                            </optgroup>
-                            <optgroup label='Finalizadas'>
-
-                            </optgroup>
+                        <select onChange={filterClasses} style={{
+                            fontSize: 'small',
+                        }} name='searchbox' id='searchbox'>
+                            <option>Filtrar...</option>
+                            <option>Todas</option>
+                            <option>Em andamento</option>
+                            <option>Finalizadas</option>
                         </select>
                         <label htmlFor='searchbox'><Image src={DarkSearch} width={20} height={20} alt='search'/></label>
                     </div>
@@ -92,7 +109,8 @@ export default function ComponentMyClasses () {
                 
             </section>
             <section className={styles.classesBox}>
-                {!userClasses.length ? 
+                {/* {!userClasses.length ?  */}
+                {!filteredClasses.length ? 
                 <>
                     <span className={styles.noClass}>Você ainda não possui matérias cadastradas, clique no menu acima e adicione suas matérias</span>
                 </>
@@ -100,7 +118,7 @@ export default function ComponentMyClasses () {
                 <>
                 {selectedClasses.map((myClass) => {
                    return (
-                        <ClassBox key={myClass.id} data={myClass}/>
+                        <ClassBox key={myClass.id} data={myClass} />
                    )
                 })}
                 </>

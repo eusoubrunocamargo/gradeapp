@@ -49,6 +49,21 @@ export default function Login() {
     }
   };
 
+  const handleSignInWithGoogle = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: 'http://gradeapp.vercel.app/dashboard',
+      }
+    });
+
+    if (error) {
+      console.log(error);
+      showAlert('Não foi possível fazer login', 'fail');
+    }
+
+  };
+
   return (
     <>
       
