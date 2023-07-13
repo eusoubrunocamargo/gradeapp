@@ -62,10 +62,10 @@ export default function TaskContainer( {
     
     return (
         <section className={styles.taskMainContainer}>
-            {finishedAt !== null ? <menu className={styles.taskMenu}><Image src={FinishedIcon} width={20} alt='done'/></menu> :
+            {/* {finishedAt !== null ? <menu className={styles.taskMenu}><Image src={FinishedIcon} width={20} alt='done'/></menu> : */}
             <menu onClick={handleShowMenu} className={`${deadline <= 3 ? styles.redAlert : deadline > 3 && deadline <= 5 ? styles.yellowAlert : ''} ${styles.taskMenu}`}>
-                <Image src={DottedMenu} loading='lazy' width={30} height={30} alt='menu'/>
-            </menu>}
+                {finishedAt !== null ? <div className={styles.containerFinishedIcon}><Image src={FinishedIcon} width={20} alt='done'/></div> : <Image src={DottedMenu} loading='lazy' width={30} height={30} alt='menu'/>}
+            </menu>
             <section className={styles.taskContentContainer}>
                 {openTaskMenu === id ?
                 <div className={styles.taskMenuOpen}>

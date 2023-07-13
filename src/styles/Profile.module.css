@@ -56,6 +56,11 @@
     box-shadow: 2px 2px 0px #1E1E1E;
     border-radius: 10px;
     justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        height: 100%;
+    }
 }
 
 /* .btnUpload {

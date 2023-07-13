@@ -1,6 +1,7 @@
 import styles from '@/styles/ClassContent.module.css';
 import { useState, forwardRef } from 'react';
-import Close from '../../../public/close.png';
+// import Close from '../../../public/close.png';
+import Close from '../../../public/close_neutral.svg';
 import Image from 'next/image';
 import MenuButton from '../menuButton';
 import FloatingMenu from '../floatingMenu';

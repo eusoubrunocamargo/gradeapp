@@ -1,0 +1,94 @@
+.pomodoroFullContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4rem;
+}
+
+.pomodoroContainer {
+    width: 40rem;
+    height: 60rem;
+    /* background-color: #fff; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pomodoroContainer h1 {
+    color: #fff;
+}
+
+.pomodoroHeader button {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.pomodoroHeader button:hover, .hideTimer:hover {
+    background-color: #fff;
+    color: var(--main-color);
+}
+
+.pomodoroButton {
+    width: 10rem;
+    height: 4rem;
+    background-color: #FFA629;
+    color: #1e1e1e;
+    /* color: #fff; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+}
+
+.pomodoroButton:hover {
+    background-color: #fff;
+    color: #1e1e1e;
+}
+
+.pomodoroHeader {
+    display: flex;
+    gap: 1rem;
+}
+
+.pomodoroController {
+    display: flex;
+    gap: 1rem;
+}
+
+.pomodoroTimer {
+    border: solid 5px var(--main-color);
+    height: 20rem;
+    width: 20rem;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #f8f9fa;
+}
+
+.hideTimer {
+    width: 10rem;
+    height: 4rem;
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: 2px 2px 0px #1e1e1e;
+    text-align: center;
+}

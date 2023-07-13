@@ -1,5 +1,6 @@
 import styles from '@/styles/TaskManager.module.css'
-import Close from '../../../public/close.png'
+// import Close from '../../../public/close.png'
+import Close from '../../../public/close_neutral.svg'
 import Image from 'next/image';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";

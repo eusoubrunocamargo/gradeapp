@@ -12,7 +12,8 @@
 
 .occurrenceContainer > span:first-child {
     font-weight: bold;
-    color: #7D00E4;
+    /* color: #7D00E4; */
+    color: var(--main-color);
 }
 
 .occurrenceContainer > span:last-child {

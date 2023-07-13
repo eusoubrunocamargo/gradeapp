@@ -7,6 +7,13 @@
     gap: 2rem;
     align-items: center;
     position: relative;
+
+    @media screen and (max-width: 768px) {
+        /* padding: 0 1rem; */
+        /* flex-direction: column; */
+    }
+        
+    
 }
 
 .lightMode{
@@ -62,6 +69,11 @@
     padding: 0 10rem;
     gap: 10rem;
     justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
 }
 
 .leftSide {
@@ -73,6 +85,12 @@
     grid-template-columns: 43rem;
     grid-template-rows: 20.5rem 26.5rem;
     gap: 2rem;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 .rightSide {

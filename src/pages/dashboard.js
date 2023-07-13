@@ -13,6 +13,8 @@ import { useUserData } from "@/hooks/useUserData";
 import { useAuth } from "@/hooks/useAuth";
 import AddDegreeModal from '@/components/AddDegreeModal/addDegreeModal';
 import Focus from '@/components/Focus/Focus';
+import Suggestions from '@/components/Suggestions/suggestions';
+import Pomodoro from '@/components/Pomodoro/pomodoro';
 import StudyCard from '@/components/FlashCards/StudyCard';
 
 export default function Dashboard(){
@@ -40,6 +42,8 @@ export default function Dashboard(){
     }, []);
 
     const [openFocus, setOpenFocus] = useState(false);
+    const [openSuggestions, setOpenSuggestions] = useState(false);
+    const [openPomodoro, setOpenPomodoro] = useState(false);
 
     useEffect(() => {
         if (updatedUserData && updatedUserData.length > 0 && updatedUserData[0].degree_id === null) {
@@ -69,6 +73,8 @@ export default function Dashboard(){
         <main className={`${isDarkMode? styles.darkMode : styles.lightMode} ${styles.mainContainer}`}>
             {openModal && <AddDegreeModal setOpenModal={setOpenModal}/>}
             {openFocus && <Focus openFocus={openFocus} setOpenFocus={setOpenFocus}/>}
+            {openPomodoro && <Pomodoro openPomodoro={openPomodoro} setOpenPomodoro={setOpenPomodoro}/>}
+            {openSuggestions && <Suggestions openSuggestions={openSuggestions} setOpenSuggestions={setOpenSuggestions}/>}
             {openStudyCard && <StudyCard openStudyCard={openStudyCard} setOpenStudyCard={setOpenStudyCard}/>}
             <AlertModal/>
             <header>
@@ -99,6 +105,10 @@ export default function Dashboard(){
                     setOpenFocus={setOpenFocus}
                     openStudyCard={openStudyCard}
                     setOpenStudyCard={setOpenStudyCard}
+                    openSuggestions={openSuggestions}
+                    setOpenSuggestions={setOpenSuggestions}
+                    openPomodoro={openPomodoro}
+                    setOpenPomodoro={setOpenPomodoro}
                     />
             </section>
 

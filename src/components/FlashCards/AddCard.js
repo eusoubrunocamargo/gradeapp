@@ -1,5 +1,6 @@
 import styles from '@/styles/AddCard.module.css'
-import Close from '../../../public/close.png'
+// import Close from '../../../public/close.png'
+import Close from '../../../public/close_neutral.svg'
 import Image from 'next/image'
 import FrontCard from './FrontCard'
 import BackCard from './BackCard'

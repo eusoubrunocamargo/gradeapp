@@ -10,7 +10,16 @@ import OptionsContainer from './OptionsContainer'
 import AddCard from '../FlashCards/AddCard'
 import Focus from '../Focus/Focus'
 
-export default function Floating( { openFocus, setOpenFocus, openStudyCard, setOpenStudyCard }) {
+export default function Floating( { 
+    openFocus, 
+    setOpenFocus, 
+    openStudyCard, 
+    setOpenStudyCard,
+    openSuggestions,
+    setOpenSuggestions,
+    openPomodoro,
+    setOpenPomodoro,
+    }) {
 
     const [openOption, setOpenOption] = useState(null);
     const [openCreateCard, setOpenCreateCard] = useState(false);
@@ -38,6 +47,17 @@ export default function Floating( { openFocus, setOpenFocus, openStudyCard, setO
         setOpenStudyCard(!openStudyCard);
         setOpenOption(null);
     };
+
+    const handleOpenSuggestions = () => {
+        setOpenSuggestions(!openSuggestions);
+        setOpenOption(null);
+    };
+
+    const handleOpenPomodoro = () => {
+        setOpenPomodoro(!openPomodoro);
+        setOpenOption(null);
+    };
+        
     
     return (
 
@@ -61,7 +81,7 @@ export default function Floating( { openFocus, setOpenFocus, openStudyCard, setO
             </OptionsContainer>
 
             <OptionsContainer options={[
-                {text: 'Método Pomorodo', callback: () => console.log('Flash Card')},
+                {text: 'Método Pomorodo', callback: handleOpenPomodoro},
                 {text: 'Tempo Livre', callback: handleOpenFocus},
             ]} isOpen={openOption === 'focus'} onOpen={() => handleOpenOption('focus')}>
                 <button className={`${styles.btnFloatingModal} ${openOption === 'focus' ? styles.isActive : ''}`}>
@@ -83,8 +103,8 @@ export default function Floating( { openFocus, setOpenFocus, openStudyCard, setO
             </OptionsContainer>
 
             <OptionsContainer options={[
-                {text: 'Enviar sugestão', callback: () => console.log('Flash Card')},
-                {text: 'Reportar bug', callback: () => console.log('Flash Card')},
+                {text: 'Enviar sugestão', callback: handleOpenSuggestions},
+                // {text: 'Reportar bug', callback: () => console.log('Flash Card')},
             ]} isOpen={openOption === 'suggestion'} onOpen={() => handleOpenOption('suggestion')}>
                 <button className={`${styles.btnFloatingModal} ${openOption === 'suggestion' ? styles.isActive : ''}`}>
                     <Image src={Contact} width={25} height={25} alt='card'/>
