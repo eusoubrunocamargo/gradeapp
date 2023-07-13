@@ -26,6 +26,9 @@
     border-radius: 1rem;
     border: #1E1E1E 1px solid;
     box-shadow: 2px 2px 0px #1E1E1E;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .weekDayContainer {
@@ -78,4 +81,31 @@
     color: #F8F9FA;
     grid-area: 2/2;
     text-align: center;
+}
+
+@media all and (max-width: 995px){
+    .weekDayContainer {
+        width: 38rem;
+    }
+    .eventsContainer {
+        gap: 0.5rem ;
+    }
+}
+
+@media all and (max-width: 820px) {
+    .weekDayContainer {
+        width: 33.5rem;
+    }
+    .eventsContainer {
+        gap: 0.5rem ;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .mainContainer{
+        width: 37rem;
+    }
+    .weekDayContainer {
+        width: 32rem;
+    }
 }

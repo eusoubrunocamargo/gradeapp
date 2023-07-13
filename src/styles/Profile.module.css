@@ -78,10 +78,10 @@
     /* border-radius: 10px; */
 }
 
-.profilePic {
-    /* width: 35%; */
-    /* border: solid red; */
-}
+/* .profilePic {
+    width: 35%;
+    border: solid red;
+} */
 
 .statusInfo {
     /* border: solid yellow; */
@@ -176,4 +176,37 @@
     border: 1px solid #1e1e1e;
     box-shadow: 2px 2px 0px #1e1e1e;
     border-radius: 1rem;
+}
+
+@media all and (max-width: 995px) {
+    .mainStatus {
+        width: 40rem;
+        margin-left: 0.5rem;
+    }
+    .menuNav {
+        width: 40rem;
+        margin-left: 0.5rem;
+    }
+}
+
+@media all and (max-width: 820px) {
+    .mainStatus {
+        width: 40rem;
+        margin-left: 1.5rem;
+    }
+    .menuNav {
+        width: 40rem;
+        margin-left: 1.5rem;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .mainStatus {
+        width: 37rem;
+        margin-left: 1rem;
+    }
+    .menuNav {
+        width: 37rem;
+        margin-left: 1rem;
+    }
 }

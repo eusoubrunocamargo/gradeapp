@@ -20,3 +20,20 @@
     text-overflow: ellipsis;
     text-align: center;
 }
+
+
+
+@media all and (max-width: 820px) {
+    .eventContainer {
+        width: 14rem;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .eventContainer {
+        width: 14rem;
+    }
+    .eventContainer span {
+        font-size: 80%;
+    }
+}
