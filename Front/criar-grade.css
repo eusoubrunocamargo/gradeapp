@@ -1,0 +1,152 @@
+body {
+  font-family: inter, arial;
+  padding: 0 80px;
+  background-color:rgba(193, 42, 42, 1);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0px;
+  font-family: K2D, Arial;
+  font-weight: 600;
+  font-size: 30px;
+  color: white;
+}
+.grade-mais {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .icone-sair {
+  cursor: pointer;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  font-size: 35px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.grade-box {
+  position: relative;
+  height: 600px;
+  background-color: lightgrey;
+  border-radius: 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+
+.configurações-grade {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 50px;
+  row-gap: 50px;
+  padding: 50px 50px;
+}
+
+.configurações {
+  border: none;
+  padding: 14px 25px;
+  border-radius: 20px;
+  font-family: inter, arial;
+  font-size: 16px;
+  background-color: rgba(193, 42, 42, 0.99);
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
+
+.parada-de-baixo {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  border: 2px solid black;
+  background-color: white;
+  padding: 15px;
+  border-radius: 20px;
+}
+.parada-de-baixo button {
+  border: none;
+  background-color: white;
+  padding-right: 10px;
+  padding-top: 4px;
+}
+.parada-de-baixo .lupa {
+  cursor: pointer;
+}
+
+.bottom-part {
+  display: flex;
+  justify-content: center;
+}
+
+.grade-preview {
+  width: 45%;
+  background-color: white;
+  height: 225px;
+  border-radius: 26px;
+  border: 1px solid black;
+  padding: 40px 0px 0px;
+}
+
+.materia {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  background-color: rgba(193, 42, 42, 0.99);
+  text-align: center;
+  padding: 16px 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  margin-bottom: 25px;
+}
+.linhas {
+  padding: 0 15px 20px 20px;
+  font-size: 18px;
+}
+
+.cadastrar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; 
+}
+.cadastrar button {
+  padding: 15px 50px;
+  border: none;
+  background-color: white;
+  color: rgba(193, 42, 42, 0.99);
+  font-family: inter, arial;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.cadastrar button:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+.cadastrar button:active {
+  color: rgba(193, 42, 42, 0.99);
+  background-color: rgb(241, 241, 241);
+}
+
+.disciplina-adc{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 90px 0px 185px;
+}
+.disciplina-adc button{
+  border: none;
+  background-color:rgba(193, 42, 42, 0.99) ;
+  color: white;
+  font-family: inter, arial;
+  font-size: 20px;
+  padding: 20px 50px;
+  border-radius:30px;
+  font-weight: 700;
+  
+  
+}
