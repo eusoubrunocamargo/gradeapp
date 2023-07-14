@@ -111,10 +111,10 @@ export default function Login() {
               </div>
             </div>
 
-            <button className={styles.btnGoogle}>
+            {/* <button className={styles.btnGoogle}>
               <Image loading='lazy' src='/google_icon.png' width={20} height={20} alt='google'/>
               <span>Entre com o Google</span>
-            </button>
+            </button> */}
 
           </form>
 
