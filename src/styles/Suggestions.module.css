@@ -35,7 +35,7 @@
     width: 30rem;
     height: 10rem;
     border-radius: 1rem;
-    border: 1px solid #1E1E1E;
+    border: 2px solid var(--main-color);
     text-align: center;
     /* padding-left: 1rem; */
 }
@@ -57,7 +57,7 @@
 .suggestionsModal button:last-of-type:hover {
     background-color: #F8f9fa;
     color: var(--main-color);
-    border: solid 1px var(--main-color);
+    border: solid 2px var(--main-color);
 }
 
 .suggestionsModal button:first-of-type {
