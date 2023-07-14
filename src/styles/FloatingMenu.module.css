@@ -16,6 +16,7 @@
     border-radius: 10px;
     padding: 1rem;
     z-index: 1;
+    color: white;
 }
 
 .menuContent button:hover {
