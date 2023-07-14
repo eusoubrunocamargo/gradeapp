@@ -108,7 +108,7 @@ export default function SignUp() {
                 <button className={styles.btnSubmitLogin} type='submit'>Cadastrar</button>
                 
                 {!showConfirmEmail&&<>
-                <span style={{fontWeight:'lighter'}}>Ao se registrar, você concorda com nossos Termos de Uso e Políticas de Privacidade</span>
+                {/* <span style={{fontWeight:'lighter'}}>Ao se registrar, você concorda com nossos Termos de Uso e Políticas de Privacidade</span> */}
                 </>}
             </form>}
 
