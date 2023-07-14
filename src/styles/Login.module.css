@@ -175,8 +175,9 @@
     color: white;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: left;
     padding: 0 1rem;
+    font-size: 2rem;
 }
 .btnGoogle{
     background-color: #FFF;
