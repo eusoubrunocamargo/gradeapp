@@ -107,7 +107,7 @@ export default function Login() {
                 <button type='button' className={styles.btnPassForgot} style={{color:'black'}} onClick={() => router.push('/')}> Cadastre-se</button>
               </div>
               <div>
-                <button type='button' className={styles.btnPassForgot} style={{color:'black'}} >Esqueci a senha</button>
+                {/* <button type='button' className={styles.btnPassForgot} style={{color:'black'}} >Esqueci a senha</button> */}
               </div>
             </div>
 
