@@ -3,6 +3,7 @@ import styles from '@/styles/AddClass.module.css';
 import Image from 'next/image';
 // import NextLight from '../../public/nextlight.png';
 import Close from '../../public/close.png';
+import NeutralClose from '../../public/close_neutral.svg';
 // import Check from '../../public/checkpurple.png';
 // import { supabase } from '../../supabase';
 // import { useAuth } from '@/hooks/useAuth';
@@ -72,7 +73,7 @@ export default function AddClass ({ setOpenModal }) {
     return (
         <div className={styles.modalBackground}>
             <section className={styles.containerAddClass}>
-                <button onClick={handleCloseModal} className={styles.btnClose}><Image src={Close} width={30} height={30} alt='close'/></button>
+            <button onClick={handleCloseModal} className={styles.btnClose}><Image src={NeutralClose} width={30} height={30} alt='close'/></button>
                 {/* {!degreeId && !showAddClass ? 
                 <>
                 <h3>Parece que você ainda não adicionou o seu curso ... </h3>

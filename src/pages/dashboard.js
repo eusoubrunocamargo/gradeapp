@@ -13,16 +13,16 @@ import { useAuth } from "@/hooks/useAuth";
 import AddDegreeModal from '@/components/AddDegreeModal/addDegreeModal';
 import Focus from '@/components/Focus/Focus';
 import StudyCard from '@/components/FlashCards/StudyCard';
+import Suggestions from '@/components/Suggestions/suggestions';
+import Pomodoro from '@/components/Pomodoro/pomodoro';
 
 export default function Dashboard(){
-
     const { handleSignOut } = useAuth();
     const { updatedUserData, loading } = useUserData();
     const [openModal, setOpenModal] = useState(false);
     const [openStudyCard, setOpenStudyCard] = useState(false);
    
     const [isDarkMode, setIsDarkMode] = useState(false);
-
     const handleDarkMode = () => {
         const newIsDarkMode = !isDarkMode;
         setIsDarkMode(newIsDarkMode);
@@ -39,21 +39,35 @@ export default function Dashboard(){
     }, []);
 
     const [openFocus, setOpenFocus] = useState(false);
+    const [openSuggestions, setOpenSuggestions] = useState(false);
+    const [openPomodoro, setOpenPomodoro] = useState(false);
 
     useEffect(() => {
         if (updatedUserData && updatedUserData.length > 0 && updatedUserData[0].degree_id === null) {
           setOpenModal(true);
         }
     }, [updatedUserData]);
-
+    const [redTheme, setRedTheme] = useState(false);
+    const handleRedTheme = () => {
+        const root = document.documentElement;
+        const isRed = root.style.getPropertyValue('--main-color') === '#F45151';
+        if (isRed) {
+          root.style.setProperty('--main-color', '#7D00E4');
+            setRedTheme(false);
+        } else {
+            root.style.setProperty('--main-color', '#F45151');
+            setRedTheme(true);
+        }
+    };
     if(loading){
         return <div>...</div>
     }
-
     return (
         <main className={`${isDarkMode? styles.darkMode : styles.lightMode} ${styles.mainContainer}`}>
             {openModal && <AddDegreeModal setOpenModal={setOpenModal}/>}
             {openFocus && <Focus openFocus={openFocus} setOpenFocus={setOpenFocus}/>}
+            {openPomodoro && <Pomodoro openPomodoro={openPomodoro} setOpenPomodoro={setOpenPomodoro}/>}
+            {openSuggestions && <Suggestions openSuggestions={openSuggestions} setOpenSuggestions={setOpenSuggestions}/>}
             {openStudyCard && <StudyCard openStudyCard={openStudyCard} setOpenStudyCard={setOpenStudyCard}/>}
             <AlertModal/>
             <header>
@@ -95,6 +109,10 @@ export default function Dashboard(){
                     setOpenFocus={setOpenFocus}
                     openStudyCard={openStudyCard}
                     setOpenStudyCard={setOpenStudyCard}
+                    openSuggestions={openSuggestions}
+                    setOpenSuggestions={setOpenSuggestions}
+                    openPomodoro={openPomodoro}
+                    setOpenPomodoro={setOpenPomodoro}
                     />
             </section>
 
