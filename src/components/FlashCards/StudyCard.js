@@ -2,28 +2,47 @@ import styles from '@/styles/StudyCard.module.css'
 import Image from 'next/image'
 import BtnNextPrevious from '../btnNextPrevious'
 import DarkSearch from '../../../public/darksearchsquare.png'
-// import Close from '../../../public/close.png'
 import Close from '../../../public/close_neutral.svg'
 import Flip from '../../../public/flip.png'
 import { useUserFlashcards } from '@/hooks/useUserFlashcards'
 import StudyFrontCard from './StudyFrontCard'
 import StudyBackCard from './StudyBackCard'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function StudyCard({ setOpenStudyCard, openStudyCard }) {
 
     const { userFlashcards, loading, deleteFlashcard } = useUserFlashcards();
-    console.log(userFlashcards);
+    // console.log(userFlashcards);
     const [isFlipped, setIsFlipped] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [groupedFlashcards, setGroupedFlashcards] = useState([]);
+    const [selectedClass, setSelectedClass] = useState('');
 
+    useEffect(() => {
+        const groupedFlashcards = userFlashcards.reduce((acc, item) => {
+            const existingItem = acc.find(i => i.class_name === item.class_name);
+            if (existingItem) {
+                existingItem.count++;
+            } else {
+                acc.push({
+                    class_name: item.class_name,
+                    count: 1,
+                });
+            }
+            return acc;
+        }, []);
+        setGroupedFlashcards(groupedFlashcards);
+    }, [userFlashcards]);
 
+    const flashcardsRender = selectedClass ? userFlashcards.filter(item => item.class_name === selectedClass) : userFlashcards;
 
     const handleNavigation = (direction) => {
         if (direction === 'left' && currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
-        } else if (direction === 'right' && currentIndex < userFlashcards.length - 1) {
-            setCurrentIndex(currentIndex + 1);
+            // setCurrentIndex(currentIndex - 1);
+            setCurrentIndex((prev) => Math.max(prev - 1, 0));
+        } else if (direction === 'right' && currentIndex < flashcardsRender.length - 1) {
+            // setCurrentIndex(currentIndex + 1);
+            setCurrentIndex((prev) => Math.min(prev + 1, flashcardsRender.length - 1));
         }
     }
 
@@ -50,32 +69,17 @@ export default function StudyCard({ setOpenStudyCard, openStudyCard }) {
                         </div>
                         <div className={styles.containerBtns}>
                             <div className={styles.searchWrapper}>
-                                <select name='searchbox' id='searchbox'>
-                                    <option>Filtrar por matéria</option>
-                                    <optgroup label='Em andamento'>
-
-                                    </optgroup>
-                                    <optgroup label='Finalizadas'>
-
-                                    </optgroup>
+                                <select name='searchbox' id='searchbox' onChange={(e) => setSelectedClass(e.target.value)}>
+                                    <option value=''>Filtrar por matéria</option>
+                                    {groupedFlashcards.map(item => (
+                                        <option value={item.class_name} key={item.class_name}>{`${item.class_name} (${item.count})`}</option>
+                                    ))}
                                 </select>
                                 <label htmlFor='searchbox'><Image src={DarkSearch} width={20} height={20} alt='search'/></label>
                             </div>
-                            {/* <div className={styles.searchWrapper}>
-                                <select name='searchbox' id='searchbox'>
-                                    <option>Filtrar por tópico</option>
-                                    <optgroup label='Em andamento'>
-
-                                    </optgroup>
-                                    <optgroup label='Finalizadas'>
-
-                                    </optgroup>
-                                </select>
-                                <label htmlFor='searchbox'><Image src={DarkSearch} width={20} height={20} alt='search'/></label>
-                            </div> */}
                             <div className={styles.countCards}>
-                                {userFlashcards.length === 0 ? <span>0 de 0</span> : <>
-                                {`${currentIndex + 1} de ${userFlashcards.length}`}</>}
+                                {flashcardsRender.length === 0 ? <span>0 de 0</span> : <>
+                                {`${currentIndex + 1} de ${flashcardsRender.length}`}</>}
                             </div>
                             <BtnNextPrevious onClick={() => handleNavigation('left')} direction={'left'}/>
                             <BtnNextPrevious onClick={() => handleNavigation('right')} direction={'right'}/>
@@ -89,22 +93,22 @@ export default function StudyCard({ setOpenStudyCard, openStudyCard }) {
                                 {loading ? <span className={styles.loader}></span> : <>
                                 <div className={styles.front}>
                                     <StudyFrontCard
-                                        cardClass={userFlashcards[currentIndex].class_name}
-                                        cardTitle={userFlashcards[currentIndex].title}
-                                        cardFrontText={userFlashcards[currentIndex].front_text}
+                                        cardClass={flashcardsRender[currentIndex].class_name}
+                                        cardTitle={flashcardsRender[currentIndex].title}
+                                        cardFrontText={flashcardsRender[currentIndex].front_text}
                                     />
                                 </div>
                                 <div className={styles.back}>
                                    <StudyBackCard
-                                        cardBackText={userFlashcards[currentIndex].back_text}
-                                        cardBackImage={userFlashcards[currentIndex].back_image}
+                                        cardBackText={flashcardsRender[currentIndex].back_text}
+                                        cardBackImage={flashcardsRender[currentIndex].back_image}
                                    />
                                 </div></>}
                             </div>
                         </div>
                         <div className={styles.containerCardBtn}>
-                            <button className={styles.btnStudied}>Marcar como estudado!</button>
-                            <button onClick={() => handleDeleteFlashcard(userFlashcards[currentIndex].id)} className={styles.btnDelete}>Excluir card</button>
+                            {/* <button className={styles.btnStudied}>Marcar como estudado!</button> */}
+                            <button onClick={() => handleDeleteFlashcard(flashcardsRender[currentIndex].id)} className={styles.btnDelete}>Excluir card</button>
                             <button onClick={() => setIsFlipped(!isFlipped)} className={styles.btnFlipCard}><Image src={Flip} width={30} height={30} alt='flip'/></button>
                         </div></>}
                     </section>

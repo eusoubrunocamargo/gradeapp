@@ -13,7 +13,7 @@
 
 .containerModal {
     width: 48rem;
-    height: 52rem;
+    /* height: 52rem; */
     background-color: #F8F9Fa;
     border: solid 1px #1e1e1e;
     box-shadow: 2px 2px 0px #1e1e1e;
@@ -30,13 +30,13 @@
     position: absolute;
     top: 0;
     right: 0;
-    margin: 2rem;
+    margin: 1rem;
 }
 
 .containerGrid {
     display: grid;
     width: 100%;
-    grid-template-rows: 4rem 5rem 18rem 14rem;
+    grid-template-rows: 4rem 5rem 18rem 34rem;
     gap: 1rem;
     grid-template-areas: "title" "menu" "content" "graph";
 }
@@ -45,7 +45,8 @@
     font-size: xx-large;
     text-align: center;
     grid-area: title;
-    color: #b50909;
+    /* color: #7D00E4; */
+    color: var(--main-color);
 }
 
 .greetingBox {
@@ -180,14 +181,14 @@
     color: #F8F9FA;
     padding-left: 1rem;
     width: 30%;
-    background-color: #b50909;
+    background-color: #7D00E4;
 }
 
 .graphBars span:nth-child(2){
     color: #F8F9FA;
     padding-left: 1rem;
     width: 35%;
-    background-color: #b50909;
+    background-color: #7D00E4;
     opacity: 0.5;
 }
 .graphBars span:nth-child(3){
@@ -205,7 +206,7 @@
     bottom: 50%;
     /* height: 2px; */
     width: 50%;
-    border: solid 1px #b50909;
+    border: solid 1px #7D00E4;
     opacity: 0.5;
     /* z-index: 0; */
 }
@@ -214,7 +215,7 @@
     right: 0;
     bottom: 60%;
     width: 60%;
-    border: solid 1px #b50909;
+    border: solid 1px #7D00E4;
     opacity: 0.5;
 }
 
@@ -223,7 +224,7 @@
     font-size: small;
     right: 0;
     bottom: 35%;
-    color: #b50909;
+    color: #7D00E4;
 }
 
 .myTextGrade {
@@ -231,5 +232,5 @@
     font-size: small;
     right: 0;
     bottom: 60%;
-    color: #b50909;
+    color: #7D00E4;
 }

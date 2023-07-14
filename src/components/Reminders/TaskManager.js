@@ -1,6 +1,6 @@
 import styles from '@/styles/TaskManager.module.css'
-// import Close from '../../../public/close.png'
-import Close from '../../../public/close_neutral.svg'
+import Close from '../../../public/close.png'
+// import Close from '../../../public/close_neutral.svg'
 import Image from 'next/image';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
@@ -99,7 +99,7 @@ export default function TaskManager({ setOpenTaskManager }){
     const [taskText, setTaskText] = useState('');
 
     const handleSubmitTask = () => {
-        console.log(selectedDate);
+        // console.log(selectedDate);
         const formattedDate = `'${convertDate(selectedDate)}'`;
         if(!taskText || !formattedDate || !selectedOption){
             showAlert('Preencha todos os campos', 'fail');

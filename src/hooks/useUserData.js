@@ -18,6 +18,22 @@ export const UserDataProvider = ({ children }) => {
     const { showAlert } = useAlert();
     const [loading, setLoading] = useState(true);
 
+    const handleSuggestion = async (suggestion) => {
+        const { data, error } = await supabase
+            .from('user_suggestion')
+            .insert({
+                user_id: user.id,
+                text: suggestion,
+            });
+
+            if(error){
+                showAlert('Erro ao enviar sugestão!', 'fail');
+                return;
+            }
+
+            showAlert('Sugestão enviada com sucesso!', 'success');
+    };
+
     const fetchUserData = useCallback(async () => {
         // console.log('fetchUserData');
         if(!user) {
@@ -189,6 +205,7 @@ export const UserDataProvider = ({ children }) => {
             updatedUserClasses, 
             updatedUserData, 
             updatedUserUniqueClasses,
+            handleSuggestion,
             handleUpdateUserDegree,
             handleDeleteClass, 
             handleAddClass,

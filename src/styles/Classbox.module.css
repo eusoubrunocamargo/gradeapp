@@ -20,7 +20,6 @@
     text-overflow: ellipsis;
 }
 
-
 .boxContainer:hover {
     cursor: pointer;
     background-color: #b50909;

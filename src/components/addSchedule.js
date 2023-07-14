@@ -55,7 +55,7 @@ export default function AddClassSchedule () {
             ...prev,
             [day]: { selected: !prev[day].selected, startTime: prev[day].startTime },
         }));
-        console.log(selectedDays.seg);
+        // console.log(selectedDays.seg);
     }
 
     const handleTimeChange = (day, event) => {
@@ -79,12 +79,14 @@ export default function AddClassSchedule () {
         }),
         singleValue: (provided) => ({
             ...provided,
-            color: '#b50909',
+            // color: '#7D00E4',
+            color: 'var(--main-color)',
             textAlign: 'center',
         }),
         placeholder: (provided) => ({
             ...provided,
-            color: '#b50909',
+            // color: '#7D00E4',
+            color: 'var(--main-color)',
             opacity: 0.5,
             textAlign: 'center',
         }),

@@ -1,7 +1,7 @@
 import styles from '@/styles/ClassContent.module.css';
 import { useState, forwardRef } from 'react';
-// import Close from '../../../public/close.png';
-import Close from '../../../public/close_neutral.svg';
+import Close from '../../../public/close.png';
+// import Close from '../../../public/close_neutral.svg';
 import Image from 'next/image';
 import MenuButton from '../menuButton';
 import FloatingMenu from '../floatingMenu';
@@ -74,7 +74,7 @@ export default function ClassContent({ setOpenModal, data }){
                     <button id='provas' onClick={(e) => handleActiveButton(e)} className={`${styles.btnOptions} ${activeButton.provas && styles.activeBtn}`}>Provas{getOccurrencesCount('provas','exam') > 0 && <div className={styles.numberOccurrences}>{getOccurrencesCount('provas','exam')}</div>}</button>
                     <button id='trabalhos' onClick={(e) => handleActiveButton(e)} className={`${styles.btnOptions} ${activeButton.trabalhos && styles.activeBtn}`}>Trabalhos{getOccurrencesCount('trabalhos','coursework') > 0 && <div className={styles.numberOccurrences}>{getOccurrencesCount('trabalhos','coursework')}</div>}</button>
                     <button id='eventos' onClick={(e) => handleActiveButton(e)} className={`${styles.btnOptions} ${activeButton.eventos && styles.activeBtn}`}>Eventos{getOccurrencesCount('eventos','event') > 0 && <div className={styles.numberOccurrences}>{getOccurrencesCount('eventos','event')}</div>}</button>
-                    <button id='colegas' onClick={(e) => handleActiveButton(e)} className={`${styles.btnOptions} ${activeButton.colegas && styles.activeBtn}`}>Colegas</button>
+                    {/* <button id='colegas' onClick={(e) => handleActiveButton(e)} className={`${styles.btnOptions} ${activeButton.colegas && styles.activeBtn}`}>Colegas</button> */}
                     <div className={styles.contentContainer}>
                         {renderOccurrences('provas', 'exam')}
                         {renderOccurrences('trabalhos', 'coursework')}

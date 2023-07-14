@@ -81,7 +81,7 @@ export default function Floating( {
             </OptionsContainer>
 
             <OptionsContainer options={[
-                {text: 'Método Pomorodo', callback: handleOpenPomodoro},
+                // {text: 'Método Pomorodo', callback: handleOpenPomodoro},
                 {text: 'Tempo Livre', callback: handleOpenFocus},
             ]} isOpen={openOption === 'focus'} onOpen={() => handleOpenOption('focus')}>
                 <button className={`${styles.btnFloatingModal} ${openOption === 'focus' ? styles.isActive : ''}`}>

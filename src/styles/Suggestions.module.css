@@ -15,7 +15,7 @@
     position: relative;
     width: 40rem;
     height: 40rem;
-    background-color: #b50909;
+    background-color: white;
     border-radius: 1rem;
     box-shadow: 2px 2px 0px #1E1E1E;
     display: flex;
@@ -28,7 +28,7 @@
 .suggestionsModal h1 {
     /* font-size: 2rem; */
     /* color: #1E1E1E; */
-    color: white;
+    color: black;
 }
 
 .suggestionsModal input {
@@ -43,7 +43,8 @@
 }
 
 .suggestionsModal input:focus {
-    border: solid 1px var(--main-color);
+    border: solid 2px ;
+    border-color: black;
 }
 
 .suggestionsModal button:last-of-type {
@@ -55,11 +56,11 @@
     text-align: center;
     box-shadow: 2px 2px 0px #1E1E1E;
     border: 1.7px solid #1E1E1E;
-    background-color: white;
+    background-color: #b50909;
 }
 
 .suggestionsModal button:last-of-type:hover {
-    background-color: white;
+    background-color: #b50909;
     color: var(--main-color);
     border: solid 1px var(--main-color);
     font-weight: bold;

@@ -40,7 +40,7 @@
 .classContentGrid {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
     grid-template-rows: 8rem 3rem max-content;
     column-gap: .5rem;
     row-gap: 2rem;

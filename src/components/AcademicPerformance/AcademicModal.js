@@ -1,19 +1,69 @@
 import styles from '@/styles/AcademicModal.module.css';
 import Image from "next/image";
 import BtnNextPrevious from '../btnNextPrevious';
-import DarkSearch from '../../../public/darksearch.png';
-import { useEffect, useState, useRef } from 'react';
-// import Close from '../../../public/close.png';
+import { useEffect, useState, useRef, use } from 'react';
 import Close from '../../../public/close_neutral.svg';
 import { useUserData } from '@/hooks/useUserData';
-import { useAuth } from '@/hooks/useAuth';
-import { supabase } from '../../../supabase';
+import Chart from 'chart.js/auto';
+
+const PieChart = ({ data }) => {
+    const chartRef = useRef(null);
+
+    useEffect(() => {
+        if(chartRef && chartRef.current){
+            const chartInstance = new Chart(chartRef.current, {
+                type: 'pie',
+                data: {
+                    labels: data.map(item => item.grade),
+                    datasets: [{
+                        data: data.map(item => item.count),
+                        backgroundColor: [
+                            '#F45151',
+                            '#FFC107',
+                            '#7D0',
+                        ],
+                    }],
+                },
+                options: {
+                    responsive: false,
+                },
+            });
+
+            return () => {
+                chartInstance.destroy();
+            };
+        }
+    }, [chartRef, data]);
+
+    return (
+        <canvas ref={chartRef}></canvas>
+    );
+};
+
 
 export default function AcademicModal({ handleAcademicModal }) {
 
     const { updatedUserUniqueClasses } = useUserData();
     const finishedClasses = updatedUserUniqueClasses.filter(item => item.grade !== null);
+    const [chartData, setChartData] = useState([]);
 
+    useEffect(() => {
+        const chartData = finishedClasses.reduce((acc, item) => {
+            const existingItem = acc.find(i => i.grade === item.grade);
+            if (existingItem) {
+                existingItem.count++;
+            } else {
+                acc.push({
+                    grade: item.grade,
+                    count: 1,
+                });
+            }
+            return acc;
+        }, []);
+        setChartData(chartData);
+    }, [updatedUserUniqueClasses]);
+
+    // console.log(chartData);
 
     const [currentPage, setCurrentPage] = useState(0);
     const classesPerPage = 4;
@@ -32,7 +82,7 @@ export default function AcademicModal({ handleAcademicModal }) {
         <>
         <section className={styles.containerBack}>
             <section className={styles.containerModal}>
-                <button className={styles.btnClose} onClick={handleAcademicModal}><Image src={Close} width={20} height={20} alt='close'/></button>
+                <button className={styles.btnClose} onClick={handleAcademicModal}><Image src={Close} width={30} height={30} alt='close'/></button>
                 <section className={styles.containerGrid}>
                     
                     <h3>Desempenho Acadêmico</h3>
@@ -40,7 +90,7 @@ export default function AcademicModal({ handleAcademicModal }) {
                     <section className={styles.greetingBox}>
                         <h3>MATÉRIAS</h3>
                         <div className={styles.containerBtn}>
-                            <div className={styles.searchWrapper}>
+                            {/* <div className={styles.searchWrapper}>
                                 <select name='searchbox' id='searchbox'>
                                     <option></option>
                                     <optgroup label='Em andamento'>
@@ -51,7 +101,7 @@ export default function AcademicModal({ handleAcademicModal }) {
                                     </optgroup>
                                 </select>
                                 <label htmlFor='searchbox'><Image src={DarkSearch} width={20} height={20} alt='search'/></label>
-                            </div>
+                            </div> */}
                             <BtnNextPrevious onClick={handlePrevPage} direction={'left'}/>
                             <BtnNextPrevious onClick={handleNextPage} direction={'right'}/>
                         </div>
@@ -67,23 +117,7 @@ export default function AcademicModal({ handleAcademicModal }) {
                     </section>
 
                     <section className={styles.containerGraph}>
-                        <div className={styles.graphBox}>
-                            <h3 className={styles.classTitle}>Cálculo 1</h3>
-                            <div className={styles.labels}>
-                                <span>SS</span>
-                                <span>MS</span>
-                                <span>MM</span>
-                            </div>
-                            <div className={styles.graphBars}>
-                                <span>20%</span>
-                                <span>35%</span>
-                                <span>45%</span>
-                                <hr></hr>
-                                <hr className={styles.myGrade}></hr>
-                                <span className={styles.textAverage}>Média: 1.75</span>
-                                <span className={styles.myTextGrade}>Sua nota</span>
-                            </div>
-                        </div>
+                        {chartData.length > 0 && <PieChart data={chartData}/>}
                     </section>
 
 
