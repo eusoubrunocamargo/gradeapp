@@ -1,40 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <img src="https://gradeapp.vercel.app/_next/static/media/logo.6a255b21.svg" alt="Grade App Logo">
+    </header>
+    <h1>Grade+</h1>
+    <p>Grade+ é um web app desenvolvivo para auxiliar os estudantes a organizarem sua rotina universitária. O app fornece diversas ferramentas para aumentar a produtividade e o desempenho acadêmico.</p>
+    <h2>Features</h2>
+    <h2>Funcionalidades</h2>
+    <ul>
+        <li>Painel: O painel fornece uma visão geral rápida das funcionalidades.</li>
+        <li>Matérias: Os usuários podem adicionar e gerenciar suas matérias, incluindo o acompanhamento de seu progresso e notas.</li>
+        <li>Minha Semana: Este recurso permite que os usuários planejem sua semana, incluindo sessões de estudo, intervalos e outras atividades.</li>
+        <li>Lembretes: Os usuários podem definir lembretes para tarefas importantes e prazos.</li>
+        <li>Flashcards: Os usuários podem criar flashcards para revisão rápida de conceitos e fatos-chave.</li>
+        <li>Modo Foco: Este recurso fornece um ambiente livre de distrações para sessões de estudo focadas.</li>
+        <li>Modo Escuro: Os usuários podem alternar para o modo escuro para uma experiência de visualização mais confortável em condições de pouca luz.</li>
+        <li>Temas Personalizáveis: Os usuários podem personalizar a aparência da aplicação alterando o tema de cor principal.</li>
+    </ul>
+    <h2>Instalação</h2>
+    <ol>
+        <li>Clone o repositório: <code>git clone https://github.com/eusoubrunocamargo/gradeapp.git</code></li>
+        <li>Navegue até o diretório do projeto: <code>cd gradeapp</code></li>
+        <li>Instale as dependências: <code>npm install</code></li>
+        <li>Inicie o servidor de desenvolvimento: <code>npm run dev</code></li>
+    </ol>
+    <h2>Configuração das Variáveis de Ambiente</h2>
+        <p>Este projeto usa o Supabase para gerenciar o banco de dados e requer algumas variáveis de ambiente para a conexão. As variáveis de ambiente são definidas no arquivo <code>supabase.js</code>.</p>
+        <p>As seguintes variáveis de ambiente são necessárias:</p>
+        <ul>
+            <li><code>SUPABASE_URL</code>: A URL do seu banco de dados Supabase.</li>
+            <li><code>SUPABASE_KEY</code>: A chave de acesso ao seu banco de dados Supabase.</li>
+        </ul>
+        <p>Para definir essas variáveis de ambiente em um ambiente de desenvolvimento, você pode criar um arquivo <code>.env.local</code> na raiz do seu projeto e adicionar as variáveis lá. Por exemplo:</p>
+        <pre>
+        <code>
+        SUPABASE_URL=seu_url_supabase
+        SUPABASE_KEY=sua_chave_supabase
+        </code>
+        </pre>
+        <p>Em um ambiente de produção, você deve configurar essas variáveis de ambiente no seu provedor de hospedagem.</p>
+        <p><strong>Nota:</strong> Nunca cometa seu arquivo <code>.env.local</code> ou qualquer outro arquivo que contenha suas chaves secretas no controle de versão.</p>
+        
 
-<!-- Atualizando ...... -->
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  <h2>Uso</h2>
+    <ol>
+        <li>Registre-se ou faça login em sua conta.</li>
+        <li>Adicione suas matérias e comece a acompanhar seu progresso.</li>
+        <li>Use o recurso "Minha Semana" para ver os horários e local de aula.</li>
+        <li>Defina lembretes para tarefas importantes e prazos.</li>
+        <li>Crie flashcards para revisão rápida de conceitos-chave.</li>
+        <li>Use o "Modo Foco" para sessões de estudo sem distrações.</li>
+        <li>Personalize o tema de acordo com sua preferência.</li>
+    </ol>
+    <h2>Contribuindo</h2>
+    <p>Agradecemos as contribuições da comunidade. Se você deseja contribuir, faça um fork do repositório e faça suas alterações, depois abra um pull request para propor suas alterações.</p>
+    <h2>Licença</h2>
+    <p>Este projeto está licenciado sob a Licença MIT.</p>
+</body>
+</html>
