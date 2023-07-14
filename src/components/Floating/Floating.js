@@ -91,7 +91,7 @@ export default function Floating( {
                 </button>
             </OptionsContainer>
 
-            <OptionsContainer options={[
+            {/* <OptionsContainer options={[
                 {text: 'Sala de estudo', callback: () => console.log('Flash Card')},
                 {text: 'Ver ranking', callback: () => console.log('Flash Card')},
             ]} isOpen={openOption === 'live'} onOpen={() => handleOpenOption('live')}>
@@ -100,7 +100,7 @@ export default function Floating( {
                     <span>Live</span>
                     <span>Session</span>
                 </button>
-            </OptionsContainer>
+            </OptionsContainer> */}
 
             <OptionsContainer options={[
                 {text: 'Enviar sugestão', callback: handleOpenSuggestions},

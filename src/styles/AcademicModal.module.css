@@ -13,7 +13,7 @@
 
 .containerModal {
     width: 48rem;
-    height: 52rem;
+    /* height: 52rem; */
     background-color: #F8F9Fa;
     border: solid 1px #1e1e1e;
     box-shadow: 2px 2px 0px #1e1e1e;
@@ -30,13 +30,13 @@
     position: absolute;
     top: 0;
     right: 0;
-    margin: 2rem;
+    margin: 1rem;
 }
 
 .containerGrid {
     display: grid;
     width: 100%;
-    grid-template-rows: 4rem 5rem 18rem 14rem;
+    grid-template-rows: 4rem 5rem 18rem 34rem;
     gap: 1rem;
     grid-template-areas: "title" "menu" "content" "graph";
 }

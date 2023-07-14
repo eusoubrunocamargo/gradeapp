@@ -55,7 +55,7 @@ export default function AddClassSchedule () {
             ...prev,
             [day]: { selected: !prev[day].selected, startTime: prev[day].startTime },
         }));
-        console.log(selectedDays.seg);
+        // console.log(selectedDays.seg);
     }
 
     const handleTimeChange = (day, event) => {

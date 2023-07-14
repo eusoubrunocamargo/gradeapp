@@ -158,7 +158,7 @@ export const useUserFlashcards = () => {
         }
 
         setUserFlashcards(data);
-        console.log(data);
+        // console.log(data);
         setLoading(false);
     },[showAlert]);
 
