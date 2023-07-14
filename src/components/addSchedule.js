@@ -86,7 +86,7 @@ export default function AddClassSchedule () {
         placeholder: (provided) => ({
             ...provided,
             // color: '#7D00E4',
-            color: '#b50909',
+            color: 'var(--main-color)',
             opacity: 0.5,
             textAlign: 'center',
         }),
