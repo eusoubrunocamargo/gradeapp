@@ -17,7 +17,6 @@
         <li>Flashcards: Os usuários podem criar flashcards para revisão rápida de conceitos e fatos-chave.</li>
         <li>Modo Foco: Este recurso fornece um ambiente livre de distrações para sessões de estudo focadas.</li>
         <li>Modo Escuro: Os usuários podem alternar para o modo escuro para uma experiência de visualização mais confortável em condições de pouca luz.</li>
-        <li>Temas Personalizáveis: Os usuários podem personalizar a aparência da aplicação alterando o tema de cor principal.</li>
     </ul>
     <h2>Instalação</h2>
     <ol>
