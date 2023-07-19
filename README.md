@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <header>
-        <img src="https://gradeapp.vercel.app/_next/static/media/logo.6a255b21.svg" alt="Grade App Logo">
-    </header>
     <h1>Grade+</h1>
     <p>Grade+ é um web app desenvolvivo para auxiliar os estudantes a organizarem sua rotina universitária. O app fornece diversas ferramentas para aumentar a produtividade e o desempenho acadêmico.</p>
     <h2>Features</h2>
