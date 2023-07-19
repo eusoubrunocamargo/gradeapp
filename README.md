@@ -51,7 +51,6 @@
         <li>Defina lembretes para tarefas importantes e prazos.</li>
         <li>Crie flashcards para revisão rápida de conceitos-chave.</li>
         <li>Use o "Modo Foco" para sessões de estudo sem distrações.</li>
-        <li>Personalize o tema de acordo com sua preferência.</li>
     </ol>
     <h2>Contribuindo</h2>
     <p>Agradecemos as contribuições da comunidade. Se você deseja contribuir, faça um fork do repositório e faça suas alterações, depois abra um pull request para propor suas alterações.</p>
